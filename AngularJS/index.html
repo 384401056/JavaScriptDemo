@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>Simple app</title>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+<div ng-controller="MyController">
+    <!-- 对clock对象赋值 -->
+    <!--<h1>Hello {{ clock }}</h1>-->
+    <!-- 对clock对象的属性赋值（最佳实现） -->
+    <h1>Hello {{ clock.now }}</h1>
+</div>
+
+</body>
+</html>
