@@ -1,0 +1,94 @@
+/*table.hovertable {*/
+	/*font-family: verdana,arial,sans-serif;*/
+	/*font-size:11px;*/
+	/*color:#333333;*/
+	/*border-width: 1px;*/
+	/*border-color: #999999;*/
+	/*border-collapse: collapse;*/
+/*}*/
+/*table.hovertable th {*/
+	/*background-color:#c3dde0;*/
+	/*border-width: 1px;*/
+	/*padding: 8px;*/
+	/*border-style: solid;*/
+	/*border-color: #a9c6c9;*/
+/*}*/
+/*table.hovertable tr {*/
+	/*background-color:#d4e3e5;*/
+/*}*/
+/*table.hovertable td {*/
+	/*border-width: 1px;*/
+	/*padding: 8px;*/
+	/*border-style: solid;*/
+	/*border-color: #a9c6c9;*/
+/*}*/
+
+
+body{font-family:Arial; font-size:14px;line-height:180%;padding-top: 20px;} /*总控制，可忽略此行*/
+thead tr:first-child{background: #fa8072; color:#fff;font-weight:bold;} /*thead第一行标题蓝色背景*/
+table{border-top:1pt solid #C1DAD7;border-left:1pt solid #C1DAD7;margin: 0 auto;}
+td{ padding:5px 10px; text-align:center;border-right:1pt solid #C1DAD7;border-bottom:1pt solid #C1DAD7;}
+tr:nth-of-type(odd){ background:#F5FAFA;} /* odd 标识奇数行，even标识偶数行 */
+tr:hover{ background: #E0F0F0;} /*鼠标悬停后表格背景颜色*/
+
+/*列表样式*/
+ol{
+	counter-reset: li; /* 初始化计数器 */
+	list-style: none; /* 移除默认的计数 */
+	*list-style: decimal; /*  兼容IE7 */
+	font: 15px 'trebuchet MS', 'lucida sans';
+	padding: 0;
+	margin-bottom: 4em;
+	text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+
+ol ol{
+	margin: 0 0 0 2em;
+}
+
+.rectangle-list a {
+	position: relative;
+	display: block;
+	padding: .4em .4em .4em .8em;
+	*padding: .4em;
+	margin: .5em 0 .5em 2.5em;
+	background: #ddd;
+	color: #444;
+	text-decoration: none;
+	transition: all .3s ease-out;
+	text-align: left;
+}
+
+.rectangle-list a:hover {
+	background: #eee;
+}
+
+.rectangle-list a:before {
+	content: counter(li);
+	counter-increment: li;
+	position: absolute;
+	left: -2.5em;
+	top: 50%;
+	margin-top: -1em;
+	background: #fa8072;
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	text-align: center;
+	font-weight: bold;
+}
+
+.rectangle-list a:after {
+	position: absolute;
+	content: '';
+	border: .5em solid transparent;
+	left: -1em;
+	top: 50%;
+	margin-top: -.5em;
+	transition: all .3s ease-out;
+}
+
+.rectangle-list a:hover:after {
+	left: -.5em;
+	border-left-color: #fa8072;
+}
