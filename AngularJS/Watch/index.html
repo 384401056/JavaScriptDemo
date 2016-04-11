@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+    <meta charset="utf-8">
+    <title>Your Shopping Cart</title>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body>
+<hr/>
+<h1>Watch购物车</h1>
+<h3 style="color:orange">如果合计大于100元，则减免10元</h3>
+<div ng-controller="CartController">
+    <div ng-repeat="item in items">
+        <span>{{item.title}}</span>
+        <input ng-model="item.quantity">
+        <span>单价:{{item.price | currency}}</span>
+        <span>总价:{{item.price * item.quantity | currency}}</span>
+    </div>
+    <div>合计: {{totalCart() | currency}}</div>
+    <div>减免: {{bill.discount | currency}}</div>
+    <div>总合计: {{subtotal() | currency}}</div>
+</div>
+
+
+
+</body>
+</html>
