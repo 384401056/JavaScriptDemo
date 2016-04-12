@@ -1,0 +1,32 @@
+body{
+    background-color: #FFFFFF;
+    font-size: 18px;
+    color: #000;
+}
+
+.menu-disabled-true {
+    color: #bf2cf4;
+}
+
+.menu-disabled-false{
+    color: #29abe3;
+}
+
+.error {
+    color: red;
+    font-size: 30px;
+}
+.warning {
+    color: #23b500;
+    font-size: 30px;
+}
+
+.selected {
+    background-color: #91e32e;
+}
+
+td {
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
