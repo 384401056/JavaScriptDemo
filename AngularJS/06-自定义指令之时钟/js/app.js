@@ -33,31 +33,44 @@ app.service("DtimeService",['$interval','$rootScope',function($interval,$rootSco
         };
         $rootScope.$broadcast('dtime', data);
     };
+    updateClock();
+    //每秒执行一次的定时器
     $interval(function(){
         updateClock()
     },1000);
-    updateClock();
+
 }]);
 
 //定义指令形式2
-app.directive("gbDatetime",['DtimeService','$filter',function(DtimeService,$filter){
+app.directive("gbDatetime",['DtimeService','$filter',function(){
     return{
         //指令的风格，A:属性风格 E：元素风格 C:样式风格 M：注解风格
         restrict:'E',
-        templateUrl:"temp/Dtime.html",
-        compile:function(){
-            console.log("Start compile!");
-            return{
-                post:function postLink(scope){
-                    console.log("Start postLink!");
-                    scope.$on('dtime', function(event,data) {
-                        scope.clock = {
-                            date : data.date,
-                            week : data.week
-                        };
-                    });
-                }
-            }
+
+        //compile:function(){
+        //    console.log("Start compile!");
+        //    return{
+        //        post:function postLink(scope){
+        //            console.log("Start postLink!");
+        //            scope.$on('dtime', function(event,data) {
+        //                scope.clock = {
+        //                    date : data.date,
+        //                    week : data.week
+        //                };
+        //            });
+        //        }
+        //    }
+        //}
+
+        //也可直接定义link属性，而不定义compile.这个link就是postLink.
+        link:function(scope,iElement,iAttrs){
+            console.log("Start postLink!");
+            scope.$on('dtime', function(event,data) {
+                scope.clock = {
+                    date : data.date,
+                    week : data.week
+                };
+            });
         }
     }
 }]);
