@@ -58,6 +58,7 @@ var afterListener = function(){
     console.log("Express running on http://localhost:18000");
 }
 
+//开启服务。
 app.listen(18000,afterListener());
 
 
