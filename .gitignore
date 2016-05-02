@@ -2,3 +2,8 @@
 /NodeJS/mongoDBTest/node_modules
 /NodeJS/ExpressWebServer/node_modules
 /NodeJS/FirstWebSocket/node_modules
+/NodeJS/Express/node_modules
+/NodeJS/Express/.idea
+/NodeJS/Part1/ExpressWebServer/node_modules
+/NodeJS/Part1/FirstWebSocket/node_modules
+/NodeJS/Part1/mongoDBTest/node_modules
