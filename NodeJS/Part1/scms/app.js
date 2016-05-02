@@ -1,9 +1,7 @@
-/**
- * Created by Administrator on 2016/4/27.
- */
+var express = require('./config/express');
+var mongodb = require('./config/mongoose');
 
-var expressConf = require("./config/express");//导入express配置文件。
+var db = mongodb();
+var app = express();
 
-var app = expressConf();//获取express实例。
-
-module.exports = app;//导出app
+module.exports = app;
