@@ -1,1 +1,4 @@
 /AngularJS/.idea
+/NodeJS/mongoDBTest/node_modules
+/NodeJS/ExpressWebServer/node_modules
+/NodeJS/FirstWebSocket/node_modules
