@@ -26,3 +26,4 @@ try{
 	console.log("读取文件出错！"+ex);
 }
 console.log("123");//先打印文件内容，才打印123.
+ 
