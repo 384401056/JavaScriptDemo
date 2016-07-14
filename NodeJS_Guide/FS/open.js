@@ -36,22 +36,33 @@ var fs = require("fs");
 
 //=====================打开文件并写入数据,异步执行==========================
 
-var myBuf = new Buffer("我是李小龙!!!!!!\r\n");
+// var myBuf = new Buffer("我是李小龙\r\n");
 
-fs.open('./res/kkk.txt', 'r', function (err,fd) {
-	if(err) console.log(err);
-	else{
-		fs.write(fd, myBuf, 0, 24, 0, function (err,bytesWrite,buf) {
-			if(err) console.log(err);
-			else{
-				console.log("写入成功!!");
-			}
-		});
+// fs.open('./res/kkk.txt', 'w', function (err,fd) {
+// 	if(err) console.log(err);
+// 	else{
+// 		fs.write(fd, myBuf, 0, 17, 0, function (err,bytesWrite,buf) {
+// 			if(err) console.log(err);
+// 			else{
+// 				console.log("写入成功!!");
+// 			}
+// 		});
 
 
-	}
+// 	}
+// });
+
+//=====================打开文件并写入数据,同步执行==========================
+
+var myBuf = new Buffer("我是张学友\r\n");
+try{
+	//openSync中的mode,定义为a时，写入的数据为追加写入。
+	var fd = fs.openSync('./res/kkk.txt', 'a');
+	var bytesWrite = fs.writeSync(fd, myBuf, 0, 17, 'null');
+	console.log("写入成功!!");
+}catch(ex){
+	console.log(ex);
 }
-
 
 
 
