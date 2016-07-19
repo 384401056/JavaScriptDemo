@@ -20,10 +20,12 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(__dirname+"/public"));
 
 //app.get拦截'/'根目录的请求。
-app.get("/",function(req,res,next){
-  res.send("Hello World");
-});
+// app.get("/",function(req,res,next){
+  // res.send("Hello World");
+// });
 
+
+app.use("/",require("./routes/index.js"));
 
 app.listen(8080,function(){
   console.log("Server is Listen on 8080.....");
