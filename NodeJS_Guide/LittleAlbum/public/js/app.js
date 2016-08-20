@@ -57,5 +57,17 @@ app.controller("carContorller",function($scope){
          total +=item.quantity;
       });
       return total;
+   };
+
+   $scope.delItem = function(id){
+      for(var i=0;i<$scope.cars.length;i++){
+         if($scope.cars[i].id === id){
+            $scope.cars.splice(i,1);
+         }
+      }
+   };
+
+   $scope.clearAll = function(){
+      $scope.cars = null;
    }
 });

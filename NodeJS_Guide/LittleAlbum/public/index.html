@@ -38,14 +38,14 @@
                 <td ng-bind="item.price"></td>
                 <td ng-bind="item.quantity * item.price"></td>
                 <td>
-                    <button type="button" class="btn btn-warning" ng-click="delItem()">删除</button>
+                    <button type="button" class="btn btn-warning" ng-click="delItem(item.id)">删除</button>
                 </td>
             </tr>
             <tr>
                 <td colspan="2">总购买价格:{{totalPrice()}} 元</td>
                 <td colspan="3">总购买数量:{{totalQuantyty()}} 个</td>
                 <td>
-                    <button type="button" class="btn btn-danger">清空购物车</button>
+                    <button type="button" class="btn btn-danger" ng-click="clearAll()">清空购物车</button>
                 </td>
             </tr>
         </tbody>
