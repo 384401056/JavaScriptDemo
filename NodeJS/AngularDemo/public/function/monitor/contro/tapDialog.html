@@ -1,0 +1,73 @@
+<style type="text/css">
+	.btnNomal {
+		border-radius: 0px;
+		color: #FFFFFF;
+		width: auto;
+		height: 33px;
+		padding: 0px;
+		background: #00A65A;
+		border: none;
+		padding-left: 33px;
+		padding-right: 33px;
+	}
+	#groupForm .form-control {
+		border-radius: 0;
+		box-shadow: none;
+		height: 33px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+		line-height: 33px !important;
+	}
+	.panel-body{padding-bottom: 0px;}
+	.dialog-panel .dialog-content{min-height: auto !important;}
+	.btns{border-top: 1px solid #DDDDDD;padding-top: 10px;padding-bottom:10px;margin-left: -15px;margin-right: -15px;overflow: hidden;margin: auto;clear: both;}
+	.btns i{margin-right: 5px;}
+	.btns input[name=time]{width: 220px; float: left;margin-left: 10px;margin-right: 10px;}
+	.btns small{float: left;margin-top: 5px;}
+	.btns p{display: block;width: 100%;overflow: hidden;}
+	.modal-dialog{width: 400px;}
+	/*.modal-content {margin-top:  calc(100% - 50%);margin-top:  -moz-calc(100% - 50%);margin-top:  -webkit-calc(100% - 50%);}*/
+</style>
+<div id="groupForm" class="dialog-panel" app-controller="tapController">
+	<div class="dialog-top-bar">
+		<div class="dialog-close-btn" ng-click="cancel();"></div>
+		<div class="dailog-title">
+			<span class="split">&gt;</span>
+			<span class="title">{{title}}</span>
+		</div>
+	</div>
+	<div class="dialog-content">
+		<div class="panel-body">
+
+			<form style="padding: 0px;"  class="form-horizontal acp-form-check"  name="form" novalidate="" method="post">
+				<div class="form-group" style="padding-top: 20px;padding-bottom: 20px;">
+					<label class="col-sm-2 control-label" style="padding-right: 0px;padding-left: 0px;">PIN码：</label>
+
+					<div class="col-sm-7" style="padding-left: 5px;">
+						<input type="password" name="PINCode" ng-model="PINCode" id="pinBox" required="" class="form-control " placeholder="请输入PIN码">
+					</div>
+
+					<div class="col-sm-3" style="padding-left: 0px;">
+						<input  type="button"  ng-click="validatePin()"  class="btnNomal" value="验证"/>
+					</div>
+				</div>
+			</form>
+			<div class="btns col-sm-12" style="display: none;">
+				<p>
+
+					<button class="btn btn-default pull-left" ng-click="openTap()"><i class="icon-play"></i>打开</button>
+					<input type="text" name="time" ng-model="time"  required="" class="form-control " placeholder="请输入时间" style="width: 210px;">
+					<small style="font-size: 16px;padding-top: 1px;overflow: hidden;">分钟</small>
+				</p>
+			    <p ng-hide="true"><button class="btn btn-danger pull-left" ng-click="closeTap()"><i class="icon-stop"></i>关闭</button></p>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var oWindowHheight = $(window).height();
+		var oObjHheight = $(".modal-content").height();
+		$(".modal-content").css('top', (oWindowHheight - oObjHheight) / 4);
+	})
+</script>

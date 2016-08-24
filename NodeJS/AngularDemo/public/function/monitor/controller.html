@@ -1,0 +1,53 @@
+
+<div id="{{dId}}window" class="common-monitor-device-tag">
+    <div class="common-monitor-device-page">
+        <div class="common-monitor-device-page-left">
+            <div class="common-monitor-device-page-left-top">
+                <div id="controllerClass" style="width: 42px;height:42px;float: left;">
+                	<i class="{{state}} " style="width: 42px;height:42px;"></i>
+                </div><!-- x: 20 y:5-->
+                <div class="common-monitor-device-page-left-top-content">
+                    <div id="{{diviceType}}" class="common-monitor-device-page-left-top-name">
+                        <span>{{diviceName}}</span>
+                    </div>
+                    <!--<p ng-click="open(dId)">
+                        <input type="checkbox" name="check-1" class="lcs_check">                    
+                    </p>-->
+                    <user-group-permission code="120">
+                        <p style="color: #7D7D7D;padding-top: 5px;cursor: pointer;text-align: center;" ng-click="openOneDevice(dId,mystatValue)"><i class="icon-wrench" style="padding-right: 5px;"></i>操作</p>
+                    </user-group-permission>
+
+                </div>
+            </div>
+            <div class="common-monitor-device-page-left-bottom">
+                <div class="common-monitor-device-page-left-bottom-set" ng-click="controllerSet(dId,diviceName)">
+                    <i class="glyphicon glyphicon-cog "></i>
+                    <span>设置</span>
+                </div>
+                <div class="common-monitor-device-page-left-bottom-report" ng-click="controllerReport(dId,diviceName,diviceType)">
+                    <i class=" glyphicon icon-bar-chart "></i>
+                    <span>报表</span>
+                </div>
+            </div>
+        </div>
+        <div class="common-monitor-device-page-right">
+            <div class="common-monitor-device-page-right-content">
+                <ul>
+                    <li>
+                        <p>{{lastValue1}}</p>
+                    </li>
+                    <li>
+                        <p>{{lastValue2}}</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="common-monitor-device-page-right-close" style="float: right;margin-top: 0px">
+
+        </div>
+    </div>
+    <div class="common-monitor-device-tag-arrow">
+        <em></em><span></span>
+    </div>
+</div>

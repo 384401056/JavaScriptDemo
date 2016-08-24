@@ -1,0 +1,42 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false; 
+    app.settings.asideDock = false;
+  ">
+  <!-- main -->
+  <div class="col">
+    <!-- main header -->
+    <div class="wrapper-md">
+      <div class="panel panel-default">
+      <div class="panel-heading">
+        列表
+      </div>
+    <div class="table-responsive">
+      <table ui-jq="dataTable" ui-options="{
+          sAjaxSource: 'plugins/jquery/datatables/datatable.json',
+          aoColumns: [
+            { mData: 'engine' },
+            { mData: 'browser' },
+            { mData: 'platform' },
+            { mData: 'version' },
+            { mData: 'grade' }
+          ]
+        }" class="table table-striped m-b-none">
+        <thead>
+          <tr>
+            <th  style="width:20%">第一列</th>
+            <th  style="width:25%">第二列</th>
+            <th  style="width:25%">第三列</th>
+            <th  style="width:15%">第四列</th>
+            <th  style="width:15%">第五列</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+    <!-- main header -->
+  </div>
+</div>

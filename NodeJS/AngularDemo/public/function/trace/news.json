@@ -1,0 +1,90 @@
+{
+  "data": {
+    "iTotalDisplayRecords": 14,
+    "pageCount": 3,
+    "startRow": 0,
+    "iTotalRecords": 14,
+    "pageInfo": {
+      "pageSize": 5,
+      "currentPage": 1,
+      "totalRecord": 14
+    },
+    "beginPageIndex": 0,
+    "pageSize": 5,
+    "currentPage": 1,
+    "aaData": [
+      {
+        "summary": "农业物联网的大趋势",
+        "id": 122,
+        "createtime": "2016-06-03 15:48:09",
+        "username": "test",
+        "title": "农业物联网的大趋势",
+        "titleimg": "05b6c80191614b16a5d60e03c219504a.png",
+        "titleimgUrl": "http://10.88.20.95/resource/05b6c80191614b16a5d60e03c219504a.png",
+        "publishtime": "2016-07-13 09:54:21",
+        "contentid": "",
+        "status": 1,
+        "newsurl": "/info/showNews?newsid=122",
+        "createuserid": 123
+      },
+      {
+        "summary": "智慧农业是当今世界农业发展的新潮流，其基本涵义是根据作物生长的土壤性状，调节对作物的投入，即一方面查清田块内部的土壤性状与生产力空间变异，另一方面确定农作物的生产目标，进行定位的“系统诊断、优化配方、技术组装、科学管理”，调动土壤生产力，以最少的或最节省的投入达到同等收入或更高的收入，并改善环境，高效地利用各类农业资源，取得更好经济效益和环境效益。",
+        "id": 116,
+        "createtime": "2016-05-27 09:11:58",
+        "username": "test",
+        "title": "智慧农业解决方案",
+        "titleimg": "64511622314a468c90beefcda0b79383.png",
+        "titleimgUrl": "http://10.88.20.95/resource/64511622314a468c90beefcda0b79383.png",
+        "publishtime": "2016-07-13 09:54:09",
+        "contentid": "2d29f5703af342318420cace8fa56883",
+        "status": 1,
+        "newsurl": "/info/showNews?newsid=116",
+        "createuserid": 123
+      },
+      {
+        "summary": "\"互联网+农业\"引爆种子大会",
+        "id": 129,
+        "createtime": "2016-06-23 14:19:40",
+        "username": "test",
+        "title": "\"互联网+农业\"引爆种子大会",
+        "titleimg": "bed4bea82c58490f813fd06756f984f9.png",
+        "titleimgUrl": "http://10.88.20.95/resource/bed4bea82c58490f813fd06756f984f9.png",
+        "publishtime": "2016-07-12 13:20:09",
+        "contentid": "674a8399f223440089913ade994d0c4b",
+        "status": 1,
+        "newsurl": "/info/showNews?newsid=129",
+        "createuserid": 123
+      },
+      {
+        "summary": "南博会农业预",
+        "id": 128,
+        "createtime": "2016-06-21 14:23:15",
+        "username": "test",
+        "title": "南博会农业预览",
+        "titleimg": "3fcc56e34fd0463f97bd05464d821d3e.png",
+        "titleimgUrl": "http://10.88.20.95/resource/3fcc56e34fd0463f97bd05464d821d3e.png",
+        "publishtime": "2016-06-21 14:25:00",
+        "contentid": "8f42124fd07f46909f575933e1a02ede",
+        "status": 1,
+        "newsurl": "/info/showNews?newsid=128",
+        "createuserid": 123
+      },
+      {
+        "summary": "仓库、货场温湿度监控系统",
+        "id": 117,
+        "createtime": "2016-05-27 09:15:36",
+        "username": "test",
+        "title": "智能环境监控领域",
+        "titleimg": "24727623410748d5beca7ea45e6325f1.png",
+        "titleimgUrl": "http://10.88.20.95/resource/24727623410748d5beca7ea45e6325f1.png",
+        "publishtime": "2016-06-15 17:12:34",
+        "contentid": "4d102d6612a5465793ae7eea3f0f4ec9",
+        "status": 1,
+        "newsurl": "/info/showNews?newsid=117",
+        "createuserid": 123
+      }
+    ]
+  },
+  "flag": 1,
+  "statusCode": 200
+}

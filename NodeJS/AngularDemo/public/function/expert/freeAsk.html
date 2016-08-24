@@ -1,0 +1,128 @@
+<div class="free-ask" ng-controller="FreeAsk">
+	<label class="col-sm-1" style="text-align: right;">问题说明:</label>
+	<div class="col-sm-11">
+		<div id="inputbox" style="padding: 4px; border:1px solid #ccc;height:65px;overflow-y:hidden;transition:all ease 1s" >
+			<div class="ask-content">
+				<textarea  style="min-height:58px;width:100%" id="askcontent" ng-model="formData.askcontent" ng-blur="clean();" ng-focus="verify()" placeholder="请在这里提出您的问题" style="width: 100%;"></textarea>
+          <span class="count" ><i ng-model="askcontentLength" >{{ askcontentLength }}</i>/100</span>
+			</div>
+			<div class="ask-detial">
+				<textarea rows='4' style="min-height:100px;width:100%" id="details" ng-model="formData.additioncontent" ng-focus="" placeholder="您可在这里继续补充问题细节" style="width: 100%;"></textarea>
+                <span style="color:red;margin:5px auto;display:block;">{{ warnning }}</span>
+			</div>
+		</div>
+		<div class="div-ask-tags">
+			<span class="tag-title">问题标签：
+				<span ng-model="tags" ng-repeat="tag in tags" class="tag-item-choose" ng-click="tagClick(tag, $event)">{{ tag.dictdata }}</span>
+				<span class="add-tags combo-button-active" ng-click="addTags()"><span class="icon-plus-sign-alt"></span>添加标签</span>
+				正确的问题标签,会获得更准确专业的回答
+			</span>
+		</div>
+		<div style="margin: 5px auto;">
+			<span class="combo-button-active" style="display:none;" ng-click="shrinkAdditionContent($event)"><span class="icon-angle-up"></span>收起补充</span>
+			<span class="combo-button-active" style="display:inline-block;" ng-click="addAdditionContent($event)"><span class="icon-plus"></span>补充问题</span>
+			<span class="combo-button-active" ng-click="chooseImage()"><span class="icon-file"></span>图片</span>
+			<span class="combo-button-active" ng-click="getLocation()"><span class="icon-location"></span>{{ addressName || '地点' }}</span>
+			<input type="button" id="btn_ask" value="提交问题" ng-click="ask()">
+		</div>
+
+    <div uploader="uploader">
+
+      <div class="form-group">
+        <div class="col-sm-10">
+          <div class="col-sm-10">
+          <input type="file" style="display:none" accept="image/gif,image/jpeg,image/bmp,image/png" multiple uploader="uploader" nv-file-select="">
+            <span ng-if="fileTypeErrorInfo" ng-model="fileTypeErrorInfo" style="color:red;display:inline-block;"> {{ fileTypeErrorInfo }} &nbsp;文件格式不支持!</span>
+          </div>
+        </div>
+        <div class="col-sm-12"></div>
+      </div>
+
+      <div class="form-group" >
+            <!-- begin上传附件 -->
+        <div class="col-sm-10">
+          <div class="bg-light dk b-b" style="margin:0 auto;">
+            <span class="pull-right m-t-xs">文件个数: <b class="badge bg-info">{{ uploader.queue.length }}</b></span>
+          </div>
+          <div class="wrapper-md">
+            <table class="table bg-white-only b-a" style="background-color: #fff">
+              <thead>
+                <tr>
+                  <th width="50%">名称</th>
+                  <th ng-show="uploader.isHTML5">大小</th>
+                  <th ng-show="uploader.isHTML5">进度</th>
+                  <th>状态</th>
+                  <th>动作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in uploader.queue">
+                  <td><strong>{{ item.file.name }}</strong></td>
+                  <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                  <td ng-show="uploader.isHTML5">
+                    <div class="progress progress-sm m-b-none m-t-xs">
+                        <div class="progress-bar bg-info" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                    </div>
+                  </td>
+                  <td class="text-center">
+                    <span ng-show="item.isSuccess" class="text-success"><i class="glyphicon glyphicon-ok"></i></span>
+                    <span ng-show="item.isCancel" class="text-warning"><i class="glyphicon glyphicon-ban-circle"></i></span>
+                    <span ng-show="item.isError" class="text-danger"><i class="glyphicon glyphicon-remove"></i></span>
+                  </td>
+                  <td nowrap>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                        上传
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-default btn-xs" ng-click="delFile(item)">
+                        删除
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div>
+              <button type="button" class="btn btn-addon btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                <i class="fa fa-arrow-circle-o-up"></i>全部上传
+              </button>
+              <button type="button" class="btn btn-addon btn-success" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                <i class="fa fa-ban"></i> 全部取消
+              </button>
+              <button type="button" class="btn btn-addon btn-success" ng-click="delAll()" ng-disabled="!uploader.queue.length">
+                  <i class="fa fa-trash-o"></i> 全部删除
+              </button>
+             
+            </div>
+          </div>
+        </div>
+  </div>
+</div>  
+		<div class="checkbox" style="clear:left;">
+      <label class="i-checks i-checks-sm">
+        <input type="checkbox" ng-model="isInvitation" ng-click="invitation($event)">
+        <i></i>邀请专家答题(先选择标签)
+      </label>
+    </div>
+    <div class="expert-list" ng-if="isInvitation" >
+    	<span class="triangle-up"></span>
+    	<div ng-model="expertList" ng-repeat="expert in expertList" class="expert-item" ng-click="expertItemClick(expert.userid, $event)">
+    		<span class="icon-notchoose"></span>
+    		<div >
+    			<div style="float: left;"><img class='img-expert' src='./function/expert/img/exp.jpg'></div>
+    			<div style="display: inline-block;max-width: 200px;max-height: 60px;overflow: hidden;margin-top: 10px;">
+    				<span style="">{{ expert.username }}</span>
+    				<p style=""><span>{{ expert.researchdirection }}</span>|<span>{{expert.title}}</span></p>
+    			</div>
+  			</div>
+    		<div class='split-line' style="margin: 5px;"></div>
+    		<div style="margin: 2px 5px;height: 40px;overflow:hidden;text-overflow:ellipsis;">{{ expert.introduction }}</div>
+    	</div>
+
+    </div>
+	</div>	
+</div>
+
+
+

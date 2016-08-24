@@ -1,0 +1,7 @@
+{
+  "acp-web-trace-url":"http://10.88.20.104:8087/acp-web-trace",
+  "acp-web-monitor-url":"http://10.88.20.104:8079/acp-web-monitor",
+  "acp-web-report-url":"http://10.88.20.104:8081/acp-web-report",
+  "acp-web-expert-url":"http://10.88.20.104:8084/acp-web-expert/",
+  "mongodb-images-url":"http://10.88.20.95/resource"
+}

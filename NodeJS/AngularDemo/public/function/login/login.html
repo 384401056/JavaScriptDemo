@@ -1,0 +1,83 @@
+ <div ng-controller="SigninFormController" >
+ <div class="content"> 
+	<!--顶-->
+    <div class="top">
+      <img src="function/login/img/logo.png">
+    </div>
+ 
+    <div class="page " >
+		<div class="mid">
+			<div class="mid-left">
+				<div class="left-top">
+
+				</div>
+				<div class="left-bottom">
+					<!--扫描二维码-->
+					<div  class="mid_content" >
+						<img src="function/login/img/tdc_login.png">
+					</div>
+					<!--下载-->
+					<div  class="mid_content_load" >
+						<!--Android下载-->
+						<div class="out">
+							<div class="in" style="padding-top:13px">
+								<img src="function/login/img/android_login.png" style="margin-top: -3px">
+								<span style="font-size: 14px;color:  #4DC078;">&nbsp;Android版下载</span>
+							</div>
+						</div>
+						<!--IOS下载-->
+						<div class="out_ios">
+							<div class="in_ios" style="padding-top:13px;">
+								<img src="function/login/img/ios_login.png" style="margin-top: -3px">
+								<span style="font-size: 14px;color:  #4DC078;">&nbsp;IOS版下载&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="mid-right">
+				<div class="login-box">
+					<div class = 'login_text'>
+						<span style="font-size: 22px">用户登录</span>
+						<span style="font-size: 12px">USER LOGIN</span>
+					</div>
+					<div class="warningInfo" >
+						<span>{{warning.info}}</span>
+					</div>
+					<div class="inputGroup">
+						<form novalidate>
+							<div class="un_input">
+								<img src="function/login/img/user_login.png"/>
+								<input  type="text" placeholder="请输入用户名"  maxlength="32"    ng-model="user.name" required/>
+							</div>
+							<div class="pwd_input">
+								<img src="function/login/img/password_login.png"/>
+								<input type="password" placeholder="请输入密码"  maxlength="32"    ng-model="user.password" required/>
+							</div>
+							<div class="login_btn">
+								<button ng-click="login()" ng-disabled='form.$invalid'>登 录</button>
+							</div>
+						</form>
+					</div>
+					<!-- <div class="rememmer">
+						<div class="checkbox" style=" float: left;">
+							<label class="i-checks i-checks-sm">
+								<input type="checkbox">
+								<i></i>记住我
+							</label>
+						</div>
+						<small style="font-size: 14px ;display: inline-block;cursor: pointer;; line-height: 41px;  margin:0 0 0 160px;">无法登录?</small>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div class="bottom">
+        <p>©  2016  GSTAR.COM.CN  All Rights Reserved　版权所有 · 云南银河之星科技有限公司</p>
+    </div>
+    
+</div>
+</div> 
+ 

@@ -1,0 +1,39 @@
+<style type="text/css">
+	div.dialog-panel{
+		min-height: 435px;
+	}
+	div.i-lable-right{
+		padding-right: 10px;
+		float: right;
+	}
+	div.wrap{
+		word-break:break-all;overflow:auto;
+	}
+</style>
+<div id="groupForms" class="dialog-panel" >
+	<div class="dialog-top-bar">
+		<div class="dialog-close-btn" ng-click="cancel();"></div>
+		<div class="dailog-title">
+			<span class="split">&gt;</span>
+			<span class="title">告警信息明细</span>
+		</div>
+	</div>
+	<div class="dialog-content">
+		<div  class="panel-body wrap" style=" margin-top:10px;margin-left:10px;min-height:350px; max-height:350px;border: 1px solid  #cccccc;overflow-y: scroll;max-width: 575px">
+			{{message}}
+		</div>
+		<div class="form-group" style="margin-top: 5px">
+			<div class="col-sm-3 text-right i-lable-right " >
+				<button class="btn btn-success set-sensor-bg "ng-click="ok();" >确定</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var oWindowHheight = $(window).height();
+		var oObjHheight = $(".modal-content").height();
+		$(".modal-content").css('top', (oWindowHheight - oObjHheight) /10);
+	})
+</script>

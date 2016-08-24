@@ -1,0 +1,48 @@
+
+<div id="{{dId}}window" class="common-monitor-device-tag">
+    <div class="common-monitor-device-page" >
+        <div class="common-monitor-device-page-left">
+            <div class="common-monitor-device-page-left-top">
+                <div class="{{state}}" style="width: 42px;height:42px;float: left"></div><!-- x: 20 y:5-->
+                <div class="common-monitor-device-page-left-top-content">
+                    <div id="{{diviceType}}" class="common-monitor-device-page-left-top-name">
+                        <span>{{diviceName}}</span>
+                    </div>
+                    <div class="common-monitor-device-page-left-top-data">
+                        <span>{{value}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="common-monitor-device-page-left-bottom">
+                <div class="common-monitor-device-page-left-bottom-set" ng-click="sensorSet(dId,diviceName)">
+                    <i class="glyphicon glyphicon-cog "></i>
+                    <span>设置</span>
+                </div>
+                <div ng-click="sensorReport(dId,diviceName,diviceType)" class="common-monitor-device-page-left-bottom-report">
+                    <i class=" glyphicon icon-bar-chart "></i>
+                    <span>报表</span>
+                </div>
+            </div>
+        </div>
+        <div class="common-monitor-device-page-right">
+            <div class="common-monitor-device-page-right-content">
+                <ul>
+                    <li>
+                       <p>{{lastValue1}}</p>
+                    </li>
+                    <li>
+                        <p>{{lastValue2}}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="common-monitor-device-page-right-close">
+
+            </div>
+        </div>
+    </div>
+    <div class="common-monitor-device-tag-arrow">
+        <em></em><span></span>
+    </div>
+</div>
+
+

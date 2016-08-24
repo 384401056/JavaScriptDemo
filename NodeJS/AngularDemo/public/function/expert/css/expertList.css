@@ -1,0 +1,133 @@
+/**
+ * 专家列表页样式
+ */
+div.apc-expert {
+	width: 100%;
+	position: relative;
+}
+span.notChoose {
+	background-color: #fff;
+	color: #888;
+	border: 1px solid #ccc;
+	border-bottom: none;
+}
+.search-btn {
+	background-image:url("../img/icon_search_btn.png");
+	 background-color: #00a65a;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 38px;
+  cursor: pointer;
+}
+.expert-content {
+	border: 1px solid #ccc;
+	width: 100%;
+	min-width: 700px;
+	min-height: 600px;
+	margin: 0 auto;
+	padding: 5px 5px;
+}
+img.img-head {
+	height:100px;
+	width:100px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	/*margin: 5px 5px;*/
+}
+.expert-icon,
+.expert-msg,
+.expert-head,
+.expert-profile,
+.expert-value,
+.expert-details,
+.expert-appoint {
+	float: left;
+	/*display: inline-block;*/
+	margin: 0 auto;
+}
+
+.expert-msg{
+	min-width: 200px;
+}
+.expert-icon{
+	min-width: 40px;
+}
+.expert-value,
+.expert-head {
+	margin-left: 30px;
+}
+.expert-appoint {
+	margin-top: 20px;
+}
+.expert-profile {
+	min-width: 200px;
+	margin: 0px 15px;
+}
+.expert-details {
+	min-width: 400px;
+	max-width: 450px;
+}
+
+.expert-appoint {
+	border: 1px solid #00a65a;
+	cursor: pointer;
+	height: 60px;
+	width: 90px;
+	margin-left: 100px;
+}
+.icon-appoint-enable{
+
+}
+.text-appoint-enable{
+
+}
+.split-line {
+	/*background-color: rgba(0,166,0,1);*/
+	background-color: #dddddd;
+	height: 1px;
+	float: none;
+	display: block;
+	margin: 10px 5px;
+	clear: both;
+}	
+
+/*分页*/
+.acp-card-pagination {
+	height: 40px;
+	margin-top: 15px;
+	background-color: #F2F4F3;
+}
+.acp-card-pagination div.pageInfo,
+.acp-card-pagination div.pagination {
+	height: 40px;
+	overflow: hidden;
+}
+.acp-card-pagination div.pageInfo {
+	line-height: 40px;
+	text-align: right;
+}
+div.pageInfo span {
+	color: #428BCA;
+	display: inline-block;
+	margin: 0px 3px;
+	line-height: 20px;
+}
+div.pageInfo span.curry-page-panel input,
+div.pageInfo span.curry-page-panel select {
+	width:35px;
+	height:24px;
+	text-align: center;
+}
+.acp-card-pagination div.pagination {
+	text-align: left;
+	padding: 0px 15px;
+}
+.acp-card-pagination .pagination {
+	margin: 3px 0px;
+}
+div.acp-card-page-top div.search-box div.search-btn,
+div.acp-card-list div.acp-card-item div.acp-card-top,
+div.acp-card-page div.acp-card-page-nav > span.nav-item.enable {
+	cursor: pointer;
+}
+	/*分页 end*/

@@ -1,0 +1,521 @@
+{
+	"flag": 1,
+    "message": "图片列表数据查询成功",
+    "data": {
+    	"reportTitle": "图像采集",
+        "reportDateStr": "2016-03-15 11:08:26 至 2016-03-15 23:11:18",
+        "deviceLst": [
+	        {
+	            "deviceId": "1",
+	            "deviceName": "设备一",
+	            "imgGroupLst": [
+		            {
+		                "groupKey": "2016-03-28",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-03-28 01:00:00",
+		                        "tip": "图片0001",
+		                        "url": "function/report/data/image/0001.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-03-29",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-03-29 01:00:00",
+		                        "tip": "图片0002",
+		                        "url": "function/report/data/image/0002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 02:00:00",
+		                        "tip": "图片001",
+		                        "url": "function/report/data/image/001.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-03-30",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-03-30 01:00:00",
+		                        "tip": "图片0003",
+		                        "url": "function/report/data/image/0003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-30 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-30 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-30 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-30 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-30 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-30 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-03-31",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-03-31 01:00:00",
+		                        "tip": "图片0004",
+		                        "url": "function/report/data/image/0004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-31 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-31 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-31 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-31 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-31 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-31 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-04-01",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-04-01 01:00:00",
+		                        "tip": "图片0005",
+		                        "url": "function/report/data/image/0005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-04-02",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-04-02 01:00:00",
+		                        "tip": "图片0006",
+		                        "url": "function/report/data/image/0006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-04-03",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-04-03 01:00:00",
+		                        "tip": "图片0007",
+		                        "url": "function/report/data/image/0007.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            }
+		        ]
+	        },
+	        {
+	            "deviceId": "2",
+	            "deviceName": "设备二",
+	            "imgGroupLst": [
+	            	{
+		                "groupKey": "2016-03-28",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-03-28 01:00:00",
+		                        "tip": "图片0001",
+		                        "url": "function/report/data/image/0001.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-28 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-03-29",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-03-29 01:00:00",
+		                        "tip": "图片0002",
+		                        "url": "function/report/data/image/0002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 02:00:00",
+		                        "tip": "图片001",
+		                        "url": "function/report/data/image/001.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-03-29 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            }
+	            ]
+	        },
+	        {
+	            "deviceId": "3",
+	            "deviceName": "设备三",
+	            "imgGroupLst": [
+	            	{
+		                "groupKey": "2016-04-01",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-04-01 01:00:00",
+		                        "tip": "图片0005",
+		                        "url": "function/report/data/image/0005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-01 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-04-02",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-04-02 01:00:00",
+		                        "tip": "图片0006",
+		                        "url": "function/report/data/image/0006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-02 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            },
+		            {
+		                "groupKey": "2016-04-03",
+		                "totalNum": 10,
+		                "dataLst": [
+		                    {
+		                        "title": "2016-04-03 01:00:00",
+		                        "tip": "图片0007",
+		                        "url": "function/report/data/image/0007.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 02:00:00",
+		                        "tip": "图片002",
+		                        "url": "function/report/data/image/002.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 03:00:00",
+		                        "tip": "图片003",
+		                        "url": "function/report/data/image/003.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 04:00:00",
+		                        "tip": "图片004",
+		                        "url": "function/report/data/image/004.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 05:00:00",
+		                        "tip": "图片005",
+		                        "url": "function/report/data/image/005.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 06:00:00",
+		                        "tip": "图片006",
+		                        "url": "function/report/data/image/006.jpg"
+		                    },
+		                    {
+		                        "title": "2016-04-03 07:00:00",
+		                        "tip": "图片007",
+		                        "url": "function/report/data/image/007.jpg"
+		                    }
+		                ]
+		            }
+	            ]
+	        }
+	    ]
+    }
+    
+}

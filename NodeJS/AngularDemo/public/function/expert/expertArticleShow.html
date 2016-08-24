@@ -1,0 +1,14 @@
+<div ng-controller="expertArticle">
+	<div ng-model="articleItems" >
+		<div class="col-sm-12 text-center" style="border-bottom: 1px solid #e7e9e8;padding: 10px;">
+			{{articleItems.title}}
+		</div>
+		<div class="col-sm-12 text-center" style="padding: 10px;color: #878787">
+			
+			 作者：{{articleItems.author}} &nbsp;&nbsp;&nbsp;&nbsp; 发表时间：{{articleItems.publishtime | date:'yyyy-MM-dd'}} &nbsp;&nbsp;&nbsp;&nbsp; 浏览次数：{{articleItems.viewcount}} &nbsp;&nbsp;&nbsp;&nbsp; 点赞 <button class="btn btn-rounded btn-sm btn-icon btn-success"><i class="glyphicon glyphicon-thumbs-up"></i></button>
+		</div>
+		<div class="col-sm-12" style="line-height: 30px;" ng-bind-html="articleItems.content">
+			{{articleItems.content}}
+		</div>
+	</div>
+</div>

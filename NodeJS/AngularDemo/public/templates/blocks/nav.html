@@ -1,0 +1,28 @@
+<!--动态构造导航菜单-->
+<ul class="nav" ng-controller="NavController" style="z-index: 10;">
+  <li ui-sref-active="active" class="only_a" >
+    <a class="btn">
+      <img src="img/1.png" alt="." ng-click="app.settings.asideFolded = !app.settings.asideFolded" >
+    </a>  
+  </li>
+
+  <li ng-repeat="a1 in navbar">
+    <a ui-sref="{{a1.link ? a1.link : false }}" class="auto" ng-click="navClick($event,{{a1.code}});">
+      <span class="pull-right text-muted">
+        <i class="fa fa-fw fa-angle-right text"></i>
+        <i class="fa fa-fw fa-angle-down text-active"></i>
+      </span>
+      <i class="{{a1.icon}}"></i>
+      <span>{{a1.label}}</span>
+    </a>
+    <ul  class="nav nav-sub dk">
+      <li ng-repeat="a2 in a1.children">
+      <!-- <li ng-repeat="a2 in a1.children" ui-sref-active="active"> -->
+        <a ui-sref="{{a2.link ? a2.link : false }}" ng-click="navClick($event,{{a2.code}});">
+          <i class="{{a2.icon}}"></i>
+          <span>{{a2.label}}</span>
+        </a>
+      </li>
+   </ul>
+  </li>
+</ul>

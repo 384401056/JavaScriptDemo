@@ -1,0 +1,76 @@
+
+      <div class="{{app.settings.navbarCollapseColor}}" ng-controller="HeaderController" >
+        <!-- nabar left -->
+        <ul class="nav navbar-nav navbar-left">
+          <a href="#/" class="navbar-brand">
+          <img src="img/left_logo.png" alt="." >
+        </a>
+        </ul>
+        <!-- nabar right -->
+        <ul class="nav navbar-nav navbar-right">          
+         <li style="color: #fff; margin-top:13px;margin-right:10px; "><weather/></li> 
+         <li dropdown="" class="dropdown open">
+            <a dropdown-toggle="" class="dropdown-toggle" href="" aria-haspopup="true" aria-expanded="true">
+                    <i class="glyphicon  glyphicon-envelope fa-fw"></i>
+                    <span class="visible-xs-inline">Notifications</span>
+                    <span class="badge badge-sm up bg-danger pull-right-xs"   >{{alarm_amount}}</span>
+            </a>
+
+            <!-- dropdown 消息下拉菜单-->
+            <div class="dropdown-menu w-xl animated fadeInUp">
+              <div class="panel bg-white">
+                <div class="panel-heading b-light bg-light" style="background-color: #eee">
+                  <strong>您有 <span>{{alarm_amount}}</span> 条消息未处理</strong>
+                </div>
+                <div class="list-group">
+                  <a class="media list-group-item" style="margin-top:0px;" ui-sref="app.message({type:1})">
+                    <span class="pull-left " style=" display: inline-block; width:27px;">
+                      <i class="glyphicon glyphicon-bell " style="font-size: 20px;color: #f05050"></i>
+                    </span>
+                    <span class="media-body block m-b-none">
+                      告警信息：({{alarm_amount}})<br>
+                    </span>
+                  </a>
+                  <a class="media list-group-item" style="margin-top:0px;" ui-sref="app.message({type:2})">
+                    <span class="media-body block m-b-none">
+                    <i class="glyphicon glyphicon-warning-sign " style="font-size: 14px;color: #fad733"></i>
+                      &nbsp;&nbsp;设备异常信息：({{messageall.exception_amount}})<br>
+                     
+                    </span>
+                  </a>
+                   <a class="media list-group-item" style="margin-top:0px;" ui-sref="app.message({type:3})">
+                    <span class="media-body block m-b-none">
+                    <i class="glyphicon  glyphicon-tag " style="font-size: 14px;color: #23b7e5"></i>
+                      &nbsp;&nbsp;待办任务：({{messageall.schedule_amount}})<br>
+                     
+                    </span>
+                  </a>
+                   <a class="media list-group-item" style="margin-top:0px;" ui-sref="app.message({type:4})">
+                    <span class="media-body block m-b-none">
+                    <i class="glyphicon glyphicon-folder-open " style="font-size: 14px;color: #23b7e5"></i>
+                     &nbsp;&nbsp;用户信息：({{messageall.userMsg_amount}})<br>
+                    </span>
+                  </a>
+                </div>
+              
+              </div>
+            </div>
+          </li>
+         <li class="dropdown" dropdown>
+            <a href class="dropdown-toggle clear" dropdown-toggle>
+              <span class=" ">
+                <i class="glyphicon glyphicon-user "></i>
+              </span>
+              <span  ng-show="false">{{userId}}</span>
+              <span class="hidden-sm hidden-md " >{{userName}}</span> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu animated fadeInRight w">
+              <li>
+                <a  ng-click="loginOut()"  ui-sref="login"  >退出</a>
+              </li>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+

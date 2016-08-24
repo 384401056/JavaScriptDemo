@@ -1,0 +1,52 @@
+
+div.common-parameter-set{
+	width: 100%;
+	min-height:680px;
+	margin-bottom:15px;
+	overflow-x: auto;
+}
+
+div.common-parameter-set-page{
+	width: 100%;
+	border:1px solid #cccccc;
+	overflow-x: auto;
+}
+div.common-parameter-set-title{
+ 	 height:  32px;
+	 float: left;
+	 background-color: #00A65A;
+}
+div.common-parameter-set-edit{
+	 height:  32px;
+	 float: right;
+	 width: 100px;
+	 cursor: pointer;
+	 background-color: #00A65A;
+ }
+
+div.common-parameter-set-mid{
+	float: left;
+	min-width: 100%;
+	min-height:648px;
+	overflow-x: auto;
+}
+
+div.parameter-time{
+	float: left;
+}
+div.parameter-form{
+	margin-left:23px;
+}
+div.p-text-set{
+	margin-left:85px;
+	text-align: left !important;
+}
+div.p-text-set-width{
+	 min-width: 810px;
+}
+div.p-text-padding{
+	padding: 0px 15px;
+}
+div.p-set-Lable{
+	text-align: left !important;
+}

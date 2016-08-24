@@ -1,0 +1,219 @@
+
+
+<div class="col-lg-12"
+	style="height: 700px; border: 1px solid #e7e9e8; min-width: 1000px;"
+	ng-controller="Chat4ExpertCtrl" uploader="uploader">
+
+
+	<div class="col-sm-8" id="chart">
+		<div class="row"
+			style="border-bottom: 1px solid #e7e9e8; height: 40px; padding: 10px;">
+			&nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="function/expert/img/customservice.png" />
+			&nbsp;&nbsp;&nbsp;&nbsp; <b style="color: #00a65a">正在为客户--<font color="red">&nbsp;{{currentCustomer}}&nbsp;</font>解答
+			<!-- <a
+				ng-click="changeUser()">张翰生</a> --></b>
+		</div>
+		
+		<div class="row" style="margin: 5px;">
+			<chat-zone></chat-zone>
+			
+			<div class="row"
+				style="margin-top: 10px; margin-right: 2px; margin-left: 2px; background-color: #f2f4f3; height: 40px; padding-top: 9px; padding-left: 10px;">
+				<a
+					style="color: #444; float: left; padding: 0px 11px 1px 19px; background: url('function/expert/img/face.png') no-repeat 0px 4px"
+					class="emotion">A</a> <a
+					style="color: #444; float: left; padding: 0px 11px 1px 19px; background: url('function/expert/img/file.png') no-repeat 0px 4px"
+					>文件</a> 
+					<input type="file" uploader="uploader" nv-file-select="" style="width: 60px;opacity: 0;position: absolute;z-index: 10;left: 66px;cursor: pointer">
+					<a
+					style="color: #444; float: left; padding: 0px 11px 1px 19px; background: url('function/expert/img/msg.png') no-repeat 0px 4px"
+					href="####">留言</a> <a
+					style="color: #444; float: left; padding: 0px 11px 1px 23px; background: url('function/expert/img/record.png') no-repeat 0px 0px"
+					onclick="showmsg()">聊天记录</a>
+
+			</div>
+			<div contenteditable="true" style="overflow-y: auto !important; overflow-x: auto !important;height: 150px;width: 83%;float:left" 
+				class="form-control" id="saytext"></div>
+			<!-- <textarea ng-model="newMessage.content" ng-enter="postMessage()"
+				style="height: 150px; margin-top: 5px; width: 83%"></textarea> -->
+			<div style="float: right; width: 100px; margin-top: 20px;">
+				<a
+					style="float: right; background-color: #00a65a; color: #fff; padding: 36px 72px 32px 11px; background: url('function/expert/img/end.jpg') no-repeat"
+					href="####"></a> <a
+					style="float: right; background-color: #00a65a; color: #fff; padding: 36px 72px 32px 11px; background: url('function/expert/img/send.jpg') no-repeat"
+					ng-click="postMessage()"></a>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!--
+		*消息用户列表
+		*点击用户切换聊天用户对象
+	-->
+
+	<div class="col-sm-4" id="msgUserList">
+		<div class="row" style="border-bottom: 1px solid #e7e9e8;border-left: 1px solid #e7e9e8;height: 40px;padding: 10px;" id="userList_head">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<img src="function/expert/img/msg.png" />
+			&nbsp;&nbsp;&nbsp;&nbsp; <b style="color: #00a65a">消息用户列表</b>
+		</div>
+
+		<div class="col-sm-12" >
+
+			<div class="row" style="padding-top: 10px;padding-bottom: 10px;">
+				<div class="message_all" ng-click="checkAll()">
+					<input type="checkbox" id="messageUser_all" disabled="true" />
+					<span class="message_user_text">&nbsp;全部</span>
+				</div>
+
+				<ul class="" ng-model="userList" ng-repeat="item in userList">
+					<li class="message_user" id="message_user_{{item.id}}" ng-click="changeUser(item)">
+						<input type="checkbox" name="messageUser" value="{{item.id}}" disabled="true" /> <span class="message_user_text" >&nbsp;{{item.username}}</span>
+					</li>
+				</ul>
+			
+				
+				
+			</div>
+
+		</div>
+	</div>
+
+
+	<div style="display: none;" class="col-sm-4" id="msgRecord">
+		<div class="row"
+			style="border-bottom: 1px solid #e7e9e8; border-left: 1px solid #e7e9e8; height: 40px; padding: 10px;"
+			id="headrecord">
+			&nbsp;&nbsp;&nbsp;&nbsp; <img src="function/expert/img/msg.png" />
+			&nbsp;&nbsp;&nbsp;&nbsp; <b style="color: #00a65a">聊天记录</b>
+		</div>
+		<div class="col-sm-12">
+			<div class="row" style="padding-top: 10px; padding-bottom: 10px;">
+				<div class="col-md-4">
+					<input type="text" ng-model="formData.BeginTime"
+						class="form-control ng-pristine ng-untouched ng-invalid ng-invalid-required"
+						id="t_from" required="">
+				</div>
+				<div class="col-md-1">至</div>
+				<div class="col-md-4">
+					<input type="text" ng-model="formData.EndTime" required=""
+						class="form-control ng-pristine ng-untouched ng-valid-validator ng-invalid ng-invalid-required"
+						id="t_to">
+				</div>
+				<a
+					style="float: right; background-color: #00a65a; color: #fff; padding: 5px 10px 5px 10px;"
+					href="####">查询</a>
+			</div>
+
+		</div>
+		<div class="col-sm-12"
+			style="background-color: #fbfbfb; height: 595px;">聊天记录</div>
+
+	</div>
+
+</div>
+
+<script type="text/javascript">
+	var editable = document.getElementById('saytext'), selection, range;
+
+	//Populates selection and range variables
+	var captureSelection = function(e) {
+		// Don't capture selection outside editable region
+		var isOrContainsAnchor = false, isOrContainsFocus = false, sel = window
+				.getSelection(), parentAnchor = sel.anchorNode, parentFocus = sel.focusNode;
+
+		while (parentAnchor && parentAnchor != document.documentElement) {
+			if (parentAnchor == editable) {
+				isOrContainsAnchor = true;
+			}
+			parentAnchor = parentAnchor.parentNode;
+		}
+
+		while (parentFocus && parentFocus != document.documentElement) {
+			if (parentFocus == editable) {
+				isOrContainsFocus = true;
+			}
+			parentFocus = parentFocus.parentNode;
+		}
+
+		if (!isOrContainsAnchor || !isOrContainsFocus) {
+			return;
+		}
+
+		selection = window.getSelection();
+
+		// Get range (standards)
+		if (selection.getRangeAt !== undefined) {
+			range = selection.getRangeAt(0);
+
+			// Get range (Safari 2)
+		} else if (document.createRange && selection.anchorNode
+				&& selection.anchorOffset && selection.focusNode
+				&& selection.focusOffset) {
+			range = document.createRange();
+			range.setStart(selection.anchorNode, selection.anchorOffset);
+			range.setEnd(selection.focusNode, selection.focusOffset);
+		} else {
+			// Failure here, not handled by the rest of the script.
+			// Probably IE or some older browser
+		}
+	};
+
+	//Recalculate selection while typing
+	editable.onkeyup = captureSelection;
+
+	//Recalculate selection after clicking/drag-selecting
+	editable.onmousedown = function(e) {
+		editable.className = editable.className + ' selecting';
+	};
+	document.onmouseup = function(e) {
+		if (editable.className.match(/\sselecting(\s|$)/)) {
+			editable.className = editable.className.replace(/ selecting(\s|$)/,
+					'');
+			captureSelection();
+		}
+	};
+
+	
+
+	function showmsg() {
+
+		var chartclass = $("#chart").attr('class');
+
+		if (chartclass === 'col-sm-8') {
+			$("#chart").removeClass('col-sm-8');
+			$("#chart").addClass('col-sm-12');
+			$("#msgRecord").addClass('hide');
+		} else {
+			$("#chart").removeClass('col-sm-12');
+			$("#chart").addClass('col-sm-8');
+			$("#msgRecord").removeClass('hide');
+		}
+
+	};
+</script>
+<script type="text/javascript">
+	$(function() {
+		$('.emotion').qqFace({
+			id : 'facebox', //表情盒子的ID
+			assign : 'saytext', //给那个控件赋值
+			path : 'function/expert/img/face/' //表情存放的路径
+		});
+		$(".sub_btn").click(function() {
+			var str = $("#saytext").val();
+			$("#show").html(replace_em(str));
+		});
+	});
+	//查看结果
+	function replace_em(str) {
+		str = str.replace(/\</g, '&lt;');
+		str = str.replace(/\>/g, '&gt;');
+		str = str.replace(/\n/g, '<br/>');
+		str = str.replace(/\[em_([0-9]*)\]/g,
+				'<img src="face/$1.gif" border="0" />');
+		return str;
+	}
+</script>

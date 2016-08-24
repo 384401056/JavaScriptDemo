@@ -1,0 +1,39 @@
+.at-title{
+	background-color:#39bb7d; padding:5px;color: #fff
+}
+.pic-box{
+	background-color: #f2f4f3;width: 176px;height: 162px;margin-top: 10px;margin-right: 5px;float: left;text-align: center
+}
+.video-box{
+	background-color: #f2f4f3;width: 176px;height: 162px;margin-top: 10px;margin-right: 5px;float: left;text-align: center;position: relative
+}
+.vb-play{
+	position: absolute;top: 32px;cursor: pointer;left: 58px;
+}
+.vb-bg{
+	background-color: #000; opacity:0.5; -moz-opacity:0.5; filter:alpha(opacity=50);position: absolute;top: 102px;width: 155px;
+}
+.vb-text{
+	position: absolute;top: 102px;width: 155px;color: #fff;font-size: 12px;padding-top: 2px;
+}
+.pic-box-k{
+	height: 270px;width: 188px;border: 1px solid #f4f4f4;text-align: center;padding-left: 5px;margin-top: 10px;float: left;margin-right:5px;
+}
+.slideTxtBox{ border:1px solid #ddd; text-align:left;  }
+.slideTxtBox .hd{ height:30px; line-height:30px; background:#f4f4f4; padding:0 20px;   position:relative; }
+.slideTxtBox .hd ul{ float:left; position:absolute; left:0px; top:0px; height:32px;   }
+.slideTxtBox .hd ul li{ float:left; padding:0 15px; cursor:pointer;  }
+.slideTxtBox .hd ul li.on{ height:30px;  background:#fff;  border-top:1px solid #ff8200; }
+.slideTxtBox .bd ul{ padding:15px;  zoom:1;  }
+.slideTxtBox .bd li{ height:24px; line-height:24px;   }
+.slideTxtBox .bd li .date{ float:right; color:#999;  }
+
+
+		/* 智能诊断左侧菜单 */
+		.sideMenu{  border:1px solid #ddd; width: 220px;float: left;height: 797px; }
+		.sideMenu h3{ height:32px; line-height:32px; border-top:1px solid #e3e3e3; background:#f4f4f4; cursor:pointer;
+			font:normal 14px/32px "Microsoft YaHei"; padding:0px 0px 0px 12px;margin:0px;
+		}
+		.sideMenu h3 em{ float:right; display:block; width:40px; height:32px;   background:url(images/icoAdd.png) 16px 12px no-repeat; cursor:pointer; }
+		.sideMenu h3.on em{ background-position:16px -57px; }
+		.sideMenu ul{ padding:8px 15px; color:#999; display:none; /* 默认都隐藏 */ }

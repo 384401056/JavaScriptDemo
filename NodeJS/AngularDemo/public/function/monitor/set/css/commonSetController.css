@@ -1,0 +1,155 @@
+
+
+div.common-controller-set-page{
+	width: 100%;
+	height:100%;
+	margin-bottom:15px;
+	overflow-x: auto;
+}
+
+
+div.common-controller-set-nav ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+div.common-controller-set-nav{
+	width: auto;
+	height: 35px;
+	font-size: 14px;
+	margin-top: 0px;
+	background-color: #F2F3F3;
+	white-space: nowrap;
+	display: block;
+	overflow: auto;
+}
+
+div.common-controller-set-nav >i{
+	margin-top: 10px;
+	float: left;
+	padding-left: 15px;
+}
+
+.common-controller-set-nav > .common-controller-set-label {
+	margin-left:10px;
+	margin-top: 6px;
+	display: block;
+	float: left;
+}
+
+.common-controller-set-nav a {
+	color: #58666e;
+	text-decoration: none;
+}
+.common-controller-set-nav li.active a {
+	cursor: pointer;
+}
+
+.common-controller-set-nav > .common-controller-set-nav-content {
+	margin-top: 6px;
+	display: block;
+}
+
+.common-controller-set-nav-lst > li {
+	float: left;
+}
+.common-controller-set-nav-lst > li + li:before {
+	content: ">";
+	padding: 0 8px;
+}
+
+div.common-controller-set-title{
+	margin-top:10px;
+	/* width: 680px;*/
+	height:  30px;
+}
+
+
+div.common-set-controller-top-add{
+	float: right;
+	font-size: 14px;
+	margin-right: 5px;
+	margin-top: 5px;
+	cursor:pointer;
+}
+
+div.common-set-controller-top-edit{
+	float: right;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-right: 5px;
+	cursor:pointer;
+}
+
+div.common-set-controller-top-delete{
+	float: right;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-right: 5px;
+	cursor:pointer;
+}
+
+
+div.common-controller-set-title >span{
+	width: 200px;
+	font-size: 14px;
+	height: 30px;
+	color: #FFFFFF;
+	float: left;
+	background-color:#00A65A;
+}
+div.common-controller-set-mid{
+	height: auto;
+	width: 100%;
+	float: left;
+}
+div.common-controller-set-right{
+	margin-top: 40px;
+	border:1px solid #cccccc;
+}
+
+
+div.common-controller-set-wrapper-md{
+	height:610px;
+	overflow-y: scroll;
+	border: 1px solid  #cccccc;
+}
+
+div.common-controller-set-mid-right{
+	height:100%;
+	float: left;
+	margin-top: 40px;
+	border:1px solid #cccccc;
+}
+div.common-controller-set-mid-right .common-controller-inline-checkbox{
+	margin-left: 0px;
+}
+
+
+div.set-controller-time-p{
+	margin-left: -18px;
+}
+div.form-group .i-set-controller{
+	margin-left:-5px;
+}
+
+div.form-group .set-controller-bg{
+	background-color: #00A65A;
+}
+div.form-group .i-form-label{
+	margin-left: 0;
+
+}
+.set-controller-from{
+	position: relative;
+	padding-left: 100px;
+}
+.set-controller-from p{
+	position: absolute;
+	width:100px ;
+	left: 0;
+}
+.i-set-controller-padding-z .radio-inline, .checkbox-inline{
+	padding-left: 0px !important;
+}

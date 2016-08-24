@@ -1,0 +1,168 @@
+<style type="text/css">
+	.i-checks > i{background: rgba(0,166,90,0.5) !important;}
+</style>
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500,'limit':1, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+<div ng-controller="ViewController">
+    <div class="page-top">
+        <div class="state-label col-md-9 col-sm-8 col-xs-7">
+            <div class="state-item state-1">
+                <span class="state-icon"></span>
+                连接正常
+            </div>
+            <div class="state-item state-2">
+                <span class="state-icon"></span>
+                设备预警
+            </div>
+            <div class="state-item state-3">
+                <span class="state-icon"></span>
+                设备告警
+            </div>
+            <div class="state-item state-4">
+                <span class="state-icon"></span>
+                正在运行
+            </div>
+            <div class="state-item state-5">
+                <span class="state-icon"></span>
+                连接断开
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-4 col-xs-5">
+            <div class="view-lable">
+                <span class="composite-button-active view-name-active" ng-click="showMapView()">
+                    <span class="mapview-icon mapview-icon-active"></span>
+                    地图视图
+                </span>
+                <span class="composite-button-active view-name" ng-click="showListView()">
+                    <span class="listview-icon listview-icon-disable"></span>
+                    列表视图
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainPage" class="mapmonitor">
+        <div class="toolbox">
+            <div class="toolbox2">
+               <span class="left see-group"  title="分组" ng-click="showGroupInfor()"></span>
+            </div>
+            <user-group-permission code="100">
+            <div class="toolbox2">
+                <span  ng-click="unlock()" ng-show="isLock" class="left icon-lock" title="布局" style="font-size: 36px;margin-top: 5px;"></span>
+                <span  ng-click="lock()" ng-hide="isLock" class="right icon-unlock " title="布局" style="font-size: 36px;margin-top: 5px;"></span>
+            </div>
+            </user-group-permission>
+        </div>
+        <!--分组列表-->
+        <div class="groupbox text-center animal">
+        	<div class="group-title">
+        		<span class="pull-left text-left groupSpan">
+                    <h4>分组</h4>
+                    <small>对设备进行统一管理</small>
+                </span>
+                <user-group-permission code="40">
+        		<span class="pull-right addGroup" ng-show="showGroup" ng-click="addGroup()"><a href="javascript:;" title="新增分组"><i class="fa fw icon-plus"></i><small>新增分组</small></a></span>
+        		<span class="pull-right saveGroup" ng-hide="showAddGroup" ng-click="saveGroup()"><a href="javascript:;" title="保存"><i class="icon-ok"></i><small>保存</small></a></span>
+                <span class="pull-right edit-saveGroup" ng-hide="showEditGroup" ng-click="saveEditGroup()"><a href="javascript:;" title="保存编辑分组"><i class="icon-ok"></i><small>保存</small></a></span>
+                <span class="pull-right deleteGroup" ng-hide="showGroup" ng-click="cancelGroup()"><a href="javascript:;" title="取消" style="color: #F05050 !important;"><i class="icon-off" style="color: #F05050 !important;"></i><small style="color: #F05050 !important;">取消</small></a></span>
+                </user-group-permission>
+            </div>
+            <div class="gropu-list">
+            	<ul>
+            		<li ng-repeat="item in grouplist" class="group-li" id="{{item.id}}grouplist">
+            			<div class="group-content group-content{{item.id}} animal" ng-click="showdl({{item.id}})">
+            				<label class="pull-left" title="{{item.groupName}}">{{item.groupName}}</label>
+                            <small class="pull-left">{{item.devices.length}}个{{item.devices[0].typeName}}</small>
+            			</div>
+
+            			<dl>
+                            <!--ng-class="{'display':currentId==item.id,'animal':currentId==item.id}"-->
+            				<dt ng-repeat="devices in item.devices" style="line-height: 20px;">
+                                <span class="pull-left">{{devices.deviceName}}</span>
+                                <span class="pull-right text-center" ng-if="devices.status==0" style="color: #00A65A;">正常</span>
+                                <span class="pull-right text-center" ng-if="devices.status==200" style="color: #F5585B;">告警</span>
+                                <span class="pull-right text-center" ng-if="devices.status==201" style="color: #FFB15B;">预警</span>
+                                <span class="pull-right text-center" ng-if="devices.status==202" style="color: #27A9E3;">正在运行</span>
+                                <span class="pull-right text-center" ng-if="devices.status==-1" style="color: #CCCCCC;">离线</span>
+                            </dt>
+            			</dl>
+
+            			<span id="groupBtns" class="group-handle group-handle{{item.id}} btn-group" role="group">
+                            <user-group-permission code="160">
+                            <button ng-if="item.deviceTypeId == 21" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 22" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 23" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 24" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 25" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 28" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 29" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 30" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                            <button ng-if="item.deviceTypeId == 8" type="button" class="btn btn-default" ng-click="groupController(item.id)"><i class="icon-wrench"></i></button>
+                             </user-group-permission>
+                             <user-group-permission code="20">
+                                <a class="btn btn-default" href="javascript:;" title="编辑" ng-click="editDeviceGroup({{item.id}})"><i class="icon-edit"></i></a>
+                            </user-group-permission>
+
+                            <user-group-permission code="10">
+                                <a class="btn btn-default" href="javascript:;" title="查看" ng-click="showGroupIco({{item.id}})" id="eye-open{{item.id}}"><i class="icon-eye-open"></i></a>
+                                <a class="btn btn-default" href="javascript:;" title="查看" ng-click="hideGroupIco({{item.id}})" class="eyes" style="display: none"><i class="icon-eye-close" style="color:#00A65A"></i></a>
+                            </user-group-permission>
+
+        					<user-group-permission code="30">
+                               <a class="btn btn-default" href="javascript:;" title="删除" ng-click="delDeviceGroup({{item.id}})"><i class="glyphicon glyphicon-trash"></i></a>
+                            </user-group-permission>
+
+        				</span>
+            		</li>
+            	</ul>
+            </div>
+        </div>
+        <div id="mainBox" class ="image_map">
+            <span id="img_map" style="min-height: 680px;display: inline-block;width: auto;height: auto;">
+
+                    <img id="imgbg" class="placeholder" style="position:relative;cursor: pointer;" src="{{backImg}}" />
+
+                <div id="dev" style="height: 50px">
+                    <div ng-repeat="divice in items" ng-model="items" id="{{divice.id}}" title="{{divice.deviceName}}"   ng-style="{{divice.style}}"
+                    class="nph_photo_prev divice_div" >
+                        <div id="{{divice.id}}red" class="red-shadow animal"></div>
+                    	<!--xtn添加复选框-->
+	                    <span class="myCheck" id="{{divice.id}}myCheck">
+                           <label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="_deviceName" value="{{divice.id}}" ng-click="isAlikeGroup({{divice.id}},{{divice.deviceType}},'{{divice.deviceName}}','{{divice.typeName}}')" id="{{divice.id}}check"/>
+                                <i style="width: 25px; height: 25px;"></i>
+                            </label>
+	                    </span>
+                        <div class="iconBox" id="iconBox{{divice.id}}" ng-click="click({{divice.id}},{{divice.deviceType}},{{divice.iconPath}},{{divice.statValue}},{{divice.categoryId}},{{divice.deviceType}})">
+                        	<span id="{{divice.id}}icon"  class="{{divice.status}} _icon" style="width:25px;height:25px"></span>
+	                        <span id="{{divice.id}}value" class="_value" style="line-height: 25px;vertical-align: middle">{{divice.lastvalue}} {{divice.unit}}</span>
+	                        <span id="{{divice.id}}group" class="_group" style="display:none;line-height: 25px;vertical-align: middle;float: right;padding-right: 5px">
+	                            <img src="function/monitor/static/image/icon_group.png" />
+	                        </span>
+                        </div>
+                </div>
+                <div class="tag" style="display:none" id="infoWindow"
+                ng-include="'function/monitor/sensor.html'"></div>
+                <div class="tag" style="display:none" id="controllerinfoWindow"
+                ng-include="'function/monitor/controller.html'"></div>
+                <div class="tag" style="display:none" id="camerainfoWindow"
+                ng-include="'function/monitor/camera.html'"></div>
+                <div class="video_tag" style="display:none"  id="videoWindow"
+                ng-include="'function/monitor/video.html'"></div>
+            </div>
+
+        </span>
+    </div>
+    <div class="mapinfo">
+        <span id="upDown" class="icon-chevron-down collSpan" data-toggle="collapse" data-target="#demo"></span>
+        <div id="demo" class="mc collapse in">
+            <ul>
+                <li  class="icon-home" title="名称"> &nbsp;{{orgname}}</li>
+                <li  class="icon-user" title="用户"> &nbsp;{{contactname}}</li>
+                <li  class="icon-phone" title="联系电话"> &nbsp;{{mobile}}</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+</div>

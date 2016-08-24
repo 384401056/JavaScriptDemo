@@ -1,0 +1,186 @@
+/**
+ * 监控视图切换按钮
+ */
+span.listview-icon {
+	display: inline-block;
+	background-image: url("../image/icon_listview.png");
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+span.mapview-icon {
+	display: inline-block;
+	background-image: url("../image/icon_mapview.png");
+	width: 18px;
+	height: 17px;
+	margin-right: 5px;
+}
+span.listview-icon-active,
+span.mapview-icon-active {
+	background-position: 0px 0px;
+}
+span.listview-icon-disable{
+	background-position: -16px 0px;
+}
+span.mapview-icon-disable {
+	background-position: -18px 0px;
+}
+span.view-name-active{
+	color: #00A65A;
+	color: rgba(0,166,90,1);
+}
+div.view-lable {
+	line-height: 40px;
+	float: right;
+}
+
+/*设备状态图标*/
+span.state-icon-0 {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+span.state-icon-201 {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -10px 0px;
+}
+span.state-icon-200 {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -20px 0px;
+}
+span.state-icon-202 {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -30px 0px;
+}
+span.state-icon--1 {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -40px 0px;
+}
+
+/*列表中的 设置 图标*/
+span.setting-icon {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-image: url("../image/icon_setting.png");
+	background-repeat: no-repeat;
+}
+/*报表图标*/
+span.report-icon {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-image: url("../image/icon_report.png");
+	background-repeat: no-repeat;
+}
+/*操作图标*/
+span.operating-icon {
+	display: inline-block;
+	height: 12px;
+	width: 9px;
+	background-image: url("../image/icon_operating.png");
+	background-repeat: no-repeat;
+}
+span.operating-icon-start-active {
+	background-position: 0px 0px;
+}
+span.operating-icon-start-disable {
+	background-position: -9px 0px;
+}
+span.operating-icon-stop-active {
+	background-position: -18px 0px;
+}
+span.operating-icon-stop-disable {
+	background-position: -28px 0px;
+}
+/*操作-停止图标*/
+/*span.operating-icon-stop {
+	display: inline-block;
+	height: 12px;
+	width: 9px;
+	background-image: url("../image/icon_operating.png");
+	background-position: -18px 0px;
+	background-repeat: no-repeat;
+}
+*/
+
+/*应该为全局样式,选中内容的背景色和字体颜色*/
+*::selection {
+	color: #ffffff;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,1);
+}
+*::-moz-selection {
+	color: #ffffff;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,1);
+}
+/*设备表格的外部样式*/
+div.list-table {
+	//border:1px solid #E7E9E8;
+	padding: 2px 2px;
+	max-height: 300px;
+	overflow-y: auto;
+	/*height: 100px;
+	overflow-y: auto;*/
+}
+div.equip-grouped-list {
+	margin-top: 20px;
+}
+/*操作-删除图标*/
+span.delete-icon {
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	background-image: url("../image/icon_delete.png");
+	background-position: -0px 0px;
+	background-repeat: no-repeat;
+}
+/*图标*/
+span.icon {
+	margin-right: 5px;
+	/*float:none;*/
+}
+/*图标和文字的组合按钮*/
+span.composite-button-active,
+span.composite-button-disable {
+	display: inline-block;
+	margin-right: 5px;
+	line-height: 100%;
+}
+table tr.content-row {
+	
+}
+
+/*table tr.content-row,*/
+span.composite-button-active:hover {
+	/*cursor: pointer;*/
+}
+span.composite-button-disable:hover {
+	cursor: not-allowed;
+}
+.icon-copy {
+	line-height: 25px;
+}
+.icon-copy:hover {
+	cursor: pointer;
+}

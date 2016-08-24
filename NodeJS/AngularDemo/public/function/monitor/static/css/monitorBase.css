@@ -1,0 +1,311 @@
+div.acp-card-page {
+	margin: 0px 5px;
+	margin-bottom:10px;
+	overflow-x: auto;
+}
+div.acp-card-page div.acp-card-page-top {
+	height: 40px;
+}
+div.acp-card-page-top div.state-label {
+	line-height: 40px;
+	height: 100%;
+	padding-left: 0px;
+}
+div.acp-card-page-top div.state-label div.state-item {
+	float:left;
+	margin-right: 5px;
+}
+div.acp-card-page-top div.state-label div.state-item span.state-icon {
+	width:10px;
+	height:10px;
+	display: inline-block;
+	margin-right: 1px;
+}
+div.acp-card-page-top div.state-label div.state-item.state-1 span.state-icon {
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+div.acp-card-page-top div.state-label div.state-item.state-2 span.state-icon {
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -10px 0px;
+}
+div.acp-card-page-top div.state-label div.state-item.state-3 span.state-icon {
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -20px 0px;
+}
+div.acp-card-page-top div.state-label div.state-item.state-4 span.state-icon {
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -30px 0px;
+}
+div.acp-card-page-top div.state-label div.state-item.state-5 span.state-icon {
+	background-image: url("../image/icon_state.png");
+	background-repeat: no-repeat;
+	background-position: -40px 0px;
+}
+div.acp-card-page-top div.search-box {
+	position: relative;
+	top: 3px;
+}
+div.acp-card-page-top div.search-box div.search-btn {
+	width: 38px;
+	background-color: #00A65A;
+	background-image: url("../image/icon_search_btn.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+div.acp-card-list {
+	overflow: auto;
+	position: relative;
+}
+div.acp-card-list div.acp-card-panel:nth-child(2n-1) {
+	padding-left: 0px;
+}
+div.acp-card-list div.acp-card-panel:nth-child(2n) {
+	padding-right: 0px;
+}
+div.acp-card-list div.acp-card-item {
+	margin-top: 13px;
+	border:1px #E7E9E8 solid;
+}
+div.acp-card-list div.acp-card-item div.acp-card-top {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	font-weight: bold;
+	font-size:16px;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow : ellipsis; 
+	background-color: #F2F4F3;
+}
+div.acp-card-top div.card-opts {
+	height: 100%;
+	padding: 0px;
+}
+div.acp-card-top div.card-opts div.opt-item {
+	min-width: 32px;
+	height: 35px;
+	line-height: 35px;
+	text-align: center;
+	float: right;
+	margin-top: 3px;
+}
+div.acp-card-top div.card-opts div.opt-item.opt-num .num-box {
+	color: #FFFFFF;
+	font-weight: bold;
+	padding: 0px 2px;
+	background-image: url("../image/icon_numxx.png");
+	background-repeat: repeat-x;
+	background-position: center;
+}
+div.acp-card-top div.card-opts div.opt-item.opt-info {
+	background-image: url("../image/icon_gsxx.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+div.acp-card-top div.card-opts div.opt-item.opt-lct {
+	background-image: url("../image/icon_dlxx.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+div.acp-card-list div.acp-card-item div.acp-card-content {
+	border-top: 1px #E7E9E8 solid;
+	border-bottom: 1px #E7E9E8 solid;
+	height: 235px;
+	padding: 10px;
+}
+div.acp-card-content div.warn-info-lst {
+	height: 100%;
+	margin-right: 220px;
+	padding: 3px 10px;
+	overflow: hidden;
+}
+div.warn-info-lst div.warn-panel {
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 4px;
+	border-bottom: 1px #EEEEEE solid;
+	cursor: default;
+	white-space:nowrap;
+}
+div.warn-info-lst div.warn-panel div.warn-time {
+	width: 125px;
+	font-size: 12px;
+	color: #898989;
+	float: right;
+	text-align: center;
+}
+div.warn-info-lst div.warn-panel div.warn-time .date-p {
+	display: none;
+}
+div.warn-info-lst div.warn-panel div.warn-info {
+	margin-right: 130px;
+	position: relative;
+	padding-left: 50px;
+}
+div.warn-info-lst div.warn-panel div.warn-info.no-type {
+	padding-left: 15px;
+}
+div.warn-info-lst div.warn-panel div.warn-info span {
+	display: block;
+}
+div.warn-info-lst div.warn-panel div.warn-info span.warn-no {
+	width: 10px;
+	font-weight: bold;
+	position: absolute;
+	left: 0px;
+}
+div.warn-info-lst div.warn-panel div.warn-info span.warn-type {
+	width: 30px;
+	position: absolute;
+	left: 15px;
+}
+div.warn-info-lst div.warn-panel div.warn-info span.warn-type.type--1 {
+	color: #CCCCCC;
+}
+div.warn-info-lst div.warn-panel div.warn-info span.warn-type.type-200 {
+	color: #F5585B;
+}
+div.warn-info-lst div.warn-panel div.warn-info span.warn-type.type-201 {
+	color: #FFB15B;
+}
+div.warn-info-lst div.warn-panel div.warn-info span.warn-title {
+	overflow: hidden;
+	text-overflow : ellipsis;
+}
+div.acp-card-content div.equip-icon-lst {
+	width: 210px;
+	height: 100%;
+	min-height: 138px;
+	float: right;
+	overflow: hidden;
+	padding: 5px;
+}
+div.equip-icon-lst div.equip-icon-0 {
+	margin: 5px 4px;
+	float: left;
+}
+div.acp-card-list div.acp-card-item div.acp-card-bottom {
+	height: 40px;
+	line-height: 40px;
+	padding: 0px 15px;
+	overflow: hidden;
+}
+div.acp-card-bottom > div {
+	height: 20px;
+	color: #888888;
+	font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	margin-left: 10px;
+	margin-top: 12px;
+	float: left;
+}
+div.acp-card-pagination {
+	height: 40px;
+	line-height: 40px;
+	margin-top: 15px;
+	background-color: #F2F4F3;
+	overflow: hidden;
+}
+div.acp-card-pagination div.pagination {
+	height: 40px;
+	overflow: hidden;
+}
+.pagination > .disabled > span, 
+.pagination > .disabled > span:hover, 
+.pagination > .disabled > span:focus, 
+.pagination > .disabled > a, 
+.pagination > .disabled > a:hover, 
+.pagination > .disabled > a:focus {
+	cursor:default;
+}
+div.acp-card-pagination div.pageInfo {
+	width: 270px;
+	height: 40px;
+	float: right;
+	text-align: center;
+}
+div.pageInfo span {
+	color: #777777;
+	font-size: 12px;
+	display: inline-block;
+	margin: 0px 3px;
+	line-height: 20px;
+}
+div.pageInfo span.curry-page-panel input {
+	width:35px;
+	height:20px;
+	text-align: center;
+	margin: 0px 2px;
+	border: 1px solid #DDDDDD;
+}
+div.pageInfo span.page-size-panel select {
+	width:50px;
+	height:20px;
+	margin: 0px 2px;
+	border: 1px solid #DDDDDD;
+}
+div.acp-card-pagination div.pagination {
+	text-align: left;
+	padding: 0px 15px;
+}
+div.acp-card-pagination .pagination {
+	margin: 3px 0px;
+}
+div.acp-card-page-top div.search-box div.search-btn,
+div.acp-card-list div.acp-card-item div.acp-card-top,
+div.acp-card-page div.acp-card-page-nav > span.nav-item.enable {
+	cursor: pointer;
+}
+@media (max-width: 1600px) {
+	div.warn-info-lst div.warn-panel div.warn-info {
+		margin-right: 80px;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time {
+		width: 75px;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time .date-time-p {
+		display: none;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time .date-p {
+		display: block;
+	}
+}
+@media (max-width: 1280px) {
+	div.warn-info-lst div.warn-panel div.warn-info {
+		margin-right: 130px;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time {
+		width: 125px;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time .date-time-p {
+		display: block;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time .date-p {
+		display: none;
+	}
+	div.acp-card-list div.acp-card-panel {
+		width: 100%;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+}
+@media (max-width: 800px) {
+	div.warn-info-lst div.warn-panel div.warn-info {
+		margin-right: 80px;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time {
+		width: 75px;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time .date-time-p {
+		display: none;
+	}
+	div.warn-info-lst div.warn-panel div.warn-time .date-p {
+		display: block;
+	}
+}

@@ -1,0 +1,506 @@
+div.expert-page {
+	/*min-width: 700px;*/
+	overflow-x:auto;
+}
+
+/*专家在线左div*/
+div.expert-left {
+	/*min-width: 800px;*/
+	overflow-x:auto;
+	padding: 0;
+}
+
+#div-expert-left {
+	height: 777px;
+	overflow: hidden;
+}
+
+#div-expert-right {
+	/*min-width: 515px;*/
+	height: 720px;
+	/* overflow: hidden; */
+}
+
+/*专家在线右div*/
+div.expert-right {
+	overflow-x:auto;
+	padding: 0;
+}
+
+
+div.search-box div.search-btn {
+	width: 38px;
+	background-color: #00A65A;
+	background-image: url("../image/icon_search_btn.png");
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+div.search-btn > span.nav-item.enable {
+	cursor: pointer;
+}
+
+/*列表名称*/
+span.expert-list-name {
+	min-width: 100px;
+	padding: auto 10px;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,1);
+	display: inline-block;
+	line-height: 30px;
+	color: #ffffff;
+	text-align: center;
+}
+
+/*查询类别-选中*/
+span.expert-search-type-active {
+	min-width: 100px;
+	padding:auto 10px;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,1);
+	color: #ffffff;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #E7E9E8;
+	border-bottom: 0px;
+	cursor: pointer;
+}
+/*查询类别-未选中*/
+span.expert-search-type {
+	min-width: 100px;
+	padding:auto 10px;
+	background-color: #FFFFFF;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #E7E9E8;
+	border-bottom: 0px;
+	cursor: pointer;
+}
+
+/*查询类别-选中*/
+span.expert-search-type-all-active {
+	min-width: 100px;
+	padding:auto 10px;
+	background-color: #00A65A;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #E7E9E8;
+	color: white;
+	cursor: pointer;
+}
+/*查询类别-未选中*/
+span.expert-search-type-all {
+	min-width: 100px;
+	padding:auto 10px;
+	background-color: #FFFFFF;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #E7E9E8;
+	cursor: pointer;
+}
+
+
+
+
+
+/*列表行间距*/
+div.row-list {
+	margin-bottom: 6px;
+}
+
+div.row-content {
+	margin-bottom: 15px;
+}
+
+/*咨询层*/
+span.expert-head-border {
+	min-width: 80px;
+	min-height: 80px;
+	padding:auto 10px;
+	background-color: #FFFFFF;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #E7E9E8;
+	margin-right: 15px;
+}
+
+div.counsel {
+	border: 1px solid #E7E9E8;
+	margin-bottom: 15px;
+}
+
+div.row-counsel {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+	width: 100%;
+
+}
+
+
+div.expert-text {
+	background-color: #FFFFFF;
+	display: inline-block;
+}
+span.expert-text {
+	display: inline-block;
+	min-width: 85px;
+	/*min-height: 40px;*/
+	padding:auto 10px;
+	background-color: #FFFFFF;
+}
+
+.expert-name {
+	width: 100px;
+}
+
+.icon-counsel {
+	width: 15px;
+	height: 15px;
+	background: url("../image/icon_counsel.png")  15px 15px ;
+
+}
+
+.expert-icon-td {
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.text-black {
+	float: left;
+	display: block;
+}
+
+.text-gray {
+	float: left;
+	display: block;
+}
+
+span.share-href a:hover{
+	color:#557FFF;
+	text-decoration: none;
+}
+
+span.share-href a{
+	color:#00A65A;
+	text-decoration: none;
+}
+
+
+.regular-width {
+	min-width: 250px;
+	width: 580px;
+}
+
+span.icon-appoint-enable {
+	height:20px;
+	width:20px;
+   	display: inline-block;
+  	background-image: url("../image/icon_appoint.png");
+  	background-position: -20px 0px;
+  	margin-top: 20px;
+  	margin-left: 5px;
+}
+
+span.icon-appoint-disable {
+	height:20px;
+	width:20px;
+   	display: inline-block;
+  	background-image: url("../image/icon_appoint.png");
+  	background-position: 0px 0px;
+  	margin-top: 20px;
+  	margin-left: 5px;
+}
+
+div.span-appoint-enable {
+	width: 90px;
+	height: 60px;
+	border: 1px solid #01A65A;
+	cursor: pointer;
+	float: left;
+}
+
+div.span-appoint-disable {
+	width: 90px;
+	height: 60px;
+	border: 1px solid #E7E9E8;
+	cursor: pointer;
+	float: left;
+}
+
+span.text-appoint-enable {
+	color: #00A65A;
+	font-size: 16px;
+	display: inline-block;
+	width: 40px;
+	float: right;
+	margin-top: 7px;
+	margin-right: 10px;
+}
+
+span.text-appoint-disable {
+	color: #888888;
+	font-size: 16px;
+	display: inline-block;
+	width: 40px;
+	float: right;
+	margin-top: 7px;
+	margin-right: 10px;
+}
+
+
+span.text_more {
+	color: #FF951F;
+	float: right;
+	margin-right: 15px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+span.span-gree {
+	color: #00A65A;
+	font-size: 19px;
+}
+
+span.span-text {
+	letter-spacing: 2px;
+}
+
+div.counsel-gree {
+	text-align: center;
+	border: 1px solid #E7E9E8;
+	border-bottom: 0px;
+}
+
+
+textarea.textarea-greeCounsel {
+	width: 100%;
+	min-height: 200px;
+	resize: none;
+	background-color: #F8F8F8;
+	border: 0px;
+	margin-top: 5px;
+	padding: 15px 15px;
+}
+
+
+.goCounsel {
+	width: 140px;
+	height: 30px;
+	border: 1px solid #01A65A;
+	float: right;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	line-height: 100%;
+	cursor: pointer;
+}
+
+.icon_goCounsel {
+	height:20px;
+	width:20px;
+   	display: inline-block;
+  	background-image: url("../image/icon_goCounsel.png");
+  	background-position: -20px 0px;
+  	margin-top: 2px;
+}
+
+.counsel_btn {
+	color: #00A65A;
+	font-size: 15px;
+	/* display: inline-block; */
+	line-height: 15px;
+}
+
+
+
+/*最新文章-样式*/
+.row-list-white {
+	min-width: 120px;
+	background-color: #FFFFFF;
+	display: inline-block;
+	line-height: 30px;
+	text-align: center;
+}
+
+.row-content-white {
+	min-width: 100%;
+	background-color: #FFFFFF;
+	display: inline-block;
+	text-align: center;
+}
+
+.row-content-height {
+	height:95%;
+}
+
+.row-border-bg {
+	border :1px solid #E7E9E8;
+}
+
+.row-border-nobottom {
+	border-bottom: 0px;
+}
+
+.row-article {
+	height: 80px;
+	width: 90%;
+	text-align: left;
+	margin-left: 20px;
+	margin-top: 5px;
+	margin-bottom: 20px;
+
+}
+
+.article-title {
+	color:#454545;
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+.article-content {
+	text-overflow: ellipsis;
+	color:#888888;
+	display: block;
+	word-break: pre-wrap;
+	margin-left: 10px;
+	margin-bottom: 5px;
+	height: 40px;
+	/*width: 479px;*/
+}
+
+.article-time {
+	color:#888888;
+	display: inline-block;
+	margin-left: 10px;
+	font-size: 12px;
+}
+
+.article-more {
+	float: right;
+	cursor: pointer;
+}
+.article-more:hover {
+	color:#4169E1;
+}
+
+.more-color {
+	color:#FF951F;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+span.margin-right {
+	margin-right: 20px;
+}
+
+.list-top {
+	margin-top: 10px;
+} 
+
+.list-bottom {
+	margin-bottom: 10px;
+}
+
+.list-gap {
+
+	margin-bottom: 20px;
+	border-bottom: 1px solid #E7E9E8;
+	width: 100%;
+	line-height: 20px;
+	text-align: left;
+}
+
+span.list-gap-text {
+	margin-bottom: 10px;
+	display: inline-block;
+	cursor: pointer;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+
+}
+/**
+ *文章标题-鼠标悬浮效果
+ */
+span.list-gap-text:hover {
+	color:#4169E1;
+}
+span.list-gap-text-gray {
+	margin-bottom: 10px;
+	display: inline-block;
+	color:#888888;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.list-gap-text-more {
+	float: right;
+	cursor: pointer;
+
+}
+
+
+
+.headPic {
+	width: 80px;
+	height: 80px;
+}
+
+
+.wanner_ask {
+	font-weight: bold;
+	margin-top: 10px;
+	display: inline-block;
+}
+
+.a_pointer {
+	cursor: pointer;
+}
+
+.a_pointer:hover {
+	color:#4169E1;
+}
+
+
+/*专家文章分页列表*/
+table.table_article{
+	border: 1px solid #C3C3C3;
+}
+
+.tr_head th{
+	height:35px;
+	background-color: #BBD9EE;
+	text-align: center;
+	border: 1px solid #C3C3C3;
+}
+
+.table_article tr.tr_odd td,
+.table_article tr.tr_even td {
+	text-align: center;
+	height: 35px;
+	border: 1px solid #C3C3C3;
+}
+/*隔行换色*/
+tr.tr_odd {
+	background-color: #FBFBFB;
+}
+tr.tr_even {
+	background-color: #ffffff;
+}
+
+.table_article td.view {
+	cursor: pointer;
+}
+
+.table_article td.view:hover {
+	color:#4169E1;
+}

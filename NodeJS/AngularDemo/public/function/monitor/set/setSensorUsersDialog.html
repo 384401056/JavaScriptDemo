@@ -1,0 +1,81 @@
+<style type="text/css">
+	 div.search-box {
+		position: relative;
+		top: 3px;
+	}
+    div.search-box div.search-btn {
+		width: 38px;
+		background-color: #00A65A;
+		background-image: url("function/monitor/set/image/icon_search_btn.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		cursor: pointer;
+	}
+	div.i-set-user-lable-right{
+	   padding-right: 25px;
+		float: right;
+	}
+	div.i-set-user-bg{
+		background-color: #FFFFFF;
+	}
+    div.i-set-user-lable-left{
+	    margin-left: 25px;
+    }
+	div.dialog-panel{
+		min-height: 500px;
+	}
+</style>
+<div id="groupForms" class="dialog-panel" app-controller="SetSensorToUserController">
+	<div class="dialog-top-bar">
+		<div class="dialog-close-btn" ng-click="cancel();"></div>
+		<div class="dailog-title">
+			<span class="split">&gt;</span>
+			<span class="title">选择接收人</span>
+		</div>
+	</div>
+	<div class="dialog-content">
+		<div class="panel-body">
+
+			<form style="padding: 0px;"  class="form-horizontal acp-form-check" id="devicegroup" name="form" novalidate="" method="post">
+				<div class="form-group">
+					<div class="search-box input-group col-sm-11 i-set-user-lable-left">
+						<input type="text" class="form-control" required="true" ng-model="searchv"  data-maxlength="30" ng-keypress="searchFieldKeypress($event);" ng-keyup="searchFieldKeyup($event);"/>
+						<div class="search-btn input-group-addon"  ng-click="searchNode(searchv,'name')" ></div>
+					</div>
+				</div>
+				<div class="form-group"  >
+					<div class="col-sm-11 i-set-user-lable-left" style="min-height:350px; max-height:350px;border: 1px solid  #cccccc;overflow-y: scroll;">
+						<div id="treeDiv" class="ztree" style="float:left; padding-left:0px;"></div>
+					</div>
+				</div>
+
+ 				<div class="form-group" >
+
+					<div class=" col-sm-2 i-set-user-lable-left text-center" style="border: 1px solid #CCCCCC;height:35px;cursor: pointer" ng-show="sFalg" ng-click="checkAll(1)">
+						<label class=" control-label i-set-user-bg" style="cursor: pointer"  ng-click="checkAll(1)">全选</label>
+					</div>
+
+					<div class=" col-sm-2 i-set-user-lable-left text-center" style="border: 1px solid #CCCCCC;height:35px;cursor: pointer" ng-show="cFalg" ng-click="checkAll(2)">
+						<label class=" control-label i-set-user-bg" style="cursor: pointer" ng-click=" checkAll(2)">取消</label>
+					</div>
+
+					<div class=" col-sm-3   text-left " style="float: left;margin-top: 6px">
+						<lable class="control-label" >已选择[{{count}}]</lable>
+					</div>
+					<div class="  col-sm-3 text-right i-set-user-lable-right">
+						<button class="btn btn-success set-sensor-bg "ng-click="ok();" >确定</button>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function() {
+		var oWindowHheight = $(window).height();
+		var oObjHheight = $(".modal-content").height();
+		$(".modal-content").css('top', (oWindowHheight - oObjHheight) /10);
+	})
+</script>

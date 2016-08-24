@@ -1,0 +1,1 @@
+window.ACP_PORTAL_SERVER="http://10.88.20.75:8094/acp-web-portal/";

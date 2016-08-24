@@ -1,0 +1,268 @@
+
+
+.content{
+	width: auto;
+	height: auto;
+	margin: 0px auto; 
+	background: #FFFFFF;
+}
+
+.content .top{
+	height: 80px;
+	width: 100%;
+	background: #FFFFFF;
+    text-align: center;
+}
+
+.content .top img{ 
+	margin-top: 55px;
+}
+ 
+.content .page{
+    height:560px;
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    background-repeat:no-repeat;
+    background-position:center;
+    vertical-align: middle;
+    background-image: url("../login/img/login_bg.jpg");
+}
+
+ .page .mid{
+     height:450px;
+     max-width: 1000px;
+     margin: 55px auto;
+     position: relative;
+}
+
+.page .mid .mid-left{
+    height: 100%;
+    width: 600px;
+    float: left;
+    overflow-y: hidden;
+    position: relative;
+}
+.page .mid .mid-left .left-top {
+    width: 380px;
+    height:70px;
+    left: 60px;
+    top: 90px;
+    position: absolute;
+}
+.page .mid .mid-left .left-bottom {
+    width: 380px;
+    height:150px;
+    left: 215px;
+    top: 260px;
+    position: absolute;
+
+}
+.page .mid .mid-right {
+    height: 100%;
+    margin-left: 600px;
+    position: relative;
+}
+
+.page .mid .mid-right .login-box {
+    width: 340px;
+    height: 360px;
+    left: 60px;
+    top: 50px;
+    background: #FFFFFF ;
+    opacity: .7;
+    border-radius: 7px;
+    position: absolute;
+}
+
+.page .mid_content{
+    height:110px;
+    width: 110px;
+    margin-left: 60px;
+	position:absolute;
+}
+ 
+
+.mid .mid_content_load{  
+    height:120px;
+    width: 130px;
+    margin-left: 210px;
+}
+
+.mid .mid_content_load .out {
+    border: 1px solid #FFFFFF;
+    border-radius: 7px;
+    width: 170px;
+    height: 60px;
+    opacity: 0.8;
+    padding: 2px;     /*改变这个值可以改变蓝色div的大小*/
+	margin : 1px 0px 1px 0px;
+}
+.mid .mid_content_load .in {
+   border-radius: 7px;
+   width:  162px;
+   height: 52px;
+   background: #FFFFFF;
+   margin : 1px 0px 1px 1px;
+}
+
+
+.mid .mid_content_load .in:hover{
+    background:  #FFFFFF;
+    cursor: pointer;
+}
+
+.mid .mid_content_load .out_ios {
+    border: 1px solid  #FFFFFF;
+    border-radius: 7px;
+    width: 170px;
+    height: 60px;
+    opacity: 0.8;
+    padding: 2px;     /*改变这个值可以改变蓝色div的大小*/
+    margin : 21px 0px 1px 0px;
+}
+.mid .mid_content_load .in_ios {
+   border-radius: 7px;
+   width:  162px;
+   height: 52px;
+  background: #FFFFFF;
+   margin : 1px 0px 1px 1px;
+}
+
+
+
+.mid .mid_content_load .in_ios:hover{
+    background:  #FFFFFF;
+    cursor: pointer;
+}
+
+.mid  .mid_right{
+    margin-left: 3%;
+    padding-top: 40px;
+}
+
+
+.login_text{
+    padding-top: 25px;
+    text-align: center;
+    color: #444444;
+}
+
+
+.loginPanel{
+    margin-left:45%;
+    background: #FFFFFF ;
+    opacity: .7;
+    width:356px;
+    height:320px; 
+    border-radius: 7px;
+}
+
+.inputGroup{
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+.un_input{
+    width: 300px;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 7px;
+    border:1px solid #00A65A;
+    line-height:40px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.pwd_input{
+    width: 300px;
+    height: 45px;
+    margin-top: 10px;
+    border-radius: 7px;
+    border:1px solid #00A65A;
+    line-height:35px;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.login-box input{
+    margin-left: 5px;
+    width: 230px;
+    height: 30px;
+    border:none;
+    outline:medium; /*去除选中时边框颜色.*/
+    font-size: medium;
+    line-height: 30px;
+}
+ .login_btn button {
+    width: 300px;
+    height: 45px;
+    color: #ffffff;
+    background: #4DC078;
+    border: 2px solid #4DC078;
+    border-radius: 7px;
+    margin-left: -20px;
+    margin-top: 25px; 
+    font-size: 18px;
+}
+
+.login_btn button:hover{
+    background: #00A65A;
+    border: 2px solid #00A65A;
+    cursor: pointer;
+}
+
+/*去除点击后出现的边框线*/
+.login_btn button:focus {
+    outline: none;
+}
+
+
+.login-box .rememmer input{
+    margin-top:25px; 
+    margin-left: 30px;
+    height: 10px; 
+    width: 20px;  
+    float: left;
+ }
+
+
+.login-box .rememmer {
+     height: 10px;
+     width: 300px;
+     margin-left: 20px;
+     float: left;
+     color: #444444;
+     font-size: 14px;
+ }
+
+.login-box.fotget {
+      margin-top: 50px;
+      width:50px;
+      font-size: 10px;
+      float: right;
+      color: #444444;
+}
+
+.bottom{
+    height:30px;
+    font-size: 12px;
+    text-align: center;
+    padding-top: 5px;
+     background-color: #FFFFFF;
+}
+  
+ .login-box .warningInfo{
+    margin-left: 40px;
+    margin-top:25px;
+    height: 10px;
+    width: 250px;  
+    color: #f44659;
+}
+
+
+ 
+ 
+ 
+  

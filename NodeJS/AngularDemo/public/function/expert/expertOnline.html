@@ -1,0 +1,374 @@
+
+<div class="col-lg-12 frame exponline"
+	
+	ng-controller="ChatCtrl" uploader="uploader" >
+
+	<div class="col-sm-8" id="chart">
+		<div class="row frameup expheader"
+			>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<img 
+				src="function/expert/img/customservice.png" />
+			&nbsp;&nbsp;&nbsp;&nbsp; <b style="color: #00a65a">专家在线咨询欢迎您:{{currentUser.username}} &nbsp;&nbsp;
+		
+			</b> 
+		</div>
+
+		<div class="row" style="margin: 5px;" >
+			<chat-zone></chat-zone>
+			<div class="row evaluate"  ng-hide="state.currentRoom.roomid==null" >
+				<a  class="evaluate-bt" ng-click="postevaluate()">我要评价</a>
+
+				<div  class="m-b evaluate-star"
+					style="padding-right: 20px;">
+					满意度
+					<rating ng-model="evaluate.zz" max="5"
+						state-on="'glyphicon glyphicon-star text-success'"
+						state-off="'glyphicon glyphicon-star-empty'"></rating>
+				</div>
+				<div class="m-b evaluate-star">
+					服务态度
+					<rating ng-model="evaluate.yy" max="5"
+						state-on="'glyphicon glyphicon-star text-success'"
+						state-off="'glyphicon glyphicon-star-empty'"></rating>
+				</div>
+				<div  class="m-b evaluate-star"> <font color="#00a65a">评价：</font>
+					专业度
+					<rating ng-model="evaluate.xx" max="5"
+						state-on="'glyphicon glyphicon-star text-success'"
+						state-off="'glyphicon glyphicon-star-empty'"></rating>
+				</div>
+			</div>
+			<div class="row chatbtbar" ng-hide="state.currentRoom.roomid==null">
+				<a class="emotion em">A</a>
+				<a class="expfile">文件</a>
+				<input type="file" uploader="uploader" nv-file-select="" class="hideinput" multiple="">
+				<a class="chatrecord" onclick="showmsg()">聊天记录</a>
+				<a class="sendfile" onclick="showupload()">传送文件</a>
+
+			</div>
+			<div ng-hide="state.currentRoom.roomid==null" contenteditable="true" style="" 
+				class="form-control saytext" id="saytext"></div>
+			<!-- <textarea ng-model="newMessage.content" ng-enter="postMessage()"
+				style="height: 150px; margin-top: 5px; width: 83%"></textarea>
+		-->
+		<div class="sendandout" ng-hide="state.currentRoom.roomid==null" >
+			<a class="gohome" ng-click="goHome()"></a>
+			<a class="postmsg" ng-click="postMessage()"></a>
+		</div>
+
+	</div>
+
+</div>
+<div class="col-sm-4" id="msgRecord">
+	<div class="row ltjl" id="headrecord">
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="function/expert/img/msg.png" />
+		&nbsp;&nbsp;&nbsp;&nbsp; <b style="color: #00a65a">聊天记录</b>
+	</div>
+	<div class="col-sm-12">
+		<div class="row ltjl-row" >
+			<div class="col-md-5">
+				<input type="text" id="datetimepicker" type="text" ng-readonly="true"
+						class="form-control "></div>
+			<div style="width: 14px;float: left">至</div>
+			<div class="col-md-5">
+				<input type="text" id="datetimepicker1" type="text"  ng-readonly="true"
+						class="form-control "></div>
+			<a class="ltjl-bt" ng-click="getMsgRecord()">查询</a>
+		</div>
+
+	</div>
+	<div class="col-sm-12 ltjl-main" >
+
+			<div ng-repeat="item in msgrecords.list "   class="col-sm-12" >
+		
+			<div style="float: left">
+				<a>{{item.formuser}}</a>：
+			</div>
+			<div style="float: left;">
+				<font style="font-size: 10px; color: #ccc"> {{item.msgdate
+					| date:'yyyy-MM-dd HH:mm:ss'}}</font>
+					<div  style="color: #000;max-width: 1000px; " ng-bind-html="item.content">
+						
+					</div>
+				
+				
+			</div>
+		
+	</div>
+
+
+			</div>
+			 <pagination class="pagination-sm" ng-model="pageInfo.currentPage" num-pages="numPages" total-items="pageInfo.totalRecord" max-size="8" items-per-page="pageInfo.pageSize" ng-change="getMsgRecord();" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页" boundary-links="true"></pagination>
+
+</div>
+
+<div class="col-sm-4" id="uploadinfo">
+	<div class="row sendfile-bt"
+			
+			id="headrecord">
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<img src="function/expert/img/msg.png" />
+		&nbsp;&nbsp;&nbsp;&nbsp;
+		<b style="color: #00a65a">传送文件</b>
+	</div>
+	<div class="col-sm-12 sendfilescroll">
+		<div class="row " >
+			<!--上传文件列表 -->
+			<div class="wrapper-md " >
+				<div  ng-repeat="item in uploadFile">
+					<div>{{ item.file.name }}<font style="float: right;color: #ccc">{{ item.file.size/1024/1024|number:2 }} MB</font></div>
+				
+					<div class="progress progress-sm m-b-none m-t-xs" >
+						<div class="progress-bar bg-info" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+					</div>
+					<div  >
+						<span ng-show="item.isSuccess" class="text-success"> <i class="glyphicon glyphicon-ok"></i>传送成功
+						</span>
+						<span ng-show="item.isCancel" class="text-warning"> <i class="glyphicon glyphicon-ban-circle"></i>传送取消
+						</span>
+						<span ng-show="item.isError" class="text-danger">
+							<i class="glyphicon glyphicon-remove"></i>传送失败
+						</span>
+					</div>
+
+					<div >
+						<button type="button" class="btn btn-default btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">传送</button>
+						<button type="button" class="btn btn-default btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">取消</button>
+						<button type="button" class="btn btn-default btn-xs" ng-click="item.remove()">删除</button>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--end上传文件列表 -->
+		</div>
+
+	</div>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+	var editable = document.getElementById('saytext'), selection, range;
+
+	//Populates selection and range variables
+	var captureSelection = function(e) {
+		// Don't capture selection outside editable region
+		var isOrContainsAnchor = false, isOrContainsFocus = false, sel = window
+				.getSelection(), parentAnchor = sel.anchorNode, parentFocus = sel.focusNode;
+
+		while (parentAnchor && parentAnchor != document.documentElement) {
+			if (parentAnchor == editable) {
+				isOrContainsAnchor = true;
+			}
+			parentAnchor = parentAnchor.parentNode;
+		}
+
+		while (parentFocus && parentFocus != document.documentElement) {
+			if (parentFocus == editable) {
+				isOrContainsFocus = true;
+			}
+			parentFocus = parentFocus.parentNode;
+		}
+
+		if (!isOrContainsAnchor || !isOrContainsFocus) {
+			return;
+		}
+
+		selection = window.getSelection();
+
+		// Get range (standards)
+		if (selection.getRangeAt !== undefined) {
+			range = selection.getRangeAt(0);
+
+			// Get range (Safari 2)
+		} else if (document.createRange && selection.anchorNode
+				&& selection.anchorOffset && selection.focusNode
+				&& selection.focusOffset) {
+			range = document.createRange();
+			range.setStart(selection.anchorNode, selection.anchorOffset);
+			range.setEnd(selection.focusNode, selection.focusOffset);
+		} else {
+			// Failure here, not handled by the rest of the script.
+			// Probably IE or some older browser
+		}
+	};
+
+	//Recalculate selection while typing
+	editable.onkeyup = captureSelection;
+
+	//Recalculate selection after clicking/drag-selecting
+	editable.onmousedown = function(e) {
+		editable.className = editable.className + ' selecting';
+	};
+	document.onmouseup = function(e) {
+		if (editable.className.match(/\sselecting(\s|$)/)) {
+			editable.className = editable.className.replace(/ selecting(\s|$)/,
+					'');
+			captureSelection();
+		}
+	};
+
+	/* editable.onblur = function(e) {
+		var cursorStart = document.createElement('span'), collapsed = !!range.collapsed;
+
+		cursorStart.id = 'cursorStart';
+		cursorStart.appendChild(document.createTextNode('[-]'));
+
+		// Insert beginning cursor marker
+		range.insertNode(cursorStart);
+
+		// Insert end cursor marker if any text is selected
+		if (!collapsed) {
+			var cursorEnd = document.createElement('span');
+			cursorEnd.id = 'cursorEnd';
+			range.collapse();
+			range.insertNode(cursorEnd);
+		}
+	}; */
+
+	/* //Add callbacks to afterFocus to be called after cursor is replaced
+	//if you like, this would be useful for styling buttons and so on
+	var afterFocus = [];
+	editable.onfocus = function(e) {
+		// Slight delay will avoid the initial selection
+		// (at start or of contents depending on browser) being mistaken
+		setTimeout(
+				function() {
+					var cursorStart = document.getElementById('cursorStart'), cursorEnd = document
+							.getElementById('cursorEnd');
+
+					// Don't do anything if user is creating a new selection
+					if (editable.className.match(/\sselecting(\s|$)/)) {
+						if (cursorStart) {
+							cursorStart.parentNode.removeChild(cursorStart);
+						}
+						if (cursorEnd) {
+							cursorEnd.parentNode.removeChild(cursorEnd);
+						}
+					} else if (cursorStart) {
+						captureSelection();
+						var range = document.createRange();
+
+						if (cursorEnd) {
+							range.setStartAfter(cursorStart);
+							range.setEndBefore(cursorEnd);
+
+							// Delete cursor markers
+							cursorStart.parentNode.removeChild(cursorStart);
+							cursorEnd.parentNode.removeChild(cursorEnd);
+
+							// Select range
+							selection.removeAllRanges();
+							selection.addRange(range);
+						} else {
+							range.selectNode(cursorStart);
+
+							// Select range
+							selection.removeAllRanges();
+							selection.addRange(range);
+
+							// Delete cursor marker
+							document.execCommand('delete', false, null);
+						}
+					}
+
+					// Call callbacks here
+					for (var i = 0; i < afterFocus.length; i++) {
+						afterFocus[i]();
+					}
+					afterFocus = [];
+
+					// Register selection again
+					captureSelection();
+				}, 10);
+	}; */
+$("#uploadinfo").addClass('hide');
+$("#msgRecord").addClass('hide');
+$("#chart").removeClass('col-sm-8');
+$("#chart").addClass('col-sm-12');
+	function showmsg() {
+
+		var chartclass = $("#chart").attr('class');
+
+		if (chartclass === 'col-sm-8') {
+			$("#chart").removeClass('col-sm-8');
+			$("#chart").addClass('col-sm-12');
+			$("#msgRecord").addClass('hide');
+			$("#uploadinfo").addClass('hide');
+		} else {
+			$("#chart").removeClass('col-sm-12');
+			$("#chart").addClass('col-sm-8');
+			$("#msgRecord").removeClass('hide');
+			$("#uploadinfo").addClass('hide');
+		}
+
+	};
+		function showupload() {
+
+		var chartclass = $("#chart").attr('class');
+
+		if (chartclass === 'col-sm-8') {
+			$("#chart").removeClass('col-sm-8');
+			$("#chart").addClass('col-sm-12');
+			$("#uploadinfo").addClass('hide');
+			$("#msgRecord").addClass('hide');
+		} else {
+			$("#chart").removeClass('col-sm-12');
+			$("#chart").addClass('col-sm-8');
+			$("#uploadinfo").removeClass('hide');
+			$("#msgRecord").addClass('hide');
+		}
+
+	};
+
+
+</script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'yyyy-mm-dd hh:ii:ss',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+        
+        });
+        $('#datetimepicker1').datetimepicker({
+            format: 'yyyy-mm-dd hh:ii:ss',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+          
+        });
+    });
+</script>
+<script type="text/javascript">
+	$(function() {
+		$('.emotion').qqFace({
+			id : 'facebox', //表情盒子的ID
+			assign : 'saytext', //给那个控件赋值
+			path : 'function/expert/img/face/' //表情存放的路径
+		});
+		$(".sub_btn").click(function() {
+			var str = $("#saytext").val();
+			$("#show").html(replace_em(str));
+		});
+	});
+	//查看结果
+	function replace_em(str) {
+		str = str.replace(/\</g, '&lt;');
+		str = str.replace(/\>/g, '&gt;');
+		str = str.replace(/\n/g, '<br/>');
+		str = str.replace(/\[em_([0-9]*)\]/g,
+				'<img src="face/$1.gif" border="0" />');
+		return str;
+	}
+</script>

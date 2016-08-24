@@ -1,0 +1,726 @@
+﻿.fl{float:left;}
+.fr{float:right;}
+
+.col-mid {
+	overflow: hidden;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd
+}
+
+.sidebar-camera .ic-camera,.sidebar-camera .ic-record,.sidebar-camera .ic-camera.icon-active,.sidebar-camera .ic-record.icon-active,.bottombar .view .ic-grid1,.bottombar .view .ic-grids4,.bottombar .view .ic-grids9,.bottombar .view .ic-grid1.icon-active,.bottombar .view .ic-grids4.icon-active,.bottombar .view .ic-grids9.icon-active,.page-cotrol .btn-prev,.page-cotrol .btn-next,.page-cotrol .btn-prev:active,.page-cotrol .btn-next:active,.play-control .ic-preview,.play-control .ic-snap,.play-control .ic-record,.play-control .ic-zoom,.play-control .ic-fullscreen,.play-control .ic-speak,.play-control .ic-mute,.play-control .btn.active .ic-preview,.play-control .btn.active .ic-snap,.play-control .btn.active .ic-record,.play-control .btn.active .ic-zoom,.play-control .btn.active .ic-fullscreen,.play-control .btn.active .ic-speak,.ptz .direction i,.details-control .ic-sub,.ptzSlider .ic-sub,.details-control .ic-add,.ptzSlider .ic-add,.video-setting .icon-add,.play-control .volume .arrow-down,.setting-detail .item .icon-arrow-menu {
+	background: url("../../../../img/icon-monitor-video.png") 0 0 no-repeat
+}
+
+.sidebar-camera h2 {
+	height: 60px;
+	padding-left: 20px;
+	line-height: 60px;
+	font-size: 18px;
+	color: #333;
+	border-bottom: 1px solid #ddd;
+	font-weight: normal
+}
+
+.sidebar-camera .list-item {
+	height: 39px;
+	line-height: 39px;
+	border-bottom: 1px solid #ddd;
+	padding: 0 20px
+}
+
+.sidebar-camera .list-item .name {
+	cursor: pointer
+}
+
+.sidebar-camera .list-item .name.text-active {
+	color: #2d8931
+}
+
+.sidebar-camera .ic-camera,.sidebar-camera .ic-record {
+	display: inline-block;
+	width: 18px;
+	height: 13px;
+	margin-top: 1px;
+	line-height: 13px;
+	vertical-align: text-top;
+	cursor: pointer
+}
+
+.sidebar-camera .ic-replay {
+	display: inline-block;
+	margin-top: 1px;
+	vertical-align: text-top;
+	cursor: pointer
+}
+
+.sidebar-camera .ic-camera {
+	background-position: -306px -8px;
+	margin-right: 13px
+}
+
+.sidebar-camera .ic-record {
+	background-position: -367px -9px
+}
+
+.sidebar-camera .ic-replay {
+	background: url(../images/monitor/ic_replay_normal.png) 0 0 no-repeat;
+	width: 18px;
+	height: 18px;
+	line-height: 18px
+}
+
+.sidebar-camera .ic-camera.icon-active {
+	background-position: -336px -8px
+}
+
+.sidebar-camera .ic-record.icon-active {
+	background-position: -398px -9px
+}
+
+.sidebar-camera .ic-replay.icon-active {
+	background: url(../images/monitor/ic_replay_active.png) 0 0 no-repeat
+}
+
+.bottombar {
+	height: 50px;
+	padding: 0 10px 0 15px;
+	position: relative;
+	bottom: 0
+}
+
+.bottombar .view {
+	padding-top: 12px;
+	float: left
+}
+
+.bottombar .view dt,.bottombar .view dd {
+	float: left
+}
+
+.bottombar .view dt {
+	line-height: 28px;
+	width: 40px
+}
+
+.bottombar .view .ic-grid {
+	display: inline-block;
+	width: 28px;
+	height: 24px;
+	line-height: 24px;
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+	background-position: 0 0;
+	cursor: pointer;
+	margin-right: 10px;
+	opacity: .5
+}
+
+.bottombar .view .ic-grid:hover {
+	opacity: 1
+}
+
+.bottombar .view .ic-grid1 {
+	background-position: -31px -2px
+}
+
+.bottombar .view .ic-grids4 {
+	background-position: -91px -2px
+}
+
+.bottombar .view .ic-grids9 {
+	background-position: -151px -2px
+}
+
+.bottombar .view .ic-grid1.icon-active {
+	background-position: -1px -2px;
+	opacity: 1
+}
+
+.bottombar .view .ic-grids4.icon-active {
+	background-position: -61px -2px;
+	opacity: 1
+}
+
+.bottombar .view .ic-grids9.icon-active {
+	background-position: -121px -2px;
+	opacity: 1
+}
+
+.page-cotrol {
+	position: absolute;
+	left: 47%;
+	top: 8px
+}
+
+.page-cotrol .btn-prev,.page-cotrol .btn-next {
+	display: inline-block;
+	width: 31px;
+	height: 30px;
+	line-height: 30px;
+	background-repeat: no-repeat;
+	vertical-align: text-top;
+	cursor: pointer;
+	opacity: .5
+}
+
+.page-cotrol .btn-prev:hover,.page-cotrol .btn-next:hover {
+	opacity: 1
+}
+
+.page-cotrol .btn-prev {
+	background-position: -242px 0;
+	margin-right: 8px
+}
+
+.page-cotrol .btn-next {
+	background-position: -180px 0
+}
+
+.page-cotrol .btn-prev:active {
+	background-position: -273px 0;
+	opacity: 1
+}
+
+.page-cotrol .btn-next:active {
+	background-position: -211px 0;
+	opacity: 1
+}
+
+.play-control {
+	float: right;
+	padding-top: 8px
+}
+
+.play-control li {
+	float: left;
+	margin-right: 10px
+}
+
+.play-control .btn {
+	border: 1px solid #aaa;
+	height: 32px;
+	display: inline-block;
+	width: 32px;
+	text-align: center;
+	line-height: 32px;
+	opacity: .5;
+	cursor: pointer
+}
+
+.play-control .btn:hover {
+	opacity: 1
+}
+
+.play-control .btn.active {
+	background: #2d8931;
+	opacity: 1;
+	border: 1px solid #2d8931
+}
+
+.play-control .btn-group .btn {
+	float: left
+}
+
+.play-control .btn-group>.btn+.btn {
+	margin-left: -1px
+}
+
+.play-control .ic-preview {
+	display: inline-block;
+	width: 15px;
+	height: 17px;
+	vertical-align: middle;
+	background-position: -189px -39px
+}
+
+.play-control .ic-snap {
+	display: inline-block;
+	width: 18px;
+	height: 15px;
+	vertical-align: middle;
+	background-position: -66px -38px
+}
+
+.play-control .ic-record {
+	display: inline-block;
+	width: 18px;
+	height: 12px;
+	background-position: -6px -40px;
+	vertical-align: middle
+}
+
+.play-control .ic-zoom {
+	display: inline-block;
+	width: 15px;
+	height: 16px;
+	background-position: -248px -37px;
+	vertical-align: middle
+}
+
+.play-control .ic-fullscreen {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	background-position: -306px -36px;
+	vertical-align: middle
+}
+
+.play-control .ic-speak {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-position: -125px -39px;
+	vertical-align: middle
+}
+
+.play-control .ic-mute {
+	display: inline-block;
+	width: 16px;
+	height: 12px;
+	background-position: -368px -39px;
+	vertical-align: middle
+}
+
+.play-control .btn.active .ic-preview {
+	background-position: -219px -39px
+}
+
+.play-control .btn.active .ic-snap,.play-control .btn:active .ic-snap {
+	background-position: -96px -37px
+}
+
+.play-control .btn.active .ic-record {
+	background-position: -37px -40px
+}
+
+.play-control .btn.active .ic-zoom {
+	background-position: -279px -37px
+}
+
+.play-control .btn.active .ic-fullscreen {
+	background-position: -336px -36px
+}
+
+.play-control .btn.active .ic-speak {
+	background-position: -156px -38px
+}
+
+.play-control .volume {
+	width: 50px
+}
+
+.play-control .volume i {
+	margin-right: 10px
+}
+
+.play-control .volume .arrow-down {
+	display: inline-block;
+	width: 7px;
+	height: 4px;
+	vertical-align: middle;
+	background-position: -71px -165px
+}
+
+.extra .tabbar {
+	margin-top: 7px;
+	padding-left: 12px;
+	overflow: hidden
+}
+
+.extra .tabbar li {
+	float: left;
+	border: 1px solid #ddd;
+	width: 96px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	text-align: center;
+	cursor: pointer
+}
+
+.extra .tabbar li.current {
+	border-bottom: 1px solid #fff
+}
+
+.extra .tabbar li.tab-setting {
+	margin-left: -1px
+}
+
+.extra .video-control {
+	padding: 10px
+}
+
+.extra .tabcon .subtitle {
+	padding-bottom: 10px
+}
+
+.ptz {
+	padding-left: 100px
+}
+
+.ptz .direction {
+	float: left;
+	width: 88px;
+	margin-left: -100px
+}
+
+.ptz .direction li {
+	margin-bottom: -1px;
+	overflow: hidden
+}
+
+.ptz .direction .btn {
+	border: 1px solid #ddd;
+	float: left;
+	height: 28px;
+	display: inline-block;
+	width: 28px;
+	text-align: center;
+	line-height: 28px
+}
+
+.btn1{
+	border: 1px solid #ddd;
+	height: 28px;
+	display: inline-block;
+	width: 28px;
+	text-align: center;
+	line-height: 28px;
+	float: left
+}
+
+.btn2{
+	border: 1px solid #ddd;
+	height: 28px;
+	display: inline-block;
+	width: 28px;
+	text-align: center;
+	line-height: 28px;
+}
+
+.ptz .direction .btn-group>.btn+.btn {
+	margin-left: -1px
+}
+
+.ptz .direction i {
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	cursor: pointer
+}
+
+.ptz .direction .ic-t-l {
+	background-position: 0px -60px
+}
+
+.ptz .direction .ic-t-m {
+	background-position: -30px -60px
+}
+
+.ptz .direction .ic-t-r {
+	background-position: -60px -60px
+}
+
+.ptz .direction .ic-m-l {
+	background-position: 0px -90px
+}
+
+.ptz .direction .ic-m-m {
+	background-position: -30px -90px
+}
+
+.ptz .direction .ic-m-r {
+	background-position: -60px -90px
+}
+
+.ptz .direction .ic-b-l {
+	background-position: 0px -120px
+}
+
+.ptz .direction .ic-b-m {
+	background-position: -30px -120px
+}
+
+.ptz .direction .ic-b-r {
+	background-position: -60px -120px
+}
+
+.details-control p {
+	text-align: center;
+	line-height: 20px;
+	margin-bottom: 14px
+}
+
+.details-control .btn,.ptzSlider .btn {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #ddd;
+	line-height: 15px;
+	text-align: center;
+	cursor: pointer
+}
+
+.details-control .ic-sub,.details-control .ic-add,.ptzSlider .ic-sub,.ptzSlider .ic-add {
+	display: inline-block;
+	vertical-align: middle
+}
+
+.details-control .ic-sub,.ptzSlider .ic-sub {
+	width: 10px;
+	height: 2px;
+	background-position: -130px -164px
+}
+
+.details-control .ic-add,.ptzSlider .ic-add {
+	width: 10px;
+	height: 10px;
+	background-position: -100px -161px
+}
+
+.btn-cotrol {
+	margin-bottom: 15px;
+	overflow: hidden
+}
+
+.btn-cotrol .btn-group>.btn+.btn {
+	margin-left: -1px
+}
+
+.btn-cotrol .btn {
+	display: inline-block;
+	width: 98px;
+	text-align: center;
+	height: 32px;
+	line-height: 32px;
+	border: 1px solid #ddd;
+	float: left
+}
+
+.btn-cotrol .btn.btn-active {
+	background: #2d8931;
+	border: 1px solid #2d8931;
+	color: #fff
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+	padding: 0;
+	text-align: center
+}
+
+.ptzSlider .ptz-speed {
+	float: left;
+	position: relative;
+	padding: 0 5px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	width: 149px;
+	height: 18px;
+	overflow: hidden
+}
+
+.ptzSlider .ptzSlider_wrapper {
+	position: relative
+}
+
+.ptzSlider .imageSlider2 {
+	height: 4px;
+	border: 1px solid #ddd;
+	width: 148px;
+	position: absolute;
+	top: 6px
+}
+
+.ptzSlider .imageBar1 {
+	height: 14px;
+	width: 10px;
+	background: #2d8931;
+	position: absolute;
+	top: 2px;
+	cursor: pointer
+}
+
+.video-parameter li {
+	margin-bottom: 14px;
+	overflow: hidden
+}
+
+.video-parameter .name {
+	width: 50px;
+	text-align: left;
+	float: left
+}
+
+.video-parameter .number {
+	width: 38px;
+	text-align: center;
+	height: 18px;
+	line-height: 18px;
+	border: 1px solid #ddd;
+	display: inline-block;
+	float: left
+}
+
+.video-parameter .VideoBright {
+	float: left;
+	border: 1px solid #ddd;
+	height: 18px;
+	overflow: hidden;
+	width: 108px;
+	border-right: none
+}
+
+.video-parameter .VideoBright_wrapper {
+	position: relative;
+	margin-left: 4px
+}
+
+.video-parameter .imageSlider1 {
+	height: 4px;
+	width: 98px;
+	position: absolute;
+	border: 1px solid #ddd;
+	top: 6px
+}
+
+.video-parameter .imageBar2 {
+	height: 14px;
+	width: 10px;
+	background: #2d8931;
+	position: absolute;
+	top: 2px;
+	cursor: pointer
+}
+
+.video-setting .toolbar {
+	padding: 10px;
+	border-bottom: 1px solid #ddd
+}
+
+.video-setting .icon-add {
+	display: inline-block;
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin-right: 10px;
+	background-position: -6px -156px
+}
+
+.setting-detail .item {
+	padding: 10px;
+	position: relative;
+	border-bottom: 1px solid #ddd;
+	overflow: hidden
+}
+
+.setting-detail .item h4 {
+	font-size: 14px;
+	color: #333
+}
+
+.setting-detail .item .col-name {
+	margin-bottom: 15px
+}
+
+.setting-detail .item .l-name {
+	color: #333;
+	font-weight: bold
+}
+
+.setting-detail .item .icon-arrow-menu {
+	display: inline-block;
+	width: 10px;
+	height: 6px;
+	right: 10px;
+	top: 13px;
+	position: absolute;
+	opacity: .5;
+	cursor: pointer;
+	background-position: -40px -164px
+}
+
+.ptz-slider {
+	width: 148px;
+	height: 4px;
+	position: absolute;
+	top: 5px
+}
+
+.ui-slider .ui-slider-handle {
+	height: 14px;
+	width: 10px;
+	background: #2d8931;
+	border: none;
+	top: -4px
+}
+
+html {
+	overflow: hidden
+}
+
+.monitor-screen {
+	position: relative
+}
+
+.pluginLink {
+	color: #333;
+	font-size: 16px;
+	text-decoration: underline;
+	cursor: pointer;
+	/* display: inline-block; */
+	width: 555px;
+	word-wrap: break-word;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	vertical-align: middle
+}
+
+.pluginLinkSel {
+	color: #333;
+	font-size: 16px;
+	text-decoration: underline;
+	cursor: pointer;
+	display: inline-block;
+	word-wrap: break-word
+}
+
+.pluginLinkSel:hover {
+	text-decoration: underline
+}
+
+.vedio-iframe {
+	padding: 0;
+	margin: 0;
+	border: 0
+}
+
+.vediomode-control .ptz {
+	padding-left: 0
+}
+
+.vediomode-control .ptz .direction {
+	float: none;
+	width: auto;
+	margin-left: 0
+}
+
+.vediomode-control .ptz .direction .btn {
+	width: 65px
+}
+
+/* .vediomode-control .details-control {
+	margin-top: 10px
+} */
+
+.playback-time .input-text {
+	width: 179px;
+	border: 1px solid #ddd;
+	height: 16px;
+	padding: 8px 10px
+}

@@ -1,0 +1,28 @@
+  <!-- navbar -->
+  <div data-ng-include=" 'templates/blocks/header.html' " class="app-header navbar {{app.settings.navbarCollapseColor}}">
+  </div>
+  <!-- / navbar -->
+
+  <!-- menu -->
+  <div data-ng-include=" 'templates/blocks/aside.html' " class="app-aside bg-black">
+  </div>
+  <!-- / menu -->
+
+  <!-- content -->
+  <div class="app-content">
+    <!-- <div ui-butterbar></div> -->
+    <a href class="off-screen-toggle hide" ui-toggle-class="off-screen" data-target=".app-aside" ></a>
+    <div class="app-content-body fade-in-up">
+      <bread-nav></bread-nav>
+      <div class="content-body" ui-view></div>
+    </div>
+  </div>
+  <!-- /content -->
+
+
+  <!-- footer -->
+  <!-- <div class="app-footer wrapper b-t bg-light text-center">
+    &copy; 2016 GSTAR.COM.CN All Right Resered  云南银河之星科技有限公司
+  </div> -->
+  <!-- / footer -->
+  </div>

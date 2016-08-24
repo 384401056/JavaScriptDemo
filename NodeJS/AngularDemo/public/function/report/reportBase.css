@@ -1,0 +1,192 @@
+div.report-page {
+	overflow: hidden;
+}
+div.report-page div.content {
+	border: 1px solid #E7E9E8;
+	padding: 10px;
+	padding-bottom: 70px;
+	margin: 10px 0;
+	min-height: 650px;
+	position: relative;
+}
+div.equip-section .equip-item,
+span.nav-item.enable,
+.composite-button:hover,
+div.base-name,
+span.icon-remove,
+div.equip-cell,
+div.report-page div.report-nav-panel span.dialog-btn,
+div.report-page div.report-equip-select-panel div.org-equip-panel div.org-equip-lst-panel div.equip-item {
+	cursor: pointer;
+}
+div.report-page div.equip-section {
+	min-height: 100px;
+}
+div.report-page div.equip-section .equip-item {
+	margin: 15px 0;
+	text-align: center;
+	display: inline-block;
+	width: 80px;	
+}
+div.report-page div.equip-section .equip-item p{
+	display: inline-flex;
+	min-width: 35px;
+}
+span.equip-icon-0,
+span.equip-icon-min-0 {
+	display:inline-block;
+}
+
+/**
+ * yuanxu 2016-05-27
+ */
+div.report-page div.report-nav-panel {
+	min-height: 60px;
+	margin: 0px 4px;
+	padding-left:5px;
+	padding-right: 52px;
+	border-bottom: 1px solid #E7E9E8;
+	border-top: 1px solid #E7E9E8;
+	position: relative;
+}
+div.report-page div.report-nav-panel > span {
+	height:35px;
+	line-height: 35px;
+	margin: 8px 0px;
+	display:inline-block;
+}
+div.report-page div.report-nav-panel span.nav-item {
+	color: #ffffff;
+	background-color: #00A65A;
+}
+div.report-page div.report-nav-panel span.nav-item span.icon-remove {
+	width: 17px;
+	height: 17px;
+	line-height: 100%;
+	background: url("./image/icon_delete.png") no-repeat 4px 4px;
+	display: inline-block;
+	margin: 0px 5px;
+	position: relative;
+	top: 3px;
+}
+div.report-page div.report-nav-panel span.nav-item span.icon-remove:hover {
+	border:1px solid rgba(255,255,255,.6);
+	background-position: 3px 3px;
+}
+div.report-page div.report-nav-panel span.nav-item span.icon-remove::before {
+	content: none;
+}
+div.report-page div.report-nav-panel .org-select-p,
+div.report-page div.report-nav-panel .org-lst-p {
+	position: relative;
+}
+div.report-page div.report-nav-panel .org-select-p > span,
+div.report-page div.report-nav-panel .org-lst-p > span {
+	display: inline-block;
+	margin: 5px;
+	padding: 5px;
+}
+div.report-page div.report-nav-panel .org-select-p .nav-label,
+div.report-page div.report-nav-panel .org-lst-p .nav-label {
+	width: 100px;
+}
+div.report-page div.report-nav-panel span.dialog-btn {
+	width:50px;
+	color: #FFFFFF;
+	text-align: center;
+	padding: 3px 5px;
+	display: inline-block;
+	background-color: #00A65A;
+}
+div.report-page div.report-nav-panel div.tree-dialog-panel {
+	width: 280px;
+	min-height: 350px;
+	max-height: 500px;
+	display: none;
+	border:1px solid #00A600;
+	background-color: #FFFFFF;
+	overflow: auto;
+	position: absolute;
+	top: 35px;
+	left: 118px;
+	z-index: 8888;
+}
+
+div.report-page div.report-equip-select-panel {
+	min-height: 350px;
+	margin: 0px 4px;
+	position: relative;
+}
+div.report-page div.report-equip-select-panel div.org-equip-panel:not(.first) {
+	margin: 3px 0px;
+	border-top: 1px dotted #B0DBEC;
+}
+div.report-page div.report-equip-select-panel div.org-equip-panel div.org-title-panel {
+	height:35px;
+	line-height: 35px;
+	color: #FF951F;
+	white-space:nowrap;
+	overflow: hidden;
+	text-overflow : ellipsis; 
+}
+div.report-page div.report-equip-select-panel div.org-equip-panel div.org-equip-lst-panel {
+	overflow: auto;
+	padding: 2px 0px;
+}
+div.report-page div.report-equip-select-panel div.org-equip-panel div.org-equip-lst-panel div.equip-item {
+	height:35px;
+	min-width: 50px;
+	line-height: 35px;
+	text-align: center;
+	border: 1px solid #01A65A;
+	margin: 5px 10px;
+	margin-left: 0px;
+	padding:0px 12px;
+	float: left;
+	position: relative;
+}
+div.report-page div.report-equip-select-panel div.org-equip-panel div.org-equip-lst-panel div.equip-item span.icon-selected {
+	width:15px;
+	height:15px;
+	background-image: url("./image/right.png");
+	display: none;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+div.report-page div.report-nav-panel div.tree-dialog-panel.opened,
+div.report-page div.report-equip-select-panel div.org-equip-panel div.org-equip-lst-panel div.equip-item.selected span.icon-selected {
+	display: block;
+}
+div.report-page div.report-btn-p {
+	width: 100%;
+	padding: 15px 25px;
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+}
+div.report-page div.report-btn-p .search-btn {
+	width: 120px;
+	height: 35px;
+	line-height: 35px;
+	color: #fff;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,1);
+	border: none;
+	border-radius: 3px;
+	font-size: 12pt;
+}
+.tree-dialog-panel.ztree li,
+.tree-dialog-panel.ztree li a,
+.tree-dialog-panel.ztree li a:hover,
+.tree-dialog-panel.ztree li a.curSelectedNode {
+	height: 18px;
+	line-height: 18px;
+}
+.tree-dialog-panel.ztree li span.button.switch {
+	margin-top: 0px;
+}
+.tree-dialog-panel.ztree li span.button.chk {
+	margin-bottom: 3px;
+}

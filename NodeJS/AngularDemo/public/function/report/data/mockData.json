@@ -1,0 +1,52 @@
+{
+	"flag": 1,
+	"message": "图表数据查询成功",
+	"data": {
+    "pageInfo": {
+      "currentPage": 1,
+      "pageSize": 6,
+      "totalRecord": 100
+		},
+		"dataLst":[{
+			"startTime": "2016.03.04 12:25:10",
+			"controlType": "手动控制",
+			"switchType": "打开",
+			"timeLength": "0分钟33秒",
+			"endTime": "2016.03.04 12:25:10",
+			"content": "content",
+			"eve": "event"
+		},{
+			"startTime": "2016.03.04 12:25:10",
+			"controlType": "手动控制",
+			"switchType": "打开",
+			"timeLength": "0分钟33秒",
+			"endTime": "2016.03.04 12:25:10",
+			"content": "content",
+			"eve": "event"
+		},{
+			"startTime": "2016.03.04 12:25:10",
+			"controlType": "手动控制",
+			"switchType": "打开",
+			"timeLength": "0分钟33秒",
+			"endTime": "2016.03.04 12:25:10",
+			"content": "content",
+			"eve": "event"
+		},{
+			"startTime": "2016.03.04 12:25:10",
+			"controlType": "手动控制",
+			"switchType": "打开",
+			"timeLength": "0分钟33秒",
+			"endTime": "2016.03.04 12:25:10",
+			"content": "content",
+			"eve": "event"
+		},{
+			"startTime": "2016.03.04 12:25:10",
+			"controlType": "手动控制",
+			"switchType": "打开",
+			"timeLength": "0分钟33秒",
+			"endTime": "2016.03.04 12:25:10",
+			"content": "content",
+			"eve": "event"
+		}]
+	}
+}

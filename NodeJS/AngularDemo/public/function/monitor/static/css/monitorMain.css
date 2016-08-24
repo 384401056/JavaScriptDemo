@@ -1,0 +1,151 @@
+#divPlugin { width: 400px; height: 225px; overflow: hidden; text-align:center; }
+        
+.vedioContent .video-control .ptz .direction { width: auto; margin-right: 10px; }
+        
+.vedioContent .extra .video-control { padding: 30px; }
+        
+.vedioContent .extra .btn-group { margin-right: 10px; }
+        
+.vedioContent .details-control .btn, .ptzSlider .btn { width: 28px; height: 28px; line-height: 28px; }
+        
+.vedioContent .details-control p { line-height: 28px;}
+
+.eyes,.eyes i{color: #00a65a;}
+
+.animal{transition: 0.5s;-moz-transition: 0.5s;-webkit-transition: 0.5s;}
+
+.iconBox{position: relative;}
+
+.iconBox ._group{position: absolute;right: 0px;top: 0;}
+
+.myCheck{position: absolute;right: -22px;  top:1px;height: 25px;width: 25px; padding-top: 1px;display: none;}
+
+.groupbox{position: absolute;width: 400px;height: auto;background: #ffffff;overflow: hidden;  top:10px;right: 80px;z-index: 9999;display: none ;}
+.groupbox .gropu-list{max-height: 416px;display: block;overflow-y: scroll;padding-left: 10px;padding-right: 10px;}
+.groupbox ul{text-align: left;}
+
+.toolbox2{height: 50px;line-height: 50px !important;}
+
+.group-title{overflow: hidden;padding: 20px 10px;border-bottom: 1px solid #dddddd;}
+.group-title span{overflow: hidden !important;}
+.group-title h4{color: #222;margin: 0px;font-weight: 500;}
+.group-title span small{color: #999999;}
+.group-title span i{color: #00A65A;font-size: 20px;}
+.group-title .addGroup,.group-title .saveGroup,.group-title .edit-saveGroup,.group-title .deleteGroup{width: 60px;margin-top: -5px;}
+.group-title .addGroup small,.group-title .saveGroup small,.group-title .edit-saveGroup small{display: block;text-align: center;font-size: 12px; color: #00a65a;}
+.group-title .edit-saveGroup{color: #00a65a !important;width: 40px;}
+.group-title .saveGroup,.group-title .deleteGroup{width: 40px;}
+.group-title .deleteGroup small{display: block;text-align: center;font-size: 12px; color: #00a65a;}
+.group-title .edit-saveGroup i,.group-title .edit-saveGroup small{color: #00a65a !important;}
+
+.group-title span a{color: #FFFFFF;font-size: 20px;}
+
+.group-li{overflow: hidden;position: relative;}
+.group-li:nth-of-type(1) .group-content{border-top:none;}
+.group-li .group-content{border-top: 1px solid #DDDDDD;overflow: hidden;padding-top: 15px;padding-bottom: 15px;overflow: hidden;}
+.group-li .group-content label{font-weight: bold;color: #444444;width: 220px;float: left;display: block;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.group-li .group-content small{color: #999;width: 170px;float: left;display: block;width: 100%;}
+.group-li .group-handle{position: absolute;right: 5px;top: 12px;}
+.group-li .group-handle a{color: #444444;}
+.group-li .group-handle i{padding-right: 2px;}
+
+.group-li dl{background: #F9F9F9;margin-bottom: 0px;padding: 5px;display: none;border-top: 1px dashed #DDDDDD;}
+.group-li:nth-of-type(1) dl{display: block;}
+.group-li dl dt{font-weight: normal;overflow: hidden; padding-top: 3px;padding-bottom: 3px;line-height: 26px;}
+.group-li .display{display: block;}
+.red-shadow{width: calc(100% + 20px); width: -moz-calc(100% + 20px); width: -webkit-calc(100% + 20px); height: 100%;position: absolute;left: 0px; top:0px;box-shadow: 0px 0px 8px red; opacity: 0;}
+
+@-moz-keyframes myanimal{
+	0{
+		opacity: 0;
+	}
+	50%{
+		opacity: 1;
+		box-shadow: 0px 0px 15px red;
+	}
+	100%{
+		opacity: 0;
+		box-shadow: 0px 0px 20px red;
+	}
+}
+
+@keyframes myanimal{
+	0{
+		opacity: 0;
+	}
+	80%{
+		opacity: 1;
+		box-shadow: 0px 0px 15px red;
+	}
+	100%{
+		opacity: 0;
+		box-shadow: 0px 0px 20px red;
+	}
+}
+
+@-webkit-keyframes myanimal{
+	0{
+		opacity: 0;
+	}
+	80%{
+		opacity: 1;
+		box-shadow: 0px 0px 15px red;
+	}
+	100%{
+		opacity: 0;
+		box-shadow: 0px 0px 20px red;
+	}
+}
+
+@-ms-keyframes myanimal{
+	0{
+		opacity: 0;
+	}
+	80%{
+		opacity: 1;
+		box-shadow: 0px 0px 15px red;
+	}
+	100%{
+		opacity: 0;
+		box-shadow: 0px 0px 20px red;
+	}
+}
+.myController{overflow: hidden; overflow: hidden; display:block;background: #FFFFFF;border-top: 1px dashed #DDDDDD;text-align: right;line-height: 20px !important;float: left;width: 100%;margin-bottom: -7px;margin-top: 10px;padding-top: 7px;}
+.myController i{padding-right: 5px;}
+@media screen and (max-width:1024px) {#mainPage{overflow-x: scroll !important;overflow: hidden;}}
+._value{padding-left: 20px;padding-right: 25px;}
+.green{background: #00a65a !important;color: #FFFFFF !important;padding-left: 20px;padding-right: 20px}
+.green label,.green small{color: #FFFFFF !important;}
+.green .myController{background: #00a65a !important;color: #FFFFFF !important;overflow: hidden;}
+.color-whrite i{color: #FFFFFF !important;}
+.gray {  -webkit-filter: grayscale(100%);  -moz-filter: grayscale(100%);  -ms-filter: grayscale(100%);  -o-filter: grayscale(100%);  filter: grayscale(100%);  filter: gray; }
+#mainPage{position: relative;}
+
+@-webkit-keyframes rotate{
+	from{-webkit-transform:rotate(0deg)}
+	to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+	from{-moz-transform:rotate(0deg)}
+	to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+	from{-ms-transform:rotate(0deg)}
+	to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+	from{-o-transform:rotate(0deg)}
+	to{-o-transform:rotate(360deg)}
+}
+
+.myrotate{
+	animation: 5s linear infinite rotate;
+	-webkit-animation:5s linear infinite rotate;
+	-moz-animation:5s linear infinite rotate;
+	background-position: center;
+}
+
+#groupBtns time{margin-left: -1px;float: left;}
+
+
+

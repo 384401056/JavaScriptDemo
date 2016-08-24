@@ -1,0 +1,71 @@
+<style type="text/css">
+	label {
+		max-width:200px;;
+  	}
+	.modal-dialog {
+		min-width: 700px;
+		margin: 60px auto;
+	}
+	.dialog-panel .dialog-content {
+		height:550px;
+		padding:5px 0px;
+	}
+	.dialog-content .info-row {
+		padding: 3px 0px;
+		overflow: auto;
+	}
+	.dialog-content .text-label {
+		height: 20px;
+		text-align: center;
+	}
+	.dialog-content .text-info {
+		padding-left: 0px;
+		color: #31708f;
+	}
+	.dialog-content .text-box {
+		height: 160px;
+		border: 1px solid #E7E9E8;
+		text-indent:25px
+	}
+	.dialog-content .map-box {
+		height: 285px;
+		border: 1px solid #E7E9E8;
+	}
+</style>
+<div class="dialog-panel" data-id="{{orgInfoData.orgId}}" data-type="{{orgInfoData.orgType}}" app-controller="infoModalCtrl">
+   <div class="dialog-top-bar">
+   	<div class="dialog-close-btn" ng-click="cancel();"></div>
+     <div class="dailog-title">
+     	<span class="split">&gt;</span>
+     	<span class="title">公司简介</span>
+     </div>
+   </div>
+   <div class="dialog-content">
+     <div class="info-row">
+       <div class="text-label col-xs-2">公司名称：</div>
+       <div class="text-info col-xs-10">{{orgInfoData.orgName}}</div>
+     </div>
+     <div class="info-row">
+     	<div class="text-label col-xs-2">联系人：</div>
+  		<div class="text-info col-xs-4">{{orgInfoData.contactName}}</div>
+  		<div class="text-label col-xs-2">联系电话：</div>
+  		<div class="text-info col-xs-4">{{orgInfoData.contactPhone}}</div>
+     </div>
+     <div class="info-row">
+       <div class="text-label col-xs-2">公司地址：</div>
+       <div class="text-info col-xs-10">{{orgInfoData.orgAddress}}</div>
+     </div>
+     <div class="info-row">
+       <div class="text-label col-xs-2">公司介绍：</div>
+       <div class="text-info col-xs-10">
+       	<div class="text-box">{{orgInfoData.orgDesc}}</div>
+       </div>
+     </div>
+     <div class="info-row">
+       <div class="text-label col-xs-2">地理位置：</div>
+       <div class="text-info col-xs-10">
+		      <div id="org-lct" class="map-box"></div>
+       </div>
+     </div>
+   </div>
+</div>

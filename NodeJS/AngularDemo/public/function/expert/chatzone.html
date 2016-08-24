@@ -1,0 +1,53 @@
+
+<div contenteditable="false" id="scroll-chat" 
+	style="overflow-y: auto !important; overflow-x: auto !important; height: 400px;"
+	class="form-control" >
+
+	<div ng-repeat="message in messages " ng-hide="state.currentRoom.roomid==null" on-finish-render-filters class="col-sm-12" style="clear: both;">
+
+		<div style="float: left">
+			<a>{{message.formuser}}</a>
+			：
+		</div>
+		<div style="float: left;"> <font style="font-size: 10px; color: #ccc">{{message.msgdate
+					| date:'yyyy-MM-dd HH:mm:ss'}}</font> 
+			<div  style="color: #000;max-width: 1000px; " ng-bind-html="message.content"></div>
+
+		</div>
+
+	</div>
+
+	<div ng-show="state.currentRoom.roomid==null">
+	欢迎光临！您已进入服务大厅。<br>
+	如果您对我们的产品和服务有任何意见和建议，都可以随时与我们在线取得联系。<br>
+	我们的客服人员回给您详尽细致的解答。<br><br>
+			
+			
+	<font style="color: #ff951d">请选择专家开始对话：</font><br>
+	<div class="loading-spiner-holder" data-loading >
+       <img src="function/expert/img/default.gif">正在加载数据请稍后...
+	</div>
+
+		<div ng-repeat="room in allRooms "  on-finish-render-filters class="col-sm-12" style="clear: both; ">
+
+			<a ng-click="changeExpert({{room.roomid}})">【{{room.roomname}}】</a> 
+			参与人数：<font color="#00a65a">{{room.number}}</font>&nbsp;&nbsp;&nbsp;&nbsp;
+			专家领域：<font color="#00a65a">{{room.field}}</font>&nbsp;&nbsp;&nbsp;&nbsp;
+			专家头衔：<font color="#00a65a">{{room.title}}</font>&nbsp;&nbsp;&nbsp;&nbsp;
+			登录状态：
+			<i ng-show="room.isonline == 1" class="glyphicon glyphicon-ok-sign" style="color:green"></i>
+			<i ng-show="room.isonline != 1" class="glyphicon glyphicon-ban-circle" style="color:red"></i>
+			<font color="#00a65a">{{room.isonline == 1 ? "在线":"离线"}}</font>
+
+		</div>
+		<div class="clear:both;">&nbsp;</div>
+		<div style="margin-top: 10px;">
+              您还可以点击以下链接获得服务：<br><br>
+		<i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<a ng-click="">联系客服</a><br>
+		<i class="glyphicon glyphicon-phone-alt"></i>&nbsp;&nbsp;<a ng-click="">投诉</a><br>
+		<i class="glyphicon glyphicon-question-sign"></i>&nbsp;&nbsp;<a ng-click="">系统帮助</a>
+		</div>
+		
+	</div>
+
+</div>

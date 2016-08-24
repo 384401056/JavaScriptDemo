@@ -1,0 +1,91 @@
+<div class="apc-expert" ng-controller="ExpertList">
+	<!-- <div class="search-box input-group col-md-3 col-sm-4 col-xs-5" style="position:relative;margin:auto 0 auto auto">
+    <input type="text" class="form-control" placeholder="搜索专家" ng-model="searchField" data-maxlength="30" ng-keypress="searchFieldKeypress($event);" ng-keyup="searchFieldKeyup($event);"/>
+    <div class="search-btn input-group-addon" ng-click="doSearch();"></div>
+  </div> -->
+	<div style="margin:10px auto 0 auto;">
+		<span id="0" ng-model="skilledField" ng-repeat="skill in skilledField" class="list-name {{ skill.dictcode==currentSkill?'':'notChoose' }}" style="margin-left:5px;cursor:pointer;" ng-click="chooseDomain(skill.dictcode, $event)">{{ skill.dictdata}}</span>
+		<div class="expert-content" >
+			<ul>
+				<li style="" ng-model="expertList" ng-repeat="expert in expertList.data">
+					<div >
+						<div class="col-sm-2">
+							<img class="img-head" ng-click="gotoExpertInfo(expert.id)" src="{{ expert.userimagepath }}">
+							<div style="display:inline-block;">{{expert.username}}<br>{{expert.degreename}}<br>{{expert.title}}</div>
+						</div>
+						
+						<div class="col-sm-3">
+							<div style="display:inline-block;position:absolute;top:3px;"><span class="icon-counsel" style="display:inline-block;"></span></div>
+							<div style="display:inline-block;margin-left:20px">
+								<p>{{ expert.askcontent }}</p>
+								<p>专家你好,请问石斛生存最低温度不能低于对少?</p>
+								<p>专家你好,请问石斛生存最低温度不能低于对少?</p>
+							</div>
+						</div>
+						<div class="col-sm-3">
+							<p>{{expert.introduction}}</p>
+							<p><span style="color:#00a65a;">研究方向:</span>{{expert.skilledfieldname}}</p>
+						</div>
+						<div class="col-sm-2">
+							<p>专业度:<span style="color:red;">99%</span></p>
+							<p>服务态度:<span style="color:red;">95%</span></p>
+							<p>满意度:<span style="color:red;">96%</span></p>
+							<p>推荐热度:<span style="color:red;">4.5<span style="background-color: #f4585c;color: #fff;padding-left:6px;padding-right:6px; padding-bottom: 3px;">荐</span></span>
+								<!-- <i class="glyphicon glyphicon-star-empty" ></i> -->
+							</p>
+						</div>
+						<div class="col-sm-2" style="padding-left: 20px;">
+							<div class="expert-appoint" style="margin-left:auto;" ng-click="gotoAppointment(expert.id,expert.username)">
+								<span class="icon-appoint-enable"></span>
+								<span class="text-appoint-enable">立即预约</span>
+							</div>
+						</div>
+					</div>
+					<div class="split-line"></div>
+				</li>
+
+			
+
+			
+				
+
+				<!-- <li style="">
+					<div >
+						<div class="expert-head">
+							<img class="img-head" src="./img/head.png">
+						</div>
+						<div class="expert-profile">张含生<br>云南省农科园<br>高级研究员</div>
+						<div class="expert-icon"><span class="icon-counsel" style="display:inline-block;"></span></div>
+						<div class="expert-msg">专家你好,你个傻吊</div>
+						<div class="expert-details">
+							<p>云南省农业科学院高级研究员,学术委员会委员,云南省粮食作物标准化技术委员会委员,国家科技计划项目专家库专家.</p>
+							<p>研究方向:大田作物高产栽培技术</p>
+						</div>
+						<div class="expert-value">
+							<p>专业度:99%</p><p>   服务态度:95%</p><p>    满意度:96%  </p><p> 推荐指数:<i class="glyphicon glyphicon-star-empty" ></i></p>
+						</div>
+						<div class="expert-appoint">
+							<span class="icon-appoint-enable"></span>
+							<span class="text-appoint-enable">立即预约</span>
+						</div>
+					</div>
+					<div class="split-line"></div>
+				</li> -->
+
+			
+
+			</ul>
+		</div>
+		<div class="acp-card-pagination">
+		  <div class="pagination col-md-9 col-sm-8 col-xs-8">
+		    <pagination class="pagination-sm" ng-model="pageInfo.currentPage" num-pages="numPages" total-items="pageInfo.totalRecord" max-size="8" items-per-page="pageInfo.pageSize" ng-change="reloadData();" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页" boundary-links="true"></pagination>
+		  </div>
+		  <div class="pageInfo col-md-3 col-sm-4 col-xs-4">
+		  	<span class="curry-page-panel">第 <input class="curry-page-ipt" ng-model="pageInfo.currentPage" type="text" ng-keyup="jumpToPage($event);" /> 页</span>
+		  	
+		  	<span class="total-items-panel">共 {{pageInfo.totalRecord}} 条</span>
+		  </div>
+		</div>
+
+	</div>
+</div>

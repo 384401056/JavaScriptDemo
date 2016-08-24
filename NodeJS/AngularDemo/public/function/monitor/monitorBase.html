@@ -1,0 +1,89 @@
+<div class="acp-card-page">
+  <div class="acp-card-page-content" ng-init="app.settings.asideFolded = false; app.settings.asideDock = false;" ng-controller="monitorController">
+  	<div class="acp-card-page-top">
+	    <div class="state-label col-md-9 col-sm-8 col-xs-7">
+	      <div class="state-item state-1">
+	        <span class="state-icon"></span>连接正常
+	      </div>
+	      <div class="state-item state-2">
+	        <span class="state-icon"></span>设备预警
+	      </div>
+	       <div class="state-item state-3">
+	        <span class="state-icon"></span>设备告警
+	      </div>
+	       <div class="state-item state-4">
+	        <span class="state-icon"></span>正在运行
+	      </div>
+	       <div class="state-item state-5">
+	        <span class="state-icon"></span>连接断开
+	      </div>
+	    </div>
+	    <div class="search-box input-group col-md-3 col-sm-4 col-xs-5">
+	      <input type="text" class="form-control" placeholder="请输入查询条件" ng-model="searchField" data-maxlength="30" ng-keypress="searchFieldKeypress($event);" ng-keyup="searchFieldKeyup($event);"/>
+	      <div class="search-btn input-group-addon" ng-click="doSearch();"></div>
+	    </div>
+	  </div>
+	  <div class="acp-card-list">
+	    <!-- 卡片生成模板 Start -->
+	    <div class="acp-card-panel col-md-6 col-xs-12" ng-repeat="cardObj in cardList">
+	      <div class="acp-card-item">
+	        <div class="acp-card-top" data-id="{{cardObj.id}}" data-type="{{cardObj.type}}" data-name="{{cardObj.name}}" data-sub-num="{{cardObj.subNum}}" ng-click="cardTitleClick($event);">
+	          <div class="card-title col-md-9 col-sm-9 col-xs-8">{{cardObj.name}}</div>
+	          <div class="card-opts col-md-3 col-sm-3 col-xs-4">
+	            <!-- <div class="opt-item opt-lct"></div> -->
+	            <div class="opt-item opt-info"></div>
+	            <div class="opt-item opt-num" ng-show="{{cardObj.type == 1}}">
+	            	<span class="num-box">{{cardObj.subNum}}</span>
+	            </div>
+	          </div>
+	        </div>
+	        <div class="acp-card-content">
+	          <div class="equip-icon-lst">
+	            <div class="equip-icon-0 equip-icon-0-{{equipObj.type}}-{{equipObj.state}}" ng-repeat="equipObj in cardObj.equipTypeLst" title="{{equipObj.name}}"></div>
+	          </div>
+	          <div class="warn-info-lst">
+	            <ul class="warn-lst" ng-if="cardObj.warnLst.length > 0">
+	              <li ng-repeat="warnObj in cardObj.warnLst">
+	                <div class="warn-panel">
+	                	<div class="warn-time">
+	                		<span class="date-time-p">{{warnObj.dataTimeStr==null ? warnObj.dataTime : warnObj.dataTimeStr}}</span>
+	                		<span class="date-p">{{warnObj.dataStr==null ? warnObj.data : warnObj.dataStr}}</span>
+	                	</div>
+	                	<div ng-class="{true: 'warn-info no-type', false: 'warn-info'}[warnObj.type === 0]">
+	                		<span class="warn-no">·</span>
+		                    <span class="warn-type type-{{warnObj.type}}" ng-if="warnObj.type === -1">离线</span>
+		                    <span class="warn-type type-{{warnObj.type}}" ng-if="warnObj.type === 200">告警</span>
+		                    <span class="warn-type type-{{warnObj.type}}" ng-if="warnObj.type === 201">预警</span>
+		                    <span title="{{warnObj.text}}" class="warn-title">{{warnObj.text}}</span>
+	                	</div>
+	                </div>
+	              </li>
+	            </ul>
+	          </div>
+	        </div>
+	        <div class="acp-card-bottom">
+	          <div class="w-city" ng-hide="{{cardObj.weather.city == null}}">{{cardObj.weather.city}}</div>
+	          <div class="w-icon-0 w-icon-0-5" ng-hide="{{cardObj.weather.city == null}}"></div>
+	          <div class="w-weather" ng-hide="{{cardObj.weather.city == null}}">{{cardObj.weather.text}}</div>
+	          <div class="w-temp" ng-hide="{{cardObj.weather.city == null}}">{{cardObj.weather.temp}}℃</div>
+	          <div class="w-wind-direction" ng-hide="{{cardObj.weather.city == null}}">{{cardObj.weather.windDirection}}</div>
+	          <div class="w-wind-level" ng-hide="{{cardObj.weather.city == null}}">{{cardObj.weather.windLevel}}</div>
+	          <div class="w-humidity" ng-hide="{{cardObj.weather.city == null}}">湿度 {{cardObj.weather.humidity}}%</div>
+	        </div>
+	      </div>
+	    </div>
+	    <!-- 卡片生成模板 End -->
+	  </div>
+	  <!-- 分页插件 -->
+	  <div class="acp-card-pagination">
+	  	<div class="pagination">
+	      <pagination class="pagination-sm" ng-model="pageInfo.currentPage" num-pages="numPages" total-items="pageInfo.totalRecord" max-size="8" items-per-page="pageInfo.pageSize" ng-change="reloadData();" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页" boundary-links="true"></pagination>
+	    </div>
+	  	<div class="pageInfo">
+	    	<span class="curry-page-panel">第 <input class="curry-page-ipt" ng-model="pageInfo.currentPage" type="text" ng-keyup="jumpToPage($event);" /> 页</span>
+	    	<span class="page-size-panel">每页 <select class="page-size-select" ng-model="pageInfo.pageSize" ng-options="option as option for option in perPageOptions" ng-change="reloadData();"></select> 条</span>
+	    	<span class="total-items-panel">共 {{pageInfo.totalRecord}} 条</span>
+	    </div>
+	  </div>
+  </div>
+</div>

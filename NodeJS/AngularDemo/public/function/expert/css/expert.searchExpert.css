@@ -1,0 +1,293 @@
+
+/*按屏幕分辨率加载不同的样式*/
+@media screen and (max-width: 1366px) {
+	.search-panel > .second > .category > ul > li{
+		width: 140px;
+	}
+}
+
+@media screen and (min-width: 1367px) {
+	.search-panel > .second > .category > ul > li{
+		width: 140px;
+	}
+}
+
+.left-panel {
+	min-width: 763px;
+}
+
+.search-panel {
+	width: 100%;
+	height: 80px;
+	/*background-color: #F2F2F2;*/
+	background-color: #CDEDDF;
+	min-width: 763px;
+}
+
+.search-panel > .first {
+	margin-left: 50px;
+	padding-top: 10px;
+	min-width: 763px;
+}
+
+.search-panel > .first > .first-sort {
+	width: 160px;
+	display: inline-block;
+}
+
+.search-panel > .first > .first-sort > span {
+	width: 50px;
+	display: inline-block;
+}
+
+.search-panel > .first > .first-sort > .select-sort {
+	width: 80px;
+	height: 25px;
+}
+
+
+.search-panel > .first > .first-job {
+	width: 190px;
+	display: inline-block;
+}
+
+.search-panel > .first > .first-job > span {
+	width: 50px;
+	display: inline-block;
+}
+
+.search-panel > .first > .first-job > .select-job {
+	width: 120px;
+	height: 25px;
+}
+
+
+
+.search-panel > .first > .first-search {
+	width: 280px;
+	display: inline-block;
+	float: right;
+}
+
+.search-panel > .first > .first-search > span{
+	width: 70px;
+	display: inline-block;
+	text-align: center;
+}
+
+.search-panel > .first > .first-search > input.search{
+	width: 200px;
+	height: 28px;
+	border-radius: 8px;
+	border:1px solid #E6E6E6;
+}
+
+
+.search-panel > .second {
+	margin-left: 50px;
+	padding-top: 10px;
+	min-width: 763px;
+}
+
+.search-panel > .second > span {
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	color: #666666;
+	float: left;
+}
+
+.search-panel > .second > .category {
+	display: inline-block;
+	float: left;
+}
+
+.search-panel > .second > .category > ul {
+	float: left;
+}
+
+.search-panel > .second > .category > ul {
+	font-size: 0;
+}
+
+.search-panel > .second > .category > ul li{
+	text-align: center;
+}
+
+.search-panel > .second > .category > ul li.last{
+	border:1px solid #E6E6E6;
+}
+
+.search-panel > .second > .category > ul > li:hover{
+	background-color: #F2F2F2;
+}
+
+
+.list-panel {
+	margin-top: 20px;
+	width: 100%;
+}
+
+.list-panel > .div-table {
+
+	width: 100%
+}
+
+.list-panel > .div-table > .div-tr {
+	border-bottom: dashed 1px #CFCFCF;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.list-panel > .div-table > .div-tr > .head-pic {
+	
+}
+
+.list-panel > .div-table > .div-tr > .head-pic > img {
+	float: left;
+	margin-right: 20px;
+}
+
+.list-panel > .div-table > .div-tr > .info-1 {
+
+}
+
+.list-panel > .div-table > .div-tr > .info-2 > span {
+	width: 60px;
+	height: 25px;
+	line-height: 25px;
+	display: inline-block;
+	background-color: #FE8A03;
+	color: white;
+	cursor: pointer;;
+}
+
+.list-panel > .div-table > .div-tr > .info-3 {
+	text-align: right;
+}
+
+.list-panel > .div-table > .div-tr > .info-3 > span {
+	width: 100px;
+	height: 25px;
+	border:1px solid #00A65A;
+	line-height: 25px;
+	display: inline-block;
+	background-color: white;
+	color: #00A65A;
+	cursor: pointer;
+	text-align: center;
+	margin: 1px;
+}
+
+.list-panel > .div-table > .div-tr > .info-3 > span.now {
+	background-color: #00A65A;
+	color: white;
+}
+
+.list-panel > .div-table > .div-tr > .info-3 > span.hold {
+	background-color: #F3F3F3;
+	color: #58666e;
+	border:1px solid #CFCFCF;
+}
+
+
+
+/********菜单**start********/
+
+.top-menu-item {
+	position: relative;
+	float: left;
+	border:1px solid #E6E6E6;
+	height: 30px;
+	cursor: pointer;
+	display: inline-block;
+	border-right: 0px;
+	background-color: white;
+	line-height: 30px;
+	font-size: 15px;
+
+}
+
+.menu > li.top-menu-item:hover > span.menu-hd{
+	color:#2EAE2E;
+}
+
+.menu-dropdown {
+	width: 817px;
+	height: 300px;
+	background-color: #FFFFFF;
+	display: none;
+	border:1px solid #E6E6E6;
+	margin-top: -1px;
+	z-index: 999;
+	position: relative;
+}
+
+.menu-dropdown > .menu-dropdown-left {
+	width: 290px;
+	height: 100%;
+	/*background-color: #CDEDDF;*/
+	background-color: #F1F1F1;
+	display: inline-block;
+	float: left;
+}
+
+.menu-dropdown > .menu-dropdown-left > .menu-left > li {
+	display: block;
+	height: 30px;
+	font-size: 15px;
+}
+
+.menu-dropdown > .menu-dropdown-left > .menu-left > li:hover {
+	color: #3366FF;
+	background-color: #FFFFFF;
+}
+
+.menu-dropdown > .menu-dropdown-left > .menu-left > li span {
+	margin-right: 10px;
+	float: right;
+}
+
+.menu-dropdown > .menu-dropdown-left > .menu-left > li a {
+	color: #5B5B5B;
+	float: left;
+}
+
+.menu-dropdown > .menu-dropdown-left > .menu-left > li:hover a {
+	color:#2EAE2E;
+}
+
+.menu-dropdown > .menu-dropdown-right {
+	display: inline-block;
+	float: left;
+	width: 525px;
+}
+
+.menu-dropdown > .menu-dropdown-right > div.items{
+
+}
+
+.menu-dropdown > .menu-dropdown-right > div.items span{
+	display: inline-block;
+	width: 75px;
+	height: 30px;
+	cursor: pointer;
+	float: left;
+}
+
+.menu-dropdown > .menu-dropdown-right > div.items span:hover{
+	color: #3366FF;
+	text-decoration: underline;
+}
+
+.start {
+	color: #2EAE2E;
+}
+
+/********菜单**end********/
+
+
+
+
+
