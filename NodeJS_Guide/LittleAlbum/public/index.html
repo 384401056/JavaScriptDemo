@@ -12,14 +12,13 @@
         <div class="panel-body">
 
             <div class="row" >
-                <div class="col-md-2" ng-repeat="item in albums">
-                    <a href="#" class="thumbnail">
+                <div class="col-md-3" ng-repeat="item in albums">
+                    <button class="thumbnail" ng-click="getAllFileParams(item)">
                         <img ng-src="images/drictor.png">
-                    </a>
+                    </button>
                     <h4 style="text-align: center">{{item}}</h4>
                 </div>
             </div>
-            <button class="btn btn-default" type="submit" ng-click="getAllFile()">AllFile</button>
         </div>
     </div>
 </body>

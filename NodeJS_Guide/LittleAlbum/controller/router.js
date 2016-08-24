@@ -9,7 +9,20 @@ exports.showIndex = function(req,res){
 
 exports.getAllFiles = function(req,res){
     var result = [];
-    file.getAllFiles(function(err,files){
+    file.getAllFiles("./upload",function(err,files){
+        if(err){
+            console.log(err)
+        }else {
+            result = files;
+            res.json(result);//返回json数据.
+        }
+    });
+};
+
+exports.showAlbum = function (req, res) {
+    var fileName = req.query["name"];
+    var result = [];
+    file.getAllFiles("./upload/"+fileName,function(err,files){
         if(err){
             console.log(err)
         }else {

@@ -5,24 +5,27 @@ var app = angular.module("myApp",[]);
 
 app.controller('albumController', function($scope, $http) {
     $scope.albums = [];
-
-    $scope.getAllFile = function(){
+    $scope.getAllFile = function getAllFile(){
         $http({
             url : '/getFile',
             dataType : 'json',
-            method : 'GET',
+            method : 'GET'
         }).success(function(data) {
             $scope.albums = data;
         }).error(function() {
             console.log("网络连接错误!");
         });
     };
+    $scope.getAllFile();
 
-    $scope.getDirctor = function(){
+    $scope.getAllFileParams = function getAllFile(item){
         $http({
-            url : '/getDirctor',
+            url : '/getFileParams',
             dataType : 'json',
             method : 'GET',
+            params:{
+                'name':item
+            }
         }).success(function(data) {
             $scope.albums = data;
         }).error(function() {
