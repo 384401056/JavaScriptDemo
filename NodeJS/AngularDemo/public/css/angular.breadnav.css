@@ -1,0 +1,48 @@
+ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+.bread-nav {
+	line-height: 35px;
+	margin: 13px 0px;
+	margin-top: 0px;
+	background-color: #F2F4F3;
+	white-space: nowrap;
+	display: block;
+	overflow: auto;
+}
+.bread-nav > .nav-label {
+	width: 92px;
+	padding-left: 23px;
+	margin-left: 10px;
+	display: block;
+	float: left;
+	background-image: url("../img/icon_location_now.png");
+	background-position: 0px center;
+	background-repeat: no-repeat;
+}
+.bread-nav a {
+	color: #58666e;
+	text-decoration: none;
+
+}
+.bread-nav li.active a {
+	cursor: default;
+}
+.bread-nav > .nav-content {
+	display: block;
+	margin-left: 110px;
+	overflow: auto;
+}
+.nav-lst > li {
+	float: left;
+}
+.nav-lst > li + li:before {
+    content: ">";
+    padding-left: 7px;
+    padding-right: 5px;
+    position: relative;
+    top: -1px;
+}

@@ -1,0 +1,138 @@
+div.free-ask {
+	/*border: 1px solid red;*/
+	min-width: 700px;
+	overflow-x: auto;
+}
+div.ask-content textarea,
+div.ask-detial textarea {
+	border: none;
+	resize: none;
+	background-color: #FBFBFB;
+}
+div.ask-detial textarea {
+	margin-top: 3px;
+}
+div.ask-content,
+div.ask-detial {
+	position: relative;
+}
+span.count {
+	position: absolute;
+	right: 5px;
+	bottom: 2px;
+}
+div.ask-detial {
+	border-top: 1px solid #ccc;
+	height: 100px;
+}
+div.div-ask-tags {
+	background-color: #F9F9F9;
+	height: 35px;
+	padding: 3px 5px;
+	margin: 25px auto;
+}
+span.tag-title {
+	display: inline-block;
+	line-height: 29px;
+}
+span.tag-item {
+	cursor:pointer;
+	display: inline-block;
+	border: 1px solid #ccc;
+	color: #aaa;
+	line-height: 25px;
+	text-align: center;
+	min-width: 60px;
+	padding: auto 2px;
+	border-radius: 2px;
+	margin: 5px 5px;
+}
+span.tag-item-choose {
+	cursor: pointer;
+	display: inline-block;
+	border: 1px solid #00a65a;
+	color: #00a65a;
+	line-height: 25px;
+	text-align: center;
+	min-width: 60px;
+	padding: auto 2px;
+	margin: 5px 5px;
+	border-radius: 2px;
+}
+span.icon-angle-up,
+span.icon-plus {
+	color: #00a65a;
+	/*font-size: 12pt;*/
+}
+span.add-tags {
+	color: #FF941E;
+	color: rgba(255,148,30,1);
+	margin: auto 15px;
+}
+
+span.icon-location {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url("../img/location.png");
+}
+.combo-button-active {
+	margin-left: 15px;
+}
+
+#btn_ask {
+	width: 90px;
+	background-color: #00a65a;
+	position: relative;
+	color: #fff;
+	border: none;
+	line-height: 30px;
+	float: right;
+}
+span.triangle-up {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-bottom: 8px solid #F9F9F9;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	position: absolute;
+	top:-8px;
+	left:45px;
+}
+div.checkbox {
+	margin-bottom: 1px;
+}
+div.expert-list {
+	background-color: #F9F9F9;margin:0;
+	margin-top: 8px;
+	position: relative;
+}
+div.expert-item {
+	display: inline-block;
+	border: 1px solid #ccc;
+	width: 285px;
+	background-color: #fff;
+	position: relative;
+	margin: 10px auto 10px 10px;
+}
+img.img-expert {
+	border-radius: 35px;
+	height: 70px;
+}
+span.icon-choose-fs {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url("../img/icon_choose.png") no-repeat ;
+	position: absolute;
+	right: 0;
+}
+span.icon-notchoose-fs {
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url("../img/icon_choose.png") no-repeat -16px,0;
+	position: absolute;
+	right: 0;
+}

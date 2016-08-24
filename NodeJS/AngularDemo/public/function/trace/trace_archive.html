@@ -1,0 +1,127 @@
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500,'limit':1, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+<div class="trace_archive_div" ng-controller="TraceArchiveController">
+
+    <div class="trace_archive_content">
+        <!-- 溯源档案基本信息-->
+        <div class="trace_archive_1 row">
+            <div class="col-md-2">
+                <span class="span-opt-btn"><i class="icon-undo"></i>&nbsp;返回</span>
+            </div>
+
+            <div class="col-md-9 text-center">
+                <span>产品追溯查询:</span><span>九鼎石斛</span><br/>
+                <span>您查询的商品是文山九鼎石斛合作社生产的铁皮石斛—红甘2#石斛。</span>
+            </div>
+
+            <div class="col-md-1 text-right">
+                <span class="span-opt-btn"><i class="icon-edit"></i>&nbsp;编辑</span>
+            </div>
+        </div>
+
+
+        <div class="trace_archive_2 row">
+            <div class="col-md-2">
+                <span>&nbsp;</span>
+            </div>
+
+            <div class="col-md-9 text-center">
+                <span>
+                        产品名称：铁皮石斛—红甘2#石斛
+                </span>
+                <br/>
+                <span>
+                         种植基地广南九鼎石斛革赖种植基地
+                </span>
+            </div>
+            <div class="col-md-1 text-right">
+                <span class="span-opt-btn" ng-click="EditProductCertificate()"><i class="icon-edit"></i>&nbsp;编辑</span>
+            </div>
+        </div>
+
+        <div class="trace_archive_3 row text-center">
+            <div class="col-md-2">
+                <span>&nbsp;</span>
+            </div>
+            <div class="col-md-9">
+                <img src="function/trace/imgs/01.png"/>
+                <img src="function/trace/imgs/02.png"/>
+                <img src="function/trace/imgs/03.png"/>
+            </div>
+            <div class="col-md-1">
+                <span>&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="trace_archive_4 row">
+            <div class="col-md-2">
+                <span style="font-size:30px;color: #4cc077;"><i class="icon-file-text-alt"></i></span>
+                <span style="font-size:20px;color: #4cc077;">&nbsp;产品简介</span>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    近期A股pokemon概念的走势喜忧参半，强势龙头如GQY视讯、恒信移动、创维数字从早盘封涨停板，且全天缩量成交，显示了极强的走势；但其他概念股则高开低走，大部分走出了一根放量的大阴线。
+                    交易时间结束之后，市场的分歧很大，部分人认为这一波只是主题炒作，和过去几个月的部分主题非常类似，而部分人则认为和今年初的新能源汽车一样，第一天的走势并没有代表性的意义，从趋势来看pokemon的横空出世对产业的影响且才刚刚开始，后面的变化和衍生值得期待。以下是我们的观点：
+                    一、从产品的角度来看，pokemon是一个划时代的产品，这个确定性很高
+                    开篇明义，我们认为虽然pokemon的表象是一款基于lbs（个人位置定位）的手游，并没有ar的技术应用，然而从产品的核心内涵来看却是AR和VR，即虚拟世界和现实世界的结合，以及虚拟世界和现实世界边界的消失。
+                </div>
+
+            </div>
+            <div class="col-md-1 text-right">
+                <span class="span-opt-btn"><i class="icon-edit"></i>&nbsp;编辑</span>
+            </div>
+        </div>
+
+
+        <div class="trace_archive_4 row">
+            <div class="col-md-2">
+                <span style="font-size:30px;color: #4cc077;"><i class="icon-file-text-alt"></i></span>
+                <span style="font-size:20px;color: #4cc077;">&nbsp;公司简介</span>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    云南银河之星科技园有限责任公司位于云南省昆明经开区云景路168号H栋5楼501室交通便利。
+                    云南银河之星科技园有限责任公司本着“客户第一，诚信至上”的原则，欢迎国内外企业/公司/机构
+                    与本单位建立长期的合作关系。公司拥有一支较强的技术研发队伍并和国内多家机构强强联手，
+                    研发出拥有自主知识产权。热诚欢迎各界朋友前来参观、考察、洽谈业务。
+                    蔡俊丰代表云南银河之星科技园有限责任公司欢迎新老客户来电咨询
+                </div>
+
+            </div>
+            <div class="col-md-1 text-right">
+                <span class="span-opt-btn"><i class="icon-edit"></i>&nbsp;编辑</span>
+            </div>
+        </div>
+
+        <div class="trace_archive_5 row">
+            <div class="col-md-2">
+                <span style="font-size:30px;color: #4cc077;"><i class="icon-file-text-alt"></i></span>
+                <span style="font-size:20px;color: #4cc077;">&nbsp;产品认证</span>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    <span>农药残留监测</span><span style="margin-left:80px;color: #00A600 "><icon class="icon-check-sign"></icon></span><br/>
+                    <span>农药残留监测</span><span style="margin-left:80px;color: #00A600 "><icon class="icon-check-sign"></icon></span><br/>
+                    <span>农药残留监测</span><span style="margin-left:80px;color: #00A600 "><icon class="icon-check-sign"></icon></span><br/>
+                    <span>农药残留监测</span><span style="margin-left:80px;color: #00A600 "><icon class="icon-check-sign"></icon></span><br/>
+                    <span>农药残留监测</span><span style="margin-left:80px;color: #00A600 "><icon class="icon-check-sign"></icon></span><br/>
+                </div>
+
+            </div>
+            <div class="col-md-1 text-right">
+                <span class="span-opt-btn" ng-click="EditProductCertificate()"><i class="icon-edit"></i>&nbsp;编辑</span>
+            </div>
+        </div>
+
+
+        <div class="trace_archive_6 row">
+            <div class="col-md-12 text-left">
+                <span style="font-size:30px;color: #4cc077;"><i class="icon-suitcase"></i></span>
+                <span style="font-size:20px;color: #4cc077;">&nbsp;溯源档案</span>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>

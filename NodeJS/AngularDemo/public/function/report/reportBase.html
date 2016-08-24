@@ -1,0 +1,45 @@
+<div class="report-page" ng-controller="report">
+
+  <!-- content -->
+  <div class="content">
+    <div class="equip-section">
+      <span  id="{{ type.typeId }}" class="equip-item" data-xindex="{{type.xindex}}" data-yindex="{{type.yindex}}" ng-if="type.xindex > 0" ng-model="allTypes" ng-repeat="type in allTypes" ng-click="chooseType($event)">
+        <span class="{{ type.class }}"></span>
+        <p>{{ type.typeName }}</p>
+      </span>
+    </div>
+    
+    <div class="report-nav-panel">
+    	<div class="org-select-p">
+    		<span class="nav-label">组织机构:</span>
+    		<span ng-show="treeData.length > 0" ng-class="{true: 'dialog-btn opened', false: 'dialog-btn'}[isShow.value]" ng-click="dropDownClick($event);">
+	    		{{isShow.text}}
+	    	</span>
+    		<div id="org-select-tree" ng-class="{true: 'ztree tree-dialog-panel opened', false: 'ztree tree-dialog-panel'}[isShow.value]" ></div>
+    	</div>
+    	<div class="org-lst-p">
+    		<span class="nav-label">报表统计名称:</span>
+    		<span id="org_nav_{{orgDeviceObj.orgId}}" class="nav-item" data-org-id="{{orgDeviceObj.orgId}}" ng-repeat="orgDeviceObj in orgDeviceData">
+	    		{{orgDeviceObj.orgFullName}}
+	    		<span class="icon-remove" ng-click="removeCurryOrgDeviceData($event);"></span>
+	    	</span>
+    	</div>
+    </div>
+    <div class="report-equip-select-panel">
+    	<div id="org_equip_{{orgDeviceObj.orgId}}" ng-class="{true: 'org-equip-panel first', false: 'org-equip-panel'}[$index == 0]" data-org-id="{{orgDeviceObj.orgId}}" ng-repeat="orgDeviceObj in orgDeviceData">
+    		<div class="org-title-panel">{{orgDeviceObj.orgFullName}}</div>
+    		<div class="org-equip-lst-panel">
+    			<div id="equip_{{equipObj.id}}" class="equip-item" data-device-id="{{equipObj.id}}" data-device-type="{{equipObj.diviceType}}" ng-repeat="equipObj in orgDeviceObj.deviceLst" ng-click="deviceClick($event);">
+    				<span class="icon-selected"></span>
+    				{{equipObj.deviceName}}
+    			</div>
+    		</div>
+    	</div>
+	</div>
+	<div class="report-btn-p" style="text-align: right;">
+		<input class="search-btn" type='button' value='查询' ng-click="queryReport();">
+	</div>
+    </div>
+  </div>
+  
+</div>

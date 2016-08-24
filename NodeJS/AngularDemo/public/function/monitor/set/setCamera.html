@@ -1,0 +1,151 @@
+
+<!--设置照相机-->
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500,'limit':1, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+ <div class="common-camera-set-page" ng-controller="CommonSetCameraController"  >
+      <div class="col-lg-6">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="common-camera-set-title">
+                      <span style="float: left;"><div style="margin-top:5px;;margin-left: 13px ">{{camera_device_name}}设置</div></span>
+                      <user-permission code="20">
+                          <div class="common-set-camera-top-edit">
+                              <i class="icon-edit  "></i>
+                              <span ng-click="setCameraEdit()">编辑</span>
+                          </div>
+                      </user-permission>
+                      <user-permission code="40">
+                          <div class="common-set-camera-top-add">
+                              <i class="icon-plus-sign-alt"></i>
+                              <span ng-click="setCameraAdd()">新建</span>
+                          </div>
+                      </user-permission>
+                  </div>
+              </div>
+          </div>
+         <div class="common-camera-set-wrapper-md" >
+                <table class="table table-bordered table-hover">
+                    <thead >
+                    <tr>
+                        <th rowspan="2" class="text-center" >
+                            <label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox"  ng-model="vm.allChecked" ng-change="vm.checkAll(vm.allChecked)">
+                                <i></i>
+                            </label>
+                        </th>
+                        <th rowspan="2"class="text-center">开始时间</th>
+                        <th rowspan="2"class="text-center">结束时间</th>
+                        <th rowspan="2"class="text-center">间隔时间</th>
+                        <th rowspan="2" class="text-center">启用状态</th>
+                         <th rowspan="2" class="text-center">
+                           <user-permission code="160">
+                                操作
+                            </user-permission>
+                        </th>
+                    </tr>
+                    <tr></tr>
+                    </thead >
+                    <tbody >
+                    <tr  ng-repeat="item in vm.items" ng-click="vm.getCameraInfo(item)"  >
+                        <td  class="text-center">
+                            <label class="i-checks i-checks-sm " >
+                                <input  type="checkbox"  ng-model="item.$checked" />
+                                <i></i>
+                            </label>
+                        </td>
+                        <td class="text-center">{{item.begintime}}</td>
+                        <td class="text-center">{{item.endtime}}</td>
+                        <td class="text-center">{{item.intervals}}分钟</td>
+                        <td class="text-center">{{item.isenabled==1 ? '启用' : '禁止'}}</td>
+                        <td class="text-center" style="cursor: pointer">
+                         <user-permission code="160">
+                             <user-permission code="30">
+                               <delete-button   ng-click="cameraDelete(item,$event)"></delete-button>
+                             </user-permission>
+                           </user-permission>
+                       </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+      </div>
+        <div class="col-lg-6 ">
+            <div class="common-camera-set-right">
+                <div class="panel-body">
+                    <form  id="camera-form-horizontal" class="form-horizontal " name="userform" role="form" novalidate="" method="post">
+                        <div class="form-group" >
+                            <label class="col-sm-2 " style="float: left;margin-top: 10px;width: 100px">拍照间隔</label>
+                            <div class="col-sm-4 col-xs-4 " style="float: left;margin-left: -25px;">
+                                <input type="number"  ng-model="camera.intervals" required="" min="1" max="1440" style="cursor: default;"  ng-disabled="cutValueDis" class="form-control">
+                            </div>
+                            <span style="float: left;margin-left: 2px;margin-top:5px">分钟</span>
+                        </div>
+                        <div class="form-group">
+                            <label  class="col-sm-2 " style="float: left;margin-top: 10px;width: 98px">时段</label>
+                            <div class="col-sm-4 col-xs-4  set-camera-time-p" >
+                                <input   id="datetimepicker" type="text" ng-model="camera.beginTime" required="" ng-disabled="beginTimeDis"  ng-readonly="true" class="form-control"   style="cursor:default;">
+                            </div>
+                            <span style="float: left;margin-top: 5px"  >至</span>
+                            <div class="col-sm-4 col-xs-4 ">
+                                <input id="datetimepicker1"  type="text" ng-readonly="true" ng-disabled="endTimeDis"  required="true"   ng-model="camera.endTime"  class="form-control" style="cursor: default">
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <div class="radio" >
+                                <label class="col-sm-2 " style="margin-left: -5px;width: 100px">启用状态</label>
+                                <label class="i-checks i-checks-sm i-set-camera">
+                                    <input type="radio" name="isEnabled" value = "1" ng-disabled="isEnabledDis" ng-model="camera.isEnabled">
+                                    <i></i>
+                                    启用
+                                </label>
+                                <label class="i-checks i-checks-sm">
+                                    <input type="radio" name="isEnabled" value = "0"  ng-disabled="isEnabledDis" ng-model="camera.isEnabled">
+                                    <i></i>
+                                    禁用
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success set-camera-bg " ng-show="camera_ok"ng-disabled="cameraDis" ng-click="cameraSave()">保存</button>
+                            <button class="btn fa fa-close" ng-show="camera_cancel" ng-click="cameraCancel()">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker1').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+    });
+</script>
+
+
+
+
+
+

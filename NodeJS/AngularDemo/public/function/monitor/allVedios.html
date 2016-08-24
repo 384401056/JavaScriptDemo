@@ -1,0 +1,137 @@
+<div id="vedioBox" ng-controller="vediosInforController">
+<!-- <div id="vedioBox"> -->
+    <div class="col-left sidebar-camera">
+        <h5 style="margin: 0px;">设备列表</h5>
+        <ul id="list-camera" data-ordid="{{OrgID}}">
+        <!-- <ul id="list-camera"> -->
+        </ul>
+    </div>
+    <div class="col-right">
+        <div class="extra vediomode-control">
+            <div class="tabbar hide">
+                <ul>
+                    <li class="current"><a>控制</a></li>
+                </ul>
+            </div>
+            <div class="tabcon">
+                <div class="video-control">
+
+                    <p class="subtitle">云台控制</p>
+                    <div class="ptz">
+                        <div class="direction">
+                            <ul>
+                                <li>
+                                    <div class="btn-group"> <a class="btn123"><i class="ic-t-l"></i></a> <a class="btn123"><i class="ic-t-m"></i></a> <a class="btn123"><i class="ic-t-r"></i></a></div>
+                                </li>
+                                <li>
+                                    <div class="btn-group"> <a class="btn123"><i class="ic-m-l"></i></a> <a class="btn123"><i class="ic-m-m"></i></a> <a class="btn123"><i class="ic-m-r"></i></a></div>
+                                </li>
+                                <li>
+                                    <div class="btn-group"> <a class="btn123"><i class="ic-b-l"></i></a> <a class="btn123"><i class="ic-b-m"></i></a> <a class="btn123"><i class="ic-b-r"></i></a></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="details-control">
+                            <p class="zoom"><a class="btn123 fr"><i class="ic-add"></i></a><a class="btn123 fl"><i class="ic-sub"></i></a> <div class="zoomTitle">缩放</div></p>
+                            <p class="focus hide"><a class="btn123 fr"><i class="ic-add"></i></a><a  class="btn123 fl"><i class="ic-sub"></i></a>聚焦</p>
+                            <p class="aperture hide"><a class="btn123 fr"><i class="ic-add"></i></a><a class="btn123 fl"><i class="ic-sub"></i></a>光圈</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="ptzSlider clearfix">
+                        <a class="btn123 fr btn-add"><i class="ic-add"></i></a>
+                        <a class="btn123 fl btn-plus"><i class="ic-sub"></i></a>
+
+                        <div class="ptz-speed">
+                            <div id="slider" class="ptz-slider">
+                                <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 50%;"></div>
+                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 50%;" title="云台速度:4"></a>
+                            </div>
+
+                        </div>
+                        <span>云台速度</span>
+                    </div>
+                </div>
+                <div class="playback-time">
+                    <p class="mt10 playTitle">回放时间</p>
+                    <p class="mt10"><input type="text" value="" class="input-text" id="txtStartDate" placeholder="开始时间"></p>
+                    <p class="mt10"><input type="text" value="" class="input-text" id="txtEndDate" placeholder="结束时间"></p>
+                    <p class="mt10">
+                        <a href="#" id="btn-playback" class="btn_gray btn-block">开始回放</a>
+                    </p>
+                </div>
+                <div class="video-setting" style="display:none">
+                    <p class="toolbar"><a href="#" id="addSettingBtn"><i class="icon-add"></i>添加设置</a></p>
+                    <div class="setting-detail">
+                        <div class="item">
+                            <h4>05:00-12:00</h4><i class="icon-arrow-menu"></i>
+                            <p class="col-name">移动侦测</p>
+                            <p><span class="l-name">重复：</span>周一、二、三、四、五、六</p>
+                            <p><span class="l-name">灵敏度：</span>高</p>
+                            <p><span class="l-name">报警方式：</span>监视器上报警</p>
+                        </div>
+                        <div class="item">
+                            <h4>05:00-12:00</h4><i class="icon-arrow-menu"></i>
+                            <p class="col-name">移动侦测</p>
+                            <p><span class="l-name">重复：</span>周一、二、三、四、五、六</p>
+                            <p><span class="l-name">灵敏度：</span>高</p>
+                            <p><span class="l-name">报警方式：</span>监视器上报警</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-mid main-camera adaptive-layout">
+        <div class="adaptiveBox">
+            <div id="divPluginAll" class="monitor-screen" style="position:relative; z-index:999">
+                <div class="pluginLink">
+                    <a class="pluginLinkSel">没有插件</a>
+                </div>
+            </div>
+            <div class="bottombar">
+                <dl class="view">
+                    <dt>视图</dt>
+                    <dd><i class="ic-grid ic-grid1" title="1*1"></i><i class="ic-grid ic-grids4 icon-active" title="2*2"></i><i class="ic-grid ic-grids9" title="3*3"></i></dd>
+                </dl>
+                <!--<div class="page-cotrol"> <i class="btn-prev"></i><i class="btn-next"></i> </div>-->
+                <div class="play-control">
+                    <ul>
+                        <li><a class="btn123" title="全部开始预览"><i class="ic-preview"></i></a></li>
+                        <li><a class="btn123" title="抓图"><i class="ic-snap"></i></a></li>
+                        <li class="hide">
+                            <div class="btn-group"> <a class="btn123" title="全部开始录像"><i class="ic-record"></i></a> <!--<a class="btn" href="#"><i class="ic-zoom"></i></a>--> </div>
+                        </li>
+                        <!--<li>
+                          <div class="btn-group"> <a class="btn" href="#"><i class="ic-speak"></i></a> <a class="btn volume" href="#"><i class="ic-mute"></i><b class="arrow-down"></b></a> </div>
+                        </li>-->
+                        <li> <a class="btn" title="全屏"><i class="ic-fullscreen"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    (function () {
+
+        var wHeight = $("#vedioBox").height();
+        //填充自适应高度
+        HighlyAdaptive();
+        $(window).resize(function () {
+            HighlyAdaptive();
+        });
+        function HighlyAdaptive() {
+           /* $(".adaptive-layout").css("height", wHeight);*/
+            $(".monitor-screen").css("height", wHeight - 50);
+            $(".col-left").css("height", wHeight);
+            $(".col-mid").css("height", wHeight);
+            $(".adaptiveBox").css("height", wHeight);
+            $(".col-right").css("height", wHeight);
+        }
+    })();
+
+</script>
+
+

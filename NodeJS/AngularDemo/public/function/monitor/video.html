@@ -1,0 +1,194 @@
+<style type="text/css">
+
+ul,li{
+    margin: 0;
+    padding: 0;
+}
+#divPlugin { width: 460px; height: 225px; overflow: hidden; }
+        
+.vedioContent .video-control .ptz .direction { width: auto; margin-right: 10px; }
+        
+.vedioContent .extra .video-control {
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height:50px;
+}
+        
+.vedioContent .extra .btn-group { margin-right: 10px; }
+        
+.vedioContent .details-control .btn, .ptzSlider .btn { width: 28px; height: 28px; line-height: 28px; }
+        
+.vedioContent .details-control p { line-height: 28px; }
+.clearfix {
+}
+.clearfix::after {
+    clear: both;
+    content: " ";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+</style>
+<div id="{{dId}}window" class="common-monitor-video-tag">
+  <div class="common-monitor-video-page">
+    <div class="common-monitor-video-page-left">
+      <span >{{diviceName}}</span>
+    </div>
+    <div id="{{diviceType}}" style="position: absolute;padding-top: 10px;right:30px">
+      <span class="icon-cogs" ng-click="videoParamSet(dId,diviceName)" style="cursor: pointer">参数</span>
+      <span class="icon-cog" ng-click="videoSet(dId,diviceName)" style="padding-left: 5px;cursor: pointer">规则</span>
+      <span class="icon-bell" ng-click="videoLinkRecord(dId,diviceName,diviceType)" style="padding-left: 5px;cursor: pointer">预警</span>
+      <span class="icon-random" ng-click="videoAlarmRecord(dId,diviceName,diviceType)" style="padding-left: 5px;cursor: pointer">联动</span>
+    </div>
+    <div class="common-monitor-video-page-right-close"></div>
+  </div>
+  <div class="vedioContent clearfix">
+    <div id="divPlugin" class="clearfix"></div>
+    <div class="clear"></div>
+    <div class="extra clearfix">
+      <div class="tabcon">
+        <div class="video-control">
+          <div class="ptz">
+            <div class="direction">
+              <ul>
+                <li>
+                  <div class="btn-group">
+                    <a id="t-l" class="btn1"> <i class="ic-t-l"></i>
+                    </a>
+                    <a id="t-m" class="btn1"> <i class="ic-t-m"></i>
+                    </a>
+                    <a id="t-r" class="btn1">
+                      <i class="ic-t-r"></i>
+                    </a>
+                    <a id="m-l" class="btn1">
+                      <i class="ic-m-l"></i>
+                    </a>
+                    <a id="m-m" class="btn1">
+                      <i class="ic-m-m"></i>
+                    </a>
+                    <a id="m-r" class="btn1">
+                      <i class="ic-m-r"></i>
+                    </a>
+                    <a id="b-l" class="btn1">
+                      <i class="ic-b-l"></i>
+                    </a>
+                    <a id="b-m" class="btn1">
+                      <i class="ic-b-m"></i>
+                    </a>
+                    <a id="b-r" class="btn1">
+                      <i class="ic-b-r"></i>
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="details-control">
+              <p class="zoom">
+                <a class="btn2 fr">
+                  <i class="ic-add"></i>
+                </a>
+                <a class="btn2 fl">
+                  <i class="ic-sub"></i>
+                </a>
+                缩放
+              </p>
+              <p class="focus hide">
+                <a class="btn fr">
+                  <i class="ic-add"></i>
+                </a>
+                <a class="btn fl">
+                  <iclass="ic-sub"></i>
+                </a>
+                聚焦
+              </p>
+              <p class="aperture hide">
+                <a class="btn fr">
+                  <i class="ic-add"></i>
+                </a>
+                <a class="btn fl">
+                  <i class="ic-sub"></i>
+                </a>
+                光圈
+              </p>
+            </div>
+          </div>
+          <div class="clear"></div>
+          <div class="ptzSlider clearfix hide">
+            <a class="btn fr btn-add">
+              <i class="ic-sub"></i>
+            </a>
+            <a class="btn fl btn-plus">
+              <i class="ic-add"></i>
+            </a>
+            <div class="ptz-speed">
+              <div id="slider" class="ptz-slider"></div>
+            </div>
+          </div>
+          <!--             <div class="btn-cotrol mt10">
+          <div class="btn-group">
+            <a class="btn" href="#">灯光</a>
+            <a class="btn btn-active" href="#">雨刷</a>
+          </div>
+        </div>
+        <p class="mt10">视频参数</p>
+        <div class="video-parameter clearfix mt10">
+          <ul>
+            <li>
+              <span class="name">亮度</span>
+              <div class="VideoBright">
+                <div class="VideoBright_wrapper">
+                  <div class="imageSlider1"></div>
+                  <div class="imageBar2"></div>
+                </div>
+              </div>
+              <span class="number">50</span>
+            </li>
+            <li>
+              <span class="name">对比度</span>
+              <div class="VideoBright">
+                <div class="VideoBright_wrapper">
+                  <div class="imageSlider1"></div>
+                  <div class="imageBar2"></div>
+                </div>
+              </div>
+              <span class="number">50</span>
+            </li>
+            <li>
+              <span class="name">饱和度</span>
+              <div class="VideoBright">
+                <div class="VideoBright_wrapper">
+                  <div class="imageSlider1"></div>
+                  <div class="imageBar2"></div>
+                </div>
+              </div>
+              <span class="number">50</span>
+            </li>
+            <li>
+              <span class="name">色度</span>
+              <div class="VideoBright">
+                <div class="VideoBright_wrapper">
+                  <div class="imageSlider1"></div>
+                  <div class="imageBar2"></div>
+                </div>
+              </div>
+              <span class="number">50</span>
+            </li>
+          </ul>
+        </div>
+        -->
+        <!-- <p class="mt10">
+        <a href="#" class="btn_gray btn-block">恢复默认值</a>
+      </p>
+      -->
+    </div>
+  </div>
+</div>
+</div>
+<div class="common-monitor-video-page-right ">
+<span ng-click="queryAllVideo(diviceName)" style="cursor: pointer">查看全部</span>
+</div>
+<div class="common-monitor-video-tag-arrow"> <em></em>
+<span></span>
+</div>
+</div>

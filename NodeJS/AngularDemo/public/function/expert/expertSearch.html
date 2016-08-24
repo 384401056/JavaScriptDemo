@@ -1,0 +1,59 @@
+<div class="expert-page" ng-controller="expertSearch">
+
+  <!-- content -->
+  <div  class="expert-left col-md-12 col-lg-12">
+
+  <div class="row-content">
+      <div class="expert-search">
+
+        <span class="searchTypes-all" ng-model="searchTypes" ng-repeat="type in searchTypes">
+          <span class="{{type.className}}" id="searchType_{{type.dictcode}}" ng-click="chooseType4Search($event,type,'searchTypes-all')">{{type.dictdata}}</span>
+        </span>
+
+      <div class="search-box input-group col-md-12">
+          <input id="searchField" type="text" class="form-control" placeholder="请输入想搜索的内容" ng-model="searchField" data-maxlength="30" ng-keypress="searchFieldKeypress($event);" ng-keyup="searchFieldKeyup($event);"/>
+          <div class="search-btn input-group-addon" ng-click="doSearch();"></div>
+          <input type="hidden" id="searchTypeValue" value="{{skilledField}}"/>
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="">
+      相关词条：
+      <span class="inline-block" ng-model="aboutWords" ng-repeat="item in aboutWords">
+        <span class="inline-block more-color a_pointer margin-right" ng-click="viewArticle({{item.id}})">{{item.title}}</span>
+      </span>
+    </div>
+
+
+    <div class="list-top list-bottom" ng-model="results" ng-repeat="result in results">
+      <div class="list-gap" ng-repeat="item in result.articleList">
+        <span class="list-gap-text a_pointer" ng-click="viewArticle({{item.id}})">{{$index+1}}、{{item.title}}</span>
+      </div>
+
+      <div class="list-gap">
+        <span class="list-gap-text-gray">以上是关于"{{tempSkikkedField}}"的{{result.skilledFieldName}}</span>
+        <span class="list-gap-text-more more-color a_pointer" ng-click="getMoreArticles('{{result.skilledFieldName}}')">更多>></span>
+      </div>
+
+    </div>
+
+    <div>
+      <div class="list-gap" ng-model="result4Expert" ng-repeat="item in result4Expert">
+        <span class="list-gap-text" ng-click="viewExpertIntroduction({{item.id}})">{{$index+1}}、{{item.username}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{item.degreename}}&nbsp;&nbsp;{{item.title}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;擅长领域：{{item.skilledfieldname}}</span>
+      </div>
+
+      <div class="list-gap" ng-hide="checkValue">
+        <span class="list-gap-text-gray">以上是关于"{{tempSkikkedField}}"的行业专家</span>
+        <span class="list-gap-text-more more-color a_pointer" ng-click="getMoreExperts()">更多>></span>
+      </div>
+    </div>
+
+
+  </div>
+
+
+</div>

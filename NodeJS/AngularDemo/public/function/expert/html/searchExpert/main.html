@@ -1,0 +1,202 @@
+<div class="expert-page row" ng-controller="searchExpertController" >
+
+  <!-- content -->
+ 
+
+ 
+    
+
+    <div class="left-panel" style="width: auto;margin-left: 16px;margin-right:15px;">
+      <div class="search-panel">
+        <div class="first">
+          <div class="first-sort">
+            <span>按排序</span>
+            <select class="select-sort">
+              <option value="">不限</option>
+              <option value="1">时间</option>
+              <option value="2">名字</option>
+            </select>
+          </div>
+
+          <div class="first-job">
+            <span>按职务</span>
+            <select class="select-job">
+              <option value="1">高级研究员</option>
+              <option value="2">专家</option>
+            </select>
+          </div>
+
+          <div class="first-search">
+            <input class="search" type="text" name="" value="" placeholder="  搜索关键字" />
+            <span>搜索</span>
+          </div>
+
+        </div>
+        <div class="second">
+        
+            <span>按分类找专家</span>
+            
+            <!-- 导航菜单 -->
+            <div class="category">
+              <ul class="menu">
+
+
+                <li class="top-menu-item" has-dropdown="true" ng-repeat="item in industryCategoryList" repeat-finish callback="animateInit()" itemId="{{item.industrycategoryid}}">
+                  <span class="menu-hd">
+                    {{item.name}}
+                  </span>
+
+                  <div class="menu-dropdown">
+                    <div class="menu-dropdown-left">
+                      <ul class="menu-left" parentId="{{item.industrycategoryid}}">
+                        <li ng-repeat="subItem in subCategoryList" repeat-finish callback="menuLeftInit({{item.industrycategoryid}})" itemId="{{subItem.industrycategoryid}}" class="left-menu-item" parentId="{{subItem.parentid}}">
+                        <!--此处有全角空格，别手痒删除-->
+                          <a href="javascript:void(0);">　{{subItem.name}}</a>
+                          <span>></span>
+                        </li>
+                        
+                      </ul>
+                    </div>
+                    <div class="menu-dropdown-right">
+                      <div class="items">
+                        <span class="start">不限</span>
+                        <span ng-repeat="crop in CropsList" itemId="{{crop.id}}">{{crop.cropname}}</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </li>  
+
+
+                <!-- <li class="top-menu-item" has-dropdown="true">
+                  <span class="menu-hd">
+                    林
+                  </span>
+
+                  <div class="menu-dropdown">
+                  </div>
+                  
+                </li> 
+
+
+                <li class="top-menu-item last" has-dropdown="true">
+                  <span class="menu-hd">
+                    渔
+                  </span>
+
+                  <div class="menu-dropdown">
+                  </div>
+                  
+                </li>  -->
+
+              </ul>
+            </div>
+
+
+
+        
+
+        </div>
+      </div>
+
+      <div class="list-panel">
+        <div class="div-table">
+
+          <div class="col-sm-12 div-tr">
+
+            <div class="col-sm-4 head-pic">
+               <img src="function/expert/img/exp.jpg" >
+               <div style="float:left">
+                张翰生<br>
+                云南省农科院<br>
+                高级研究员<br>
+                擅长：育种、栽培<br>
+               </div>
+               
+                
+              
+            </div>
+
+            <div class="col-sm-3 info-1">
+              评分：99<br>
+              综合排名：第1名<br>
+              专业排名：第2名<br>
+            </div>
+
+            <div class="col-sm-2 info-2">
+              <span>+加关注</span><br>
+              咨询量：228次<br>
+              专家文章（35）
+            </div>
+
+            <div class="col-sm-3 info-3">
+              <span>在线咨询</span><br>
+              <span>预约电话</span><br>
+              <span class="now">即时交流</span><br>
+            </div>
+
+          </div>
+          <br style="clear:both;padding-top:15px;"> 
+
+         <div class="col-sm-12 div-tr">
+
+            <div class="col-sm-4 head-pic">
+               <img src="function/expert/img/exp.jpg" >
+               <div style="float:left">
+                张翰生<br>
+                云南省农科院<br>
+                高级研究员<br>
+                擅长：育种、栽培<br>
+               </div>
+               
+                
+              
+            </div>
+
+            <div class="col-sm-3 info-1">
+              评分：99<br>
+              综合排名：第1名<br>
+              专业排名：第2名<br>
+            </div>
+
+            <div class="col-sm-2 info-2">
+              <span>+加关注</span><br>
+              咨询量：228次<br>
+              专家文章（35）
+            </div>
+
+            <div class="col-sm-3 info-3">
+              <span>在线咨询</span><br>
+              <span>预约电话</span><br>
+              <span class="hold">排队</span><br>
+            </div>
+
+          </div>
+          <br style="clear:both;"> 
+
+
+        </div>
+
+        
+        <div class="page-row">
+          <!-- 分页插件 -->
+          <div class="acp-card-pagination">
+            <div class="pagination col-md-9 col-sm-8 col-xs-8">
+              <pagination class="pagination-sm" ng-model="pageInfo.currentPage" num-pages="numPages" total-items="pageInfo.totalCount" max-size="8" items-per-page="pageInfo.pageSize" ng-change="reloadData();" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页" boundary-links="true"></pagination>
+            </div>
+            <div class="pageInfo col-md-3 col-sm-4 col-xs-4">
+              <span class="curry-page-panel">第 <input class="curry-page-ipt" ng-model="pageInfo.currentPage" type="text" ng-keyup="jumpToPage($event);" /> 页</span>
+              <span class="page-size-panel">每页 <select class="page-size-select" ng-model="pageInfo.pageSize" ng-options="option as option for option in perPageOptions" ng-change="reloadData();"></select> 条</span>
+              <span class="total-items-panel">共 {{pageInfo.totalCount}} 条</span>
+            </div>
+          </div>
+        </div>
+       
+
+      </div>
+
+
+    </div>
+
+
+</div>

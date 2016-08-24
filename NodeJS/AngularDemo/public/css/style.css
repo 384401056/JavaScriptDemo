@@ -1,0 +1,221 @@
+/**
+ * 公共样式文件
+ */
+/*页面文字被选中时,文字和背景颜色*/
+::selection {
+	color: #ffffff;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,.8);
+}
+::-moz-selection {
+	color: #ffffff;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,.8);
+}
+
+
+img::selection {
+	color: #ffffff;
+	background-color:  rgba(0,0,0,0);
+	background-color:  rgba(0,0,0,0);
+}
+img::-moz-selection {
+	color: #ffffff;
+	background-color:  rgba(0,0,0,0);
+	background-color:  rgba(0,0,0,0);
+}
+img::-webkit-selection {
+	color: #ffffff;
+	background-color:  rgba(0,0,0,0);
+	background-color:  rgba(0,0,0,0);
+}
+
+/* 设置 图标*/
+.setting-icon {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-image: url("../img/icon_setting.png");
+	background-repeat: no-repeat;
+}
+/*报表图标*/
+.report-icon {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	background-image: url("../img/icon_report.png");
+	background-repeat: no-repeat;
+}
+/*操作图标*/
+.operating-icon {
+	display: inline-block;
+	height: 12px;
+	width: 9px;
+	background-image: url("../img/icon_operating.png");
+	background-repeat: no-repeat;
+}
+.start-active {
+	background-position: 0px 0px;
+}
+.start-disable {
+	background-position: -9px 0px;
+}
+.stop-active {
+	background-position: -18px 0px;
+}
+.stop-disable {
+	background-position: -28px 0px;
+}
+/*操作-删除图标*/
+.delete-icon {
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	background-image: url("../img/icon_delete.png");
+	background-position: -0px 0px;
+	background-repeat: no-repeat;
+}
+
+/*组合按钮图标与文字之间的间隔为3px*/
+.space {
+	margin-right: 3px;
+}
+/*禁用状态时,文字颜色*/
+.combo-button-disable {
+	color: #aaaaaa;
+}
+
+/*组合按钮,可用状态*/
+.combo-button-active {
+
+}
+/*鼠标样式-禁用*/
+.inavailable:hover,
+.combo-button-disable:hover {
+	cursor: not-allowed;
+}
+/*鼠标样式*/
+.available:hover
+.combo-button-active,
+.combo-button-active:hover {
+	cursor: pointer;
+}
+/*列表名称*/
+.list-name {
+	min-width: 100px;
+	padding: auto 10px;
+	background-color: #00A65A;
+	background-color: rgba(0,166,90,1);
+	display: inline-block;
+	line-height: 25px;
+	color: #ffffff;
+	text-align: center;
+}
+
+/*设备状态图标*/
+.state-label {
+	line-height: 40px;
+	height: 100%;
+	padding-left: 0px;
+}
+.state-icon {
+	background-image: url("../img/icon_state.png");
+	width:10px;
+	height:10px;
+	display: inline-block;
+	/*margin-right: 1px;*/
+}
+.state-item {
+	float:left;
+	margin-right: 5px;
+	background-repeat: no-repeat;
+}
+.state-1 .state-icon {
+	background-position: 0 0;
+}
+.state-2 .state-icon {
+	background-position: -10px 0px;
+}
+.state-3 .state-icon {
+	background-position: -20px 0px;
+}
+.state-4 .state-icon {
+	background-position: -30px 0px;
+}
+.state-5 .state-icon {
+	background-position: -40px 0px;
+}
+/*表格中的单元格*/
+/*tr.tr-odd th,
+tr.tr-even td,
+tr.tr-odd td {
+	text-align: center;
+	height: 35px;
+}*/
+
+
+tr.tr-odd th,
+tr.tr-even th, 
+tr.tr-odd td,
+tr.tr-even td {
+	text-align: center;
+	height: 35px;
+}
+/*隔行换色*/
+tr.tr-odd {
+	background-color: #FBFBFB;
+}
+tr.tr-even {
+	background-color: #ffffff;
+}
+
+/*分页*/
+.acp-card-pagination {
+	height: 40px;
+	margin-top: 15px;
+	background-color: #F2F4F3;
+}
+.acp-card-pagination div.pageInfo,
+.acp-card-pagination div.pagination {
+	height: 40px;
+	overflow: hidden;
+}
+.acp-card-pagination div.pageInfo {
+	line-height: 40px;
+	text-align: right;
+}
+div.pageInfo span {
+	color: #428BCA;
+	display: inline-block;
+	margin: 0px 3px;
+	line-height: 20px;
+}
+div.pageInfo span.curry-page-panel input,
+div.pageInfo span.curry-page-panel select {
+	width:35px;
+	height:24px;
+	text-align: center;
+}
+.acp-card-pagination div.pagination {
+	text-align: left;
+	padding: 0px 15px;
+}
+.acp-card-pagination .pagination {
+	margin: 3px 0px;
+}
+div.acp-card-page-top div.search-box div.search-btn,
+div.acp-card-list div.acp-card-item div.acp-card-top,
+div.acp-card-page div.acp-card-page-nav > span.nav-item.enable {
+	cursor: pointer;
+}
+	/*分页 end*/
+/*分隔线*/
+.split-line {
+	background-color: #dddddd;
+	/*background-color: rgba(0,166,0,1);*/
+	height: 1px;
+	float: none;
+	display: block;
+	margin: 10px 5px;
+	clear: both;
+}	

@@ -1,0 +1,207 @@
+<!-- ZhangEnwang -->
+<!-- 监控中心-列表视图 -->
+<style>
+  span.icon {
+    float:none;
+  }
+  tr.tr-odd th, tr.tr-even th, tr.tr-odd td, tr.tr-even td {
+      height: 35px;
+      text-align: center;
+  }
+
+</style>
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+ <div class="acp-card-page" style="margin:0 0;" ng-controller="ListView">
+  <div class="acp-card-page-top">
+     <div class="state-label col-md-9 col-sm-8 col-xs-7">
+        <div class="state-item state-1">
+            <span class="state-icon"></span>
+            连接正常
+        </div>
+        <div class="state-item state-2">
+            <span class="state-icon"></span>
+            设备预警
+        </div>
+        <div class="state-item state-3">
+            <span class="state-icon"></span>
+            设备告警
+        </div>
+        <div class="state-item state-4">
+            <span class="state-icon"></span>
+            正在运行
+        </div>
+        <div class="state-item state-5">
+            <span class="state-icon"></span>
+            连接断开
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-4 col-xs-5">
+        <div class="view-lable">
+            <span class="composite-button-active view-name" ng-click="showMapView($event)">
+                <span class="mapview-icon mapview-icon-disable "></span>
+                地图视图
+            </span>
+            <span class="composite-button-active view-name-active" ng-click="showListView($event)">
+                <span class="listview-icon listview-icon "></span>
+                列表视图
+            </span>
+        </div>
+    </div>
+  </div>
+  <!-- 采集类设备表格 -->
+  <div >
+    <div class="equip-typed-list col-md-6">
+      <span class="list-name">采集类设备</span>
+        <div class="list-table">
+        <table class=" table-hover" style="width:100%;" id="captureEquip">
+          <tr class="tr-odd">
+            <th> </th>
+            <th style="text-align: left">名称</th>
+            <th>状态</th>
+            <th>数据</th>
+            <th>
+                <user-permission code="160">
+                    操作
+                </user-permission>
+            </th>
+          </tr>
+          <tr class="{{ item.rowClass }} " id="{{ item.devId }}" ng-click="rowClick(item.devId,$event)" ng-repeat="item in captureEquip" ng-model="captureEquip">
+              <td><span class="{{ item.statuClass }}"></span></td>
+              <td style="text-align: left">{{ item.deviceName }}</td>
+              <td>{{ item.statuText }}</td>
+              <td>{{ item.currValue }}</td>
+              <td>
+                  <user-permission code="160">
+                      <user-permission code="180">
+                          <setting-button ng-click="captureSetting(item.deviceName,item.devId,$event)"></setting-button>
+                      </user-permission>
+                      <user-permission code="10">
+                          <report-button ng-click="captureReport(item.deviceName,item.devId,item.type,$event)"></report-button>
+                      </user-permission>
+                  </user-permission>
+              </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 控制类设备表格 -->
+    <div class="equip-typed-list col-md-6">
+      <span class="list-name">控制类设备</span>
+      <div class="list-table">
+        <table class=" table-hover" style="width:100%;" id="controlEquip">
+          <tr class="tr-odd">
+            <th> </th>
+            <th style="text-align: left">名称</th>
+            <th>当前状态</th>
+            <th>
+                <user-permission code="160">
+                    操作
+                </user-permission>
+            </th>
+              <th >
+                  <user-permission code="120">
+                      控制
+                  </user-permission>
+              </th>
+          </tr>
+          <tr class="{{ item.rowClass }} " id="{{ item.id }}" ng-click="rowClick(item.devId,$event)" ng-repeat="item in controlEquip" ng-model="controlEquip">
+            <td><span class="{{ item.statuClass }}"></span></td>
+            <td style="text-align: left">{{ item.deviceName }}</td>
+            <td>{{ item.statuText }}</td>
+            <td>
+                <user-permission code="160">
+                  <user-permission code="180">
+                         <setting-button ng-click="controlSetting(item.deviceName,item.devId,$event)"></setting-button>
+                  </user-permission>
+                  <user-permission code="10">
+                    <report-button ng-click="controlReport(item.deviceName,item.devId,item.type,$event)"></report-button>
+                  </user-permission>
+                </user-permission>
+            </td>
+           <td  ng-if="item.deviceType !=8 &&item.deviceType !=21 && item.deviceType !=22 && item.deviceType !=23 && item.deviceType !=24 && item.deviceType !=25 && item.deviceType !=26 && item.deviceType !=27 && item.deviceType !=28 && item.deviceType !=29 && item.deviceType !=30 " >
+          </td>
+              <td ng-if="item.deviceType ==8 ||item.deviceType ==21||item.deviceType ==22 ||item.deviceType ==23||item.deviceType ==24||item.deviceType ==25||item.deviceType ==26||item.deviceType ==27||item.deviceType ==28||item.deviceType ==29||item.deviceType ==30" >
+                  <user-permission code="120">
+                      <button  type="button" class="btn btn-default" ng-click="oneController(item,$event)"><i class="icon-wrench"></i></button>
+                  </user-permission>
+              </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- 分组设备表格 -->
+    <div class="equip-grouped-list col-md-12">
+      <span class="list-name">分组设备</span>
+        <user-permission code="40">
+         <span ng-click="showAddGroupDialog({{ testData }},$event)" class="icon-copy" style="float:right;">&nbsp;&nbsp;新增设备分组</span>
+        </user-permission>
+      <div class=" list-table " id="table">
+      <table style="width: 100% " class=" table-hover" id="groupEquip">
+        <tr class="tr-odd">
+          <th style="text-align: left;">名称</th>
+          <th>设备数</th>
+          <th>创建时间</th>
+          <th >
+              <user-permission code="160">
+              操作
+              </user-permission>
+          </th>
+            <th >
+                <user-permission code="120">
+                控制
+                </user-permission>
+            </th>
+
+        </tr>
+        <tr class="{{ item.rowClass }} " id="{{ item.id }}"  ng-repeat="item in groupEquip" ng-model="groupEquip">
+
+          <td class="" style="text-align: left;padding-left: 20px">{{ item.groupName }}</td>
+          <td>{{ item.devices.length }}</td>
+          <td>{{ item.editTime }}</td>
+          <td>
+              <user-permission code="160">
+                 <user-permission code="10">
+                     <show-button ng-click="showEquips(item.devices,$event)"></show-button>
+                 </user-permission>
+                <user-permission code="20">
+                   <edit-button ng-click="groupSetting(item,$event)"></edit-button>
+                 </user-permission>
+                 <user-permission code="30">
+                     <delete-button ng-click="groupDelete(item,$event)"></delete-button>
+                 </user-permission>
+              </user-permission>
+            <!--  <a class="btn btn-default" href="javascript:;" title="查看" ng-click="showGroupIco(item.id,$event)"><i class="icon-eye-open"></i></a>-->
+         </td>
+           <td  ng-if="item.deviceTypeId !=8 &&item.deviceTypeId !=21 && item.deviceTypeId !=22 && item.deviceTypeId !=23 && item.deviceTypeId !=24 && item.deviceTypeId !=25 && item.deviceTypeId !=26 && item.deviceTypeId !=27 && item.deviceTypeId !=28 && item.deviceTypeId !=29 && item.deviceTypeId !=30 " >
+           </td>
+           <td ng-if="item.deviceTypeId ==8 || item.deviceTypeId ==21||item.deviceTypeId ==22 ||item.deviceTypeId ==23||item.deviceTypeId ==24||item.deviceTypeId ==25||item.deviceTypeId ==26||item.deviceTypeId ==27||item.deviceTypeId ==28||item.deviceTypeId ==29||item.deviceTypeId ==30" >
+               <user-permission code="120">
+                   <button  type="button" class="btn btn-default" ng-click="groupListController(item,$event)"><i class="icon-wrench"></i></button>
+               </user-permission>
+           </td>
+        </tr>
+        </table>
+        <!-- <tr class="tr-odd">
+          <th ng-repeat="th in data.thead">
+            {{th}}
+          </th>
+        </tr>
+        <tr ng-repeat="tr in data.tbody" ng->
+          <td ng-repeat="td in tr">
+            {{tr[td]}}
+          </td>
+        </tr> -->
+        <!-- <common-table id type dataSource="data"></common-table> -->
+        <!-- <hr> -->
+        <!-- <common-table dataSource="data1"></common-table> -->
+        <!-- <hr> -->
+        <!-- <common-table dataSource="data"></common-table> -->
+      </div>
+    </div>
+  </div>
+  <div ></div>
+<!-- <start-active></start-active> -->
+</div>

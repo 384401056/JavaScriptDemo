@@ -1,0 +1,52 @@
+
+<div id="{{dId}}" class="common-sensor-tag">
+    <div class="common-sensor-page" >
+        <div class="common-sensor-page-left">
+            <div class="common-sensor-page-left-top">
+                <div class="{{state}}" style="width: 42px;height:42px;float: left"></div><!-- x: 20 y:5-->
+                <div class="common-sensor-page-left-top-content">
+                    <div class="common-sensor-page-left-top-name">
+                        <span>{{diviceName}}</span>
+                    </div>
+                    <div class="common-sensor-page-left-top-data">
+                        <span>{{value}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="common-sensor-page-left-bottom">
+                <div class="common-sensor-page-left-bottom-set">
+                    <i class="glyphicon glyphicon-cog "></i>
+                    <span ng-click="sensorSet(dId,diviceName)" style="cursor: pointer">设置</span>
+                </div>
+                <div class="common-sensor-page-left-bottom-report">
+                    <i class=" glyphicon icon-bar-chart "></i>
+                    <span ng-click="sensorReport(dId,diviceName)" style="cursor: pointer">报表</span>
+                </div>
+            </div>
+        </div>
+        <div class="common-sensor-page-right">
+            <div class="common-sensor-page-right-content">
+                <table>
+                    <tr >
+                        <td>
+                            {{lastValue1}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{lastValue2}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="common-sensor-page-right-close">
+                <i class="glyphicon glyphicon-remove "></i>
+            </div>
+        </div>
+    </div>
+    <div class="common-sensor-tag-arrow">
+        <em></em><span></span>
+    </div>
+</div>
+
+

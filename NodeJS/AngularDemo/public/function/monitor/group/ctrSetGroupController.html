@@ -1,0 +1,295 @@
+<style type="text/css">
+	.modal-lg {
+		width: 930px !important;
+	}
+	
+	.btnNomal {
+		border-radius: 0px;
+		color: #FFFFFF;
+		width: auto;
+		height: 30px;
+		background: #00A65A;
+		border: none;
+		padding: 5px 15px;
+	}
+	
+	.btnDefault {
+		border-radius: 0px;
+		color: #888888;
+		width: auto;
+		height: 30px;
+		border: 1px solid #E7E9E8;
+		padding: 5px 15px;
+		background: #FFFFFF;
+	}
+	
+	#groupForm .form-control {
+		border-radius: 0;
+		box-shadow: none;
+		height: 30px;
+		line-height: 30px;
+	}
+</style>
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+<div class="dialog-panel" app-controller="ctrSetGroupController">
+	<div class="dialog-top-bar">
+		<div class="dialog-close-btn" ng-click="cancel();"></div>
+		<div class="dailog-title">
+			<span class="split">&gt;</span>
+			<span class="title">分组设置</span>
+		</div>
+	</div>
+	<div class="dialog-content">
+		<div class="panel-body">
+
+			<form ng-submit="onSubmit(form.$valid)" class="form-horizontal showcase-form  form-validation ng-valid-number ng-invalid ng-touched ng-invalid-a ng-valid-b ng-invalid-required" id="setgroup_form">
+
+				<div class="form-group">
+					<label class="col-sm-3 pull-left"> <b>2、分组设置</b></label>
+					<div class="col-sm-9 pull-right">
+						<div style="float: right;height: 29px;width: 226px;background-image: url(function/monitor/static/image/device_right2.png);">
+							<label style="padding-top: 4px;padding-left: 20px;">1、分组信息</label>
+							<label style="padding-left: 20px;color: #fff">2、分组设置</label>
+						</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-sm-8">
+						<a type="text" class="btnNomal">{{groupnames}}</a>
+						<a class="btn btn-default btn-sm" ng-click="delListData()" style="float: right;border-width: 0px; box-shadow: 0 0 0 0;font-size: 14px;"> <i class="glyphicon glyphicon-trash"></i> 删除
+						</a>
+						<a class="btn btn-default btn-sm" ng-click="editData()" style="float: right;border-width: 0px; box-shadow: 0 0 0 0;font-size: 14px;">
+							<i class="glyphicon glyphicon-edit"></i> 编辑
+						</a>
+						<a class="btn btn-default btn-sm" ng-click="newDate()" style="float: right;border-width: 0px;  box-shadow: 0 0 0 0;font-size: 14px;">
+							<i class="glyphicon glyphicon-file"></i> 新建
+						</a>
+
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-sm-8"></div>
+				</div>
+				<div class="col-sm-8" style="border:1px solid #e7e9e8;height: 500px;width:520px;padding-left: 0px;">
+
+					<div style="height:499px;width: 518px;overflow-y: scroll;">
+						<table class="table table-striped groupTable">
+							<thead>
+								<tr style="font-weight: normal;">
+									<th>
+										<label class="i-checks i-checks-sm i-set-sensor">
+		                                <input type="checkbox" ng-model="allId" name="allId"  ng-click="choseAll()">
+		                                <i></i>
+		                            </label>
+									</th>
+									<th>模式</th>
+									<th>开始时间</th>
+									<th>结束时间</th>
+									<th>启用状态</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="groplist in getGroupList">
+									<td>
+										<label class="i-checks i-checks-sm i-set-sensor">
+		                                <input type="checkbox" ng-model="devicesId" name="deviceId" value="{{groplist.id}}">
+		                                <i></i>
+		                            </label>
+									</td>
+									<td>{{groplist.isrule == 1 ? '定时' : '智能'}}</td>	
+									<td>{{groplist.begintime}}</td>
+									<td>{{groplist.endtime}}</td>
+									<td>{{groplist.isenabled == 1 ? '启用' : '禁用'}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+				<div class="col-sm-4" style="border:1px solid #e7e9e8;height: 500px;float: right;padding-top: 20px;width: 366px;padding-left: 24px;" id="groupForm">
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-top: 0px;padding-left: 0px;">模式</label>
+						<div class="col-sm-10">
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="radio" name="isrule" value="1" ng-model="form.isrule">
+                                <i></i>
+                                定时
+                            </label>
+							<label class="i-checks i-checks-sm">
+                                <input type="radio" name="isrule" value="0" ng-model="form.isrule" disabled>
+                                <i></i>
+                                智能
+                            </label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-top: 0px;padding-left: 0px;">控制状态</label>
+						<div class="col-sm-10">
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="radio" name="status" value="1" ng-model="form.status">
+                                <i></i>
+                                打开
+                            </label>
+							<label class="i-checks i-checks-sm">
+                                <input type="radio" name="status" value="0" ng-model="form.status">
+                                <i></i>
+                                关闭
+                            </label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-left: 0px;">开始时间</label>
+						<div class="col-sm-7">
+							<input type="text" name="begintime" ng-model="form.begintime" class="form-control" id="t_from" ng-disabled="begandgis">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-left: 0px;">持续时长</label>
+						<div class="col-sm-7">
+							<input type="number" name="durationtime" ng-model="form.durationtime" class="form-control" ng-blur="isNum()">
+						</div>
+						<span>分钟</span>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-left: 0px;">每次间隔</label>
+						<div class="col-sm-7">
+							<input type="number" name="intervals" ng-model="form.intervals" class="form-control" ng-blur="isNum()">
+						</div>
+						<span>分钟</span>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-left: 0px;padding-top: 0px;">结束时间</label>
+						<div class="col-sm-10">
+							<div class="pull-left">
+								<label class="i-checks i-checks-sm i-set-sensor pull-left" style="padding-top: 5px;">
+                                    <input type="radio" name="enable" ng-model="enable" value="1" ng-click="isLock()">
+                                    <i></i>
+                                </label>
+								<span class="pull-left" style="padding-right: 10px;padding-top: 5px;">循环次数</span>
+								<input type="number" name="cycletime" ng-blur="isNum()" ng-model="form.cycletime" ng-disabled="forTime" class="form-control pull-left" style="width: 60px;">
+							</div>
+							<div class="pull-left" style="padding-top: 13px;">
+								<label class="i-checks i-checks-sm i-set-sensor pull-left" style="padding-top: 5px;">
+                                    <input type="radio" name="enable" ng-model="enable" value="0" ng-click="isLock()">
+                                    <i></i>
+                                </label>
+								<span class="pull-left" style="padding-top: 5px;">在</span>
+								<input type="text" name="endtime" ng-model="form.endtime" ng-disabled="endTime" class="form-control pull-left" style="width: 60px;margin-left: 10px;margin-right: 10px;" id="t_to">
+								<span class="pull-left" style="padding-top: 5px;">结束</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-left: 0px;padding-top: 0px;">循环周期</label>
+						<div class="col-sm-10">
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="1" checked="checked">
+                                <i></i>
+                                周一
+                            </label>
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="2" >
+                                <i></i>
+                                周二
+                            </label>
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="3" >
+                                <i></i>
+                                周三
+                            </label>
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="4" >
+                                <i></i>
+                                周四
+                            </label>
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="5" >
+                                <i></i>
+                                周五
+                            </label>
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="6" >
+                                <i></i>
+                                周六
+                            </label>
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox" name="execweekdates" value="7" >
+                                <i></i>
+                                周天
+                            </label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label" style="padding-right: 0px;padding-top: 0px;padding-left: 0px;">启用状态</label>
+						<div class="col-sm-10">
+							<label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="radio" name="isenabled" value="1" ng-model="form.isenabled">
+                                <i></i>
+                                启用
+                            </label>
+							<label class="i-checks i-checks-sm">
+                                <input type="radio" name="isenabled" value="0" ng-model="form.isenabled">
+                                <i></i>
+                                禁用
+                            </label>
+						</div>
+					</div>
+
+					<div ng-hide="isShowBtn" class="row text-center" style="padding-top: 20px;">
+						<button type="submit" ng-click="saveData()" class="btnNomal">添加</button>
+						<button type="reset" class="btnDefault" style="margin-left: 10px;">重置</button>
+					</div>
+					<div ng-hide="isShowedit" class="row text-center" style="padding-top: 20px;">
+						<button type="submit" ng-click="upData()" class="btnNomal">保存</button>
+						<button type="reset" class="btnDefault" style="margin-left: 10px;">重置</button>
+					</div>
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$.fn.datetimepicker.dates['zh-CN'] = {
+		days: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+		daysShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六", "周日"],
+		daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
+		months: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+		monthsShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+		today: "今天",
+		suffix: [],
+		meridiem: ["上午", "下午"]
+	};
+	$("#t_from").datetimepicker({
+		format: 'hh:ii',
+		language: 'zh-CN',
+		weekStart: 1,
+		todayBtn: 1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+	});
+	$("#t_to").datetimepicker({
+		format: 'hh:ii',
+		language: 'zh-CN',
+		weekStart: 1,
+		todayBtn: 1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+	});
+</script>

@@ -1,0 +1,51 @@
+div.trace_archive_div div.trace_archive_content{
+    min-width:768px;
+    overflow-x:auto;
+    overflow-y:auto;
+}
+div.trace_archive_div div.trace_archive_content div.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+div.trace_archive_div div.trace_archive_1{
+    //padding-bottom: 8px;
+    border-top:1px solid #E9EBEA;
+    background: #f2f3f4;
+}
+div.trace_archive_div div.trace_archive_1,
+div.trace_archive_div div.trace_archive_2,
+div.trace_archive_div div.trace_archive_3,
+div.trace_archive_div div.trace_archive_4,
+div.trace_archive_div div.trace_archive_5,
+div.trace_archive_div div.trace_archive_6
+{
+    border-left: 1px  solid #E9EBEA;
+    border-right:1px solid  #E9EBEA;
+}
+div.trace_archive_div div.trace_archive_1,
+div.trace_archive_div div.trace_archive_3,
+div.trace_archive_div div.trace_archive_4,
+div.trace_archive_div div.trace_archive_6
+{
+    border-bottom:1px solid #E9EBEA;
+}
+div.trace_archive_div div.trace_archive_1,
+div.trace_archive_div div.trace_archive_2,
+div.trace_archive_div div.trace_archive_3,
+div.trace_archive_div div.trace_archive_4,
+div.trace_archive_div div.trace_archive_5,
+div.trace_archive_div div.trace_archive_6
+{
+    padding:10px 0px;
+    line-height: 30px;
+}
+
+div.trace_archive_div div.trace_archive_3 img{
+    width: 240px;
+    height: 150px;
+    margin-left:10px;
+}
+
+div.trace_archive_div span.span-opt-btn{
+    letter-spacing: 2px;
+}

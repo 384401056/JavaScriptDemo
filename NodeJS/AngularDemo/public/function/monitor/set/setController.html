@@ -1,0 +1,301 @@
+
+<!--设置控制器-->
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500,'limit':1, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+ <div class="common-controller-set-page"  ng-controller="CommonSetControlController"  >
+     <div class="col-lg-6">
+         <div class="row">
+                 <div class="col-lg-12">
+                    <div class="common-controller-set-title">
+                        <span style="float: left;"><div style="margin-left:13px ">{{control_name}}设置</div></span>
+                        <user-permission code="30">
+                          <div class="common-set-controller-top-delete"  >
+                                <i class="glyphicon glyphicon-trash "></i>
+                                <span  ng-click="setControlDelete()">删除</span>
+                           </div>
+                        </user-permission>
+                        <user-permission code="20">
+                          <div class="common-set-controller-top-edit">
+                                <i class="icon-edit  "></i>
+                                <span ng-click="setControlEdit()">编辑</span>
+                         </div>
+                        </user-permission>
+                        <user-permission code="40">
+                          <div class="common-set-controller-top-add">
+                                <i class="icon-plus-sign-alt"></i>
+                                <span ng-click="setControlAdd()">新建</span>
+                          </div>
+                        </user-permission>
+                 </div>
+               </div>
+            </div>
+            <div class="common-controller-set-wrapper-md">
+              <table class="table table-bordered table-hover">
+                    <thead >
+                    <tr>
+                        <th rowspan="2"class="text-center" >
+                            <label class="i-checks i-checks-sm i-set-sensor">
+                                <input type="checkbox"  ng-model="vm.allChecked" ng-change="vm.checkAll(vm.allChecked)">
+                                <i></i>
+                             </label>
+                        </th>
+                        <th rowspan="2"class="text-center">模式</th>
+                        <th rowspan="2"class="text-center">开始时间</th>
+                        <th rowspan="2"class="text-center">结束时间</th>
+                        <th rowspan="2"class="text-center">启用状态</th>
+                    </tr>
+                    <tr></tr>
+                    </thead >
+                    <tbody >
+                    <tr  ng-repeat="item in vm.items"  ng-click="vm.getControlInfo(item)" style="font-weight: normal;" >
+                        <td  class="text-center">
+                            <label class="i-checks i-checks-sm " >
+                                <input  type="checkbox"  ng-model="item.$checked" />
+                                <i></i>
+                            </label>
+                        </td>
+                        <td class="text-center">{{item.vtype ==0 ? '定时' : '智能'}}</td>
+                        <td class="text-center">{{item.vbeginTime}}</td>
+                        <td class="text-center">{{item.vendTime}}</td>
+                        <td class="text-center">{{item.visEnabled==1 ? '启用' : '禁止'}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-6" >
+            <div class="common-controller-set-right">
+                <div class="panel-body">
+                    <form  id="controller-form-horizontal" class="form-horizontal " name="userform" role="form" novalidate="" method="post">
+                        <div class="form-group set-controller-from" >
+                            <p class="col-sm-2 control-label i-form-label ">模式</p>
+                            <div class="radio">
+                                <label class="i-checks i-checks-sm i-set-controller">
+                                    <input type="radio" name="type" value = "0" ng-disabled="disFlag" ng-model="control.type" ng-click="conditionFlag(0)">
+                                    <i></i>
+                                    定时
+                                  </label>
+                                <label class="i-checks i-checks-sm">
+                                    <input type="radio" name="type" value = "1"   ng-model="control.type" ng-disabled="true"  ng-click="conditionFlag(1)">
+                                    <i></i>
+                                    智能
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group set-controller-from" ng-show="controlStateDis" >
+                            <p class="col-sm-2 control-label i-form-label">控制状态</p>
+                            <div class="radio">
+                                <label class="i-checks i-checks-sm i-set-controller">
+                                    <input type="radio" name="status" value = "1" ng-disabled="disFlag"  ng-model="control.status">
+                                    <i></i>
+                                    打开
+                                </label>
+                                <label class="i-checks i-checks-sm">
+                                    <input type="radio" name="status" value = "0" ng-disabled="disFlag"  ng-model="control.status">
+                                    <i></i>
+                                    关闭
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group set-controller-from"  ng-show="beginTimeDis" >
+                            <p class="col-sm-2 control-label i-form-label " >开始时间</p>
+                            <div   class="col-sm-3 col-xs-2 set-controller-time-p " >
+                                <input   id="datetimepicker" type="text" ng-model="control.beginTime" required="" ng-disabled="beginTimeDisable"  ng-readonly="true" class="form-control"   style="cursor:default;">
+                            </div>
+                        </div>
+
+                        <div class="form-group set-controller-from" ng-show="delayedTimeDis" >
+                            <p class="col-sm-2 control-label i-form-label"  >持续时长</p>
+                            <div id="cdurationTime" class="col-sm-3 col-xs-4 set-controller-time-p ">
+                                <input  type="number" name="durationTime" ng-model="control.durationTime" min="1"max="1440" style="cursor:default"  ng-disabled="delayedTimeDisable"   class="form-control" required="">
+                            </div>
+                            <lable style="margin-top: 5px">分钟</lable>
+                        </div>
+
+                        <div class="form-group set-controller-from "  ng-show="spaceTimeDis" >
+                            <p class="col-sm-2 control-label i-form-label "  >每次间隔</p>
+                            <div id="cintervals" class="col-sm-3  col-xs-4 set-controller-time-p">
+                                <input  type="number" name="intervals" ng-model="control.intervals" min="1"max="1440" style="cursor:default"   ng-disabled="spaceTimeDisabe"  class="form-control" required="">
+                            </div>
+                            <lable style="margin-top: 5px">分钟</lable>
+                        </div>
+                        <div class="form-group set-controller-from "ng-show="endTimeDis"   >
+                            <p class="col-sm-2 control-label i-form-label ">结束时间</p>
+                                <div id="ccycleTime"  style="margin-top: 10px;">
+                                    <div class="col-sm-3 col-xs-4 " style="display:inline-block;margin-left: -15px " >
+                                        <label class="i-checks i-checks-sm  i-set-controller" >
+                                            <input type="radio" name="isRule" value = "0" ng-model="control.isRule" ng-disabled="disFlag"  ng-click="endTimeCondition(0)">
+                                            <i></i>
+                                            循环次数
+                                        </label>
+                                        <input   type="number"  name="cycleTime" class="form-control" min="0"   ng-disabled="timesFlag" ng-model="control.cycleTime"  style="display:inline-block;float:left;margin-left: 90px;margin-top: -35px;cursor:default">
+                                    </div>
+                                </div> 
+                        </div>
+                        <div class="form-group " ng-show="atEndTimeDis"  >
+                            <div>
+                                <div  id="cendTime"  style="margin-top: 10px;margin-left: 100px">
+                                    <div class="col-sm-4 col-xs-4 " style="display:inline-block;margin-left: -15px " >
+                                        <label class="i-checks i-checks-sm i-set-controller" >
+                                            <input type="radio" name="isRule" value = "1" ng-disabled="disFlag"  ng-model="control.isRule" ng-click="endTimeCondition(1)">
+                                            <i></i>
+                                            在
+                                        </label>
+                                        <div  style="display:inline-block;float:left;margin-left:45px;margin-top: -35px;">
+                                            <input id="datetimepicker0"  type="text" ng-readonly="true" ng-disabled="atTimeFlag"   ng-model="control.endTime"  class="form-control" style="cursor: default">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" style="padding-left: 0px">
+                                        <span style="margin-left:5px;">结束</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group set-controller-from"  ng-show="cycleTimeDis" >
+                            <p class="col-sm-2 control-label i-form-label ">循环周期</p>
+                            <div class="col-sm-10 col-xs-4" style="padding-left: 0px">
+                                <div class="checkbox-inline" ng-repeat="z in week" style="padding-left:0px;">
+                                    <label class="i-checks">
+                                        <input type="checkbox"   ng-disabled="cycleTimeFlag" ng-model="x[$index]"><i></i>周{{z}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group set-controller-from  " ng-show="timeDis">
+                            <p class="col-sm-2  control-label i-form-label "style="margin-top: 10px;margin-left: 1px" >时段</p>
+                            <div class="col-sm-3 col-xs-4 set-sensor-time-p">
+                                <input   type="text" ng-model="control.beginTime1" ng-readonly="true" ng-disabled="startTimeDis" class="form-control">
+                            </div>
+                            <span style="float: left;margin-top: 5px"  >至</span>
+                            <div class="col-sm-3 col-xs-4">
+                                <input    type="text" ng-model="control.endTime1"  ng-readonly="true" ng-disabled="endTimeDis" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="openConditionDis">
+                            <label class="col-sm-2" style="width: 100px;margin-top: 10px;margin-left:0px" >打开条件</label>
+                            <div class="col-sm-10" style="margin-left: -32px">
+                                <div class="col-sm-3">
+                                    <select name="account" class="form-control m-b">
+                                        <option> 1</option>
+                                        <option> 2</option>
+                                        <option> 3</option>
+                                        <option> 4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select name="account" class="form-control m-b">
+                                        <option>大于</option>
+                                        <option>小于</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input  type="text" ng-model="control.spaceTime"  class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="closeConditionDis">
+                            <label class="col-sm-2"  >关闭条件</label>
+                            <div class="col-sm-10"  style="margin-left: -32px">
+                                <div class="col-sm-3">
+                                    <select name="account" class="form-control m-b">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <select name="account" class="form-control m-b">
+                                        <option>大于</option>
+                                        <option>小于</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input  type="text" ng-model="control.spaceTime"  class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group set-controller-from" ng-show="enableDis" >
+                            <p class="col-sm-2  control-label i-form-label" >启用状态</p>
+                            <div class="radio" >
+                                <label class="i-checks i-checks-sm i-set-controller">
+                                    <input type="radio" name="isEnabled" value = "1" ng-disabled="disFlag"  ng-model="control.isEnabled">
+                                    <i></i>
+                                    启用
+                                </label>
+                                <label class="i-checks i-checks-sm">
+                                    <input type="radio" name="isEnabled" value = "0" ng-disabled="disFlag"  ng-model="control.isEnabled">
+                                    <i></i>
+                                    禁用
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success set-controller-bg " ng-show="control_ok" ng-click="controlSave()">保存</button>
+                            <button class="btn fa fa-close" ng-show="control_cancel" ng-click="controlCancel()">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker0').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            minuteStep: 1,
+            startView: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker1').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker2').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+    });
+</script>
+
+
+

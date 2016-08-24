@@ -1,0 +1,158 @@
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.f10 {
+    font-size: 10px
+}
+
+.f12 {
+    font-size: 12px
+}
+
+.f14 {
+    font-size: 14px
+}
+
+.f16 {
+    font-size: 16px
+}
+
+.f18 {
+    font-size: 18px
+}
+
+.mt5 {
+    margin-top: 5px
+}
+
+.mt10 {
+    margin-top: 10px
+}
+
+.mt20 {
+    margin-top: 20px
+}
+
+.mt30 {
+    margin-top: 30px
+}
+
+.ml5 {
+    margin-left: 5px
+}
+
+.ml10 {
+    margin-left: 10px
+}
+
+.mr5 {
+    margin-right: 5px
+}
+
+.mr10 {
+    margin-right: 10px
+}
+
+.gray {
+    color: #999
+}
+
+.blue {
+    color: #2b91d8
+}
+
+.green {
+    color: #2ab200
+}
+
+.red {
+    color: #f00
+}
+
+.mb, .mb10 {
+    margin-bottom: 10px
+}
+
+.hidden {
+    display: none
+}
+
+hr {
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    height: 0;
+    border: solid #ddd;
+    border-width: 0 0 1px
+}
+
+.al {
+    text-align: left
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+.clear {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+* html .clearfix {
+    height: 1%
+}
+
+article, aside, dialog, footer, header, section, footer, nav, figure, menu {
+    display: block
+}
+
+.break-word {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.nowarp {
+    white-space: nowrap
+}
+
+.hide {
+    display: none
+}
+
+.show {
+    display: block
+}
+
+.gray1 {
+    background: #f5f5f5
+}
+
+.gray2 {
+    background: #eee
+}

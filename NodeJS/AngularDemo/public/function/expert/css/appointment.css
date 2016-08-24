@@ -1,0 +1,102 @@
+.bwizard {
+    position: relative; }
+.bwizard .well {
+    margin: 3px 0 ;
+    background-color: #fff
+
+}
+.bwizard-steps {
+	margin:0;
+	padding: 0;
+	display: inline-block;
+	background: #fff;}
+	.bwizard-steps li {
+	    display: inline-block;
+	    position: relative;
+	    margin-right: 5px;
+	    line-height: 18px;
+	    list-style: none;
+	    border-radius: 10px;
+	    padding: 17px 30px 17px 30px;
+	    /* background: #efefef; */
+	    zoom:1; *display: inline; *padding-left: 17px; }
+	/* 	.bwizard-steps li:first-child {
+	    -moz-border-radius: 4px 0 0 4px;
+	    -webkit-border-radius: 4px 0 0 4px;
+	    border-radius: 4px 0 0 4px;
+	    padding-left: 12px; }
+	.bwizard-steps li:first-child:before {
+	    border: none; }
+	.bwizard-steps li:last-child {
+	    -moz-border-radius: 0 4px 4px 0;
+	    -webkit-border-radius: 0 4px 4px 0;
+	    border-radius: 0 4px 4px 0;
+	    margin-right: 0; }
+	.bwizard-steps li:last-child:after {
+	    border: none; } */
+ 		/* .bwizard-steps li:before {
+ 		  border: 1px solid #00a65a;
+ 		}
+ 		.bwizard-steps li:after {
+ 		  border: 1px solid #00a65a;
+ 		   } */
+	.bwizard-steps .label {
+		margin: 0 5px 0 0;
+		padding: 1px 5px 2px;
+		position: relative;
+		top: -1px;}
+	.bwizard-steps .active {
+	    color: #444;
+	   /*  background: #007ACC;  */
+	   border: 1px solid #00a65a;
+	}
+		.bwizard-steps .active:after {
+		    /* border-left-color: #007ACC;  */
+		    border: 1px solid #00a65a;
+		}
+
+	.bwizard-steps a {
+		color: #333;
+
+	}
+	.bwizard-steps li a {
+	    color: #444;
+		cursor: default;
+	}
+	.bwizard-steps a:hover {
+		text-decoration: none;
+
+	}
+	.bwizard-steps.clickable li:not(.active) {
+		/*cursor: pointer;*/
+		border: 1px solid #e7e9e8;
+	}
+	.bwizard-steps.clickable li:hover:not(.active) {
+		/*border: 1px solid #00a65a;*/
+		/*background: #e7e9e8;*/
+	}
+	.bwizard-steps.clickable li:hover:not(.active) a {
+		color: #444;}
+	.bwizard-steps.clickable li:hover:not(.active):after {
+		border-left-color: #ccc;}
+@media (max-width: 480px) {
+	/*badges only on small screens*/
+		.bwizard-steps li,
+		.bwizard-steps li.active,
+		.bwizard-steps li:first-child,
+		.bwizard-steps li:last-child {
+			background-color: transparent;
+			padding: 0;
+			margin-right: 0;}
+		.bwizard-steps li:after,
+		.bwizard-steps li:before {
+			border: none;
+		}
+}
+
+	.t-c{margin:0;padding:0;width:100%;height:300px;border:1px solid #e7e9e8;display:none;}
+					.pay-tab{margin:0;padding:0;list-style:none;width:100%;overflow:hidden;}
+					.pay-tab li{margin-right:5px;float:left;width:100px;height:30px;background:#fff;color:#444444;border-top:1px solid #e7e9e8;border-left:1px solid #e7e9e8;border-right:1px solid #e7e9e8; text-align:center;line-height:30px;cursor:pointer; }
+					.on{display:block;}
+					.pay-tab li.cur{background:#00a65a;color:#fff}
+

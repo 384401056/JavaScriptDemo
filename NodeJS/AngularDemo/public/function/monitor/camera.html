@@ -1,0 +1,50 @@
+
+<!--相机设备-->
+
+<div id="{{dId}}window" class="common-monitor-device-tag">
+    <div class="common-monitor-device-page">
+        <div class="common-monitor-device-page-left">
+            <div class="common-monitor-device-page-left-top">
+                <div class="{{state}}" style="width: 42px;height:42px;float: left"></div><!-- x: 20 y:5-->
+                <div class="common-monitor-device-page-left-top-content">
+                    <div id="{{diviceType}}" class="common-monitor-device-page-left-top-name">
+                        <span>{{diviceName}}</span>
+                    </div>
+                  <!--  <div id="{{clientid}}" class="common-monitor-device-page-left-top-data " ng-click="cameraOperate(clientid,mystatValue)" style="cursor: pointer;">
+                        <img src="img/icon-take-camera.png"  class="mycamera">
+                        <span >拍照</span>
+                    </div>-->
+                    <user-group-permission code="140">
+                        <p id="{{clientid}}" class="common-monitor-device-page-left-top-data " style="color: #7D7D7D;padding-top: 5px;cursor: pointer;text-align: center;" ng-click="cameraOperate(clientid,mystatValue)"><i class="icon-wrench" style="padding-right: 5px;"></i>操作</p>
+                    </user-group-permission>
+
+                </div>
+            </div>
+            <div class="common-monitor-device-page-left-bottom">
+                <div class="common-monitor-device-page-left-bottom-set" ng-click="cameraSet(dId,diviceName,clientid)">
+                    <i class="glyphicon glyphicon-cog "></i>
+                    <span>设置</span>
+                </div>
+                <div class="common-monitor-device-page-left-bottom-report" ng-click="cameraReport(dId,diviceName,diviceType)">
+                    <i class=" glyphicon icon-bar-chart "></i>
+                    <span>报表</span>
+                </div>
+            </div>
+        </div>
+        <div class="common-monitor-device-page-right" style="margin-top: 1px">
+            <div class="common-monitor-device-page-right-content" >
+                <img src="{{lastValue1}}" ng-click="queryPhoto(dId,diviceType)" style="cursor:pointer">
+                <img src="{{lastValue2}}" ng-click="queryPhoto(dId,diviceType)" style="cursor:pointer">
+                <img src="{{lastValue3}}" ng-click="queryPhoto(dId,diviceType)" style="cursor:pointer">
+                <img src="{{lastValue4}}" ng-click="queryPhoto(dId,diviceType)" style="cursor:pointer">
+            </div>
+        </div>
+        <div class="common-monitor-device-page-right-close" style="float: right;margin-top: 0px">
+
+        </div>
+    </div>
+
+    <div class="common-monitor-device-tag-arrow">
+        <em></em><span></span>
+    </div>
+</div>

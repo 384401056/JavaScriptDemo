@@ -1,0 +1,58 @@
+div.state-lable {
+	line-height: 40px;
+	height: 100%;
+	padding-left: 0px;
+}
+div.view-lable {
+	line-height: 40px;
+	height: 100%;
+	float: right;
+}
+/**
+ * 监控视图切换按钮
+ */
+span.listview-icon {
+	display: inline-block;
+	background-image: url("../image/icon_listview.png");
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+}
+span.mapview-icon {
+	display: inline-block;
+	background-image: url("../image/icon_mapview.png");
+	width: 18px;
+	height: 17px;
+	margin-right: 5px;
+}
+span.listview-icon-active,
+span.mapview-icon-active {
+	background-position: 0px 0px;
+}
+span.listview-icon-disable{
+	background-position: -16px 0px;
+}
+span.mapview-icon-disable {
+	background-position: -18px 0px;
+}
+span.view-name-active{
+	color: #00A65A;
+	color: rgba(0,166,90,1);
+}
+span.composite-button-active,
+span.composite-button-disable {
+	display: inline-block;
+	margin-right: 5px;
+}
+table tr.content-row {
+	
+}
+
+span.composite-button-active:hover {
+	cursor: pointer;
+}
+span.composite-button-disable:hover {
+	cursor: not-allowed;
+}
+
+

@@ -1,0 +1,30 @@
+<style>
+    .modal-dialog{
+        margin-top:60px;
+    }
+    .dialog-content{
+        margin-bottom:-10px;
+    }
+</style>
+
+
+<div class="dialog-panel">
+    <div class="dialog-top-bar">
+        <div class="dialog-close-btn" ng-click="cancel();"></div>
+        <div class="dailog-title">
+            <span class="split">&gt;</span>
+            <span class="title">提示</span>
+        </div>
+</div>
+<div class="dialog-content">
+
+    <div style="float: left;margin-top: 20px;margin-left: 30px">
+        <i class="icon-warning-sign"></i>
+        <span> {{operateInfo}}</span>
+    </div>
+    <div class="form-group text-right" style="padding-top: 50px ;margin-right: 10px">
+        <button class="btn btn-success set-sensor-bg "ng-click="ok()" ng-disabled="dialogDis" >确定</button>
+        <button class="btn fa fa-close"   ng-click="cancel()">取消</button>
+    </div>
+</div>
+</div>

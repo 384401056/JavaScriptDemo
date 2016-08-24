@@ -1,0 +1,50 @@
+.message_user {
+	display: inline-block;
+	height: 30px;
+	width: 90%;
+	text-align: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 30px;
+	cursor: pointer;
+}
+
+/*消息用户列表*/
+.message_user:hover {
+	background-color:#F3ECD7;
+}
+
+.message_user_text {
+	color:#00A65A;
+}
+
+.message_all {
+	display: inline-block;
+	height: 30px;
+	width: 90%;
+	text-align: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 30px;
+	background-color: #F2F4F3;
+	cursor: pointer;
+}
+
+
+.message_user_active {
+	display: inline-block;
+	height: 30px;
+	width: 90%;
+	text-align: left;
+	margin-left: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 15px;
+	line-height: 30px;
+	cursor: pointer;
+	background-color:#FCEBAA;
+}

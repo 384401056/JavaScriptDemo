@@ -1,0 +1,59 @@
+<div class="expert-page" ng-controller="expertArticle">
+	
+
+	<div id="div-expert-left" class="expert-left col-md-12 col-lg-12">
+		
+		<div class="row-content">
+		  	<div class="expert-search">
+
+		  		<span class="searchTypes-all" ng-model="searchTypes" ng-repeat="type in searchTypes">
+	  			<span class="{{type.className}}" id="searchType_{{type.dictcode}}" ng-click="chooseType4Search($event,type,'searchTypes-all')">{{type.dictdata}}</span>
+	  		</span>
+
+		  	</div>
+
+		  	<div>
+		  		<table class="table_article col-md-12 col-lg-12">
+		  			<tr class="tr_head">
+		  				<th style="width:59px;">序号</th>
+		  				<th style="width:264px;">标题</th>
+		  				<th>概要</th>
+		  			</tr>
+		  			<tr ng-repeat="item in articleItems" ng-class="$index % 2 == 0 ? 'tr_even' : 'tr_odd';">
+		  				<td>{{$index + 1}}</td>
+		  				<td class="view" ng-click="viewArticle({{item.id}})">{{item.title | cut:false:8:' ...'}}</td>
+		  				<td class="view" ng-click="viewArticle({{item.id}})">{{item.summary | cut:false:60:' ...'}}</td>
+		  			</tr>
+		  		</table>
+		  	</div>
+	  	</div>
+
+		<div class="expert-content" >
+			
+		</div>
+
+		<!-- 分页插件 -->
+		<div class="acp-card-pagination">
+			<div class="pagination col-md-9 col-sm-8 col-xs-8">
+				<pagination class="pagination-sm" ng-model="pageInfo.currentPage" num-pages="numPages" total-items="pageInfo.totalCount" max-size="8" items-per-page="pageInfo.pageSize" ng-change="reloadData();" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页" boundary-links="true"></pagination>
+			</div>
+			<div class="pageInfo col-md-3 col-sm-4 col-xs-4">
+				<span class="curry-page-panel">第 <input class="curry-page-ipt" ng-model="pageInfo.currentPage" type="text" ng-keyup="jumpToPage($event);" /> 页</span>
+				<span class="page-size-panel">每页 <select class="page-size-select" ng-model="pageInfo.pageSize" ng-options="option as option for option in perPageOptions" ng-change="reloadData();"></select> 条</span>
+				<span class="total-items-panel">共 {{pageInfo.totalCount}} 条</span>
+			</div>
+		</div>
+
+		<!-- <div class="acp-card-pagination">
+		  <div class="pagination col-md-9 col-sm-8 col-xs-8">
+		    <pagination class="pagination-sm" ng-model="pageInfo.currentPage" num-pages="numPages" total-items="pageInfo.totalCount" max-size="10" items-per-page="pageInfo.pageSize" ng-change="reloadData();" previous-text="上一页" next-text="下一页" first-text="首页" last-text="末页" boundary-links="true"></pagination>
+		  </div>
+		  <div class="pageInfo col-md-3 col-sm-4 col-xs-4">
+		  	<span class="curry-page-panel">第 <input class="curry-page-ipt" ng-model="pageInfo.pageNum" type="text" ng-keyup="jumpToPage($event);" /> 页</span>
+		  	
+		  	<span class="total-items-panel">共 {{pageInfo.totalCount}} 条</span>
+		  </div>
+		</div> -->
+
+	</div>
+</div>

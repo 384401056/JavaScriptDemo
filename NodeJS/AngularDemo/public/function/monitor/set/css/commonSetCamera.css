@@ -1,0 +1,146 @@
+
+
+div.common-camera-set-page{
+	width: 100%;
+	min-height: 700px;
+	margin-bottom:15px;
+	overflow-x: auto;
+	/*border: 1px solid red;*/
+}
+
+
+div.common-camera-set-nav ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+div.common-camera-set-nav{
+	width: auto;
+	height: 35px; 
+	font-size: 14px;
+	margin-top: 0px;
+	background-color: #F2F3F3;
+	white-space: nowrap;
+	display: block;
+	overflow: auto;
+}
+
+div.common-camera-set-nav >i{
+	margin-top: 10px;
+	float: left;
+	padding-left: 15px;
+}
+
+.common-camera-set-nav > .common-camera-set-label {
+	margin-left:10px;
+	margin-top: 6px;
+	display: block;
+	float: left;
+}
+
+.common-camera-set-nav a {
+	color: #58666e;
+	text-decoration: none;
+}
+.common-camera-set-nav li.active a {
+	cursor: pointer;
+}
+
+.common-camera-set-nav > .common-camera-set-nav-content {
+	margin-top: 6px;
+	display: block;
+}
+
+.common-camera-set-nav-lst > li {
+	 float: left;
+ }
+.common-camera-set-nav-lst > li + li:before {
+	content: ">";
+	padding: 0 8px;
+}
+
+div.common-camera-set-title{
+	 margin-top:10px;
+	/* width: 680px;*/
+	 height:  30px;
+}
+
+
+div.common-set-camera-top-add{
+	float: right;
+	font-size: 14px;
+	margin-right: 5px;
+	margin-top: 5px;
+	cursor:pointer;
+}
+
+div.common-set-camera-top-edit{
+	float: right;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-right: 5px;
+	cursor:pointer;
+}
+
+div.common-set-camera-top-delete{
+	float: right;
+	font-size: 14px;
+	margin-top: 5px;
+	margin-right: 5px;
+	cursor:pointer;
+}
+
+
+div.common-camera-set-title >span{
+	width: 200px;
+	font-size: 14px;
+	height: 30px;
+	color: #FFFFFF;
+	float: left;
+	background-color:#00A65A;
+}
+div.common-camera-set-mid{
+	height: auto;
+	width: 100%;
+	float: left;
+}
+div.common-camera-set-mid-left{
+	/*width: 680px;*/
+	height:610px;
+	float: left;
+	margin: auto -15px;
+}
+
+div.common-camera-set-wrapper-md{
+	height:610px;
+	overflow-y: scroll;
+	border: 1px solid  #cccccc;
+}
+
+div.common-camera-set-right{
+	margin-top: 40px;
+	border:1px solid #cccccc;
+}
+
+
+
+div.common-camera-set-mid-right{
+	height:100%;
+	overflow: hidden;
+	display: block;
+	float: left;
+	margin-top: 40px;
+	border:1px solid #cccccc;
+}
+
+div.set-camera-time-p{
+	margin-left:-22px;
+}
+div.form-group .i-set-camera{
+	margin-left:-6px;
+}
+
+div.form-group .set-camera-bg{
+	background-color: #00A65A;
+}

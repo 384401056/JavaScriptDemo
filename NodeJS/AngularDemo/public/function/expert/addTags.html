@@ -1,0 +1,45 @@
+<style>
+    .modal-dialog{
+        margin-top:60px;
+        width: 500px;
+    }
+    .dialog-content{
+        margin-bottom:-10px;
+        height:250px;
+        overflow-y: auto;
+        position: relative;
+    }
+    div.modal-dialog {
+        margin-top: 15%;
+    }
+    .tag-item-choose,
+    .tag-item {
+      margin: 5px 5px;
+    }
+
+</style>
+
+
+<div class="dialog-panel">
+    <div class="dialog-top-bar">
+        <div class="dialog-close-btn" ng-click="cancel();"></div>
+        <div class="dailog-title">
+            <span class="split">&gt;</span>
+            <span class="title">选择标签</span>
+        </div>
+</div>
+<div class="dialog-content">
+
+    <div style="float: left;margin-top: 20px;margin-left: 30px;">
+        <span ng-model="skillField" ng-repeat="skill in skillField" id="{{ skill.dictcode }}" class="tag-item" ng-click="chooseTag(skill, $event)">{{ skill.dictdata }}</span>
+    </div>
+    <div class="split-line"></div>
+    <div style="float: left;margin-top: 5px;margin-left: 30px;">
+         <span ng-model="selectedSkill" ng-repeat="skill in selectedSkill" class="tag-item-choose" ng-click="cancelTag(skill, $event)">{{ skill.dictdata }}</span>
+    </div>
+    <div style="position:absolute;right: 20px;bottom: 30px;">
+        <input type="button" style="background-color:#00a65a;color:#fff;border:none;line-height:30px;width: 60px;" value="确定" ng-click="ensure()">
+        <!-- <input type="button" style="background-color:#00a65a;color:#fff;border:none;line-height:30px;width: 60px;" value="取消" ng-click="opts.cancel()"> -->
+    </div>
+</div>
+</div>

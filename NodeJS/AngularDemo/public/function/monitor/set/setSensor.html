@@ -1,0 +1,237 @@
+
+<!--设置传感器-->
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500,'limit':1, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+ <div class="common-sensor-set-page"  ng-controller="CommonSetSensorController"  >
+        <div class="col-lg-6">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="common-sensor-set-title">
+                        <span style="float: left;"><div style="margin-top:5px;;margin-left: 13px ">{{sensor_name}}设置</div></span>
+                        <user-permission code="30">
+                            <div class="common-set-sensor-top-delete" ng-click="setSensorDelete()">
+                                <i class="glyphicon glyphicon-trash "></i>
+                                <span>删除</span>
+                            </div>
+                        </user-permission  >
+                        <user-permission code="20">
+                            <div class="common-set-sensor-top-edit">
+                                <i class="icon-edit  "></i>
+                                <span ng-click="setSensorEdit()">编辑</span>
+                            </div>
+                        </user-permission  >
+                        <user-permission code="40">
+                            <div class="common-set-sensor-top-add">
+                                <i class="icon-plus-sign-alt"></i>
+                                <span ng-click="setSensorAdd()">新建</span>
+                            </div>
+                        </user-permission  >
+                    </div>
+                </div>
+            </div>
+          <div class="common-sensor-set-wrapper-md">
+              <table class="table table-bordered table-hover">
+                  <thead >
+                  <tr>
+                      <th rowspan="2" class="text-center" >
+                          <label class="i-checks i-checks-sm i-set-sensor">
+                              <input type="checkbox"  ng-model="vm.allChecked" ng-change="vm.checkAll(vm.allChecked)">
+                              <i></i>
+                          </label>
+                      </th>
+                      <th rowspan="2"class="text-center">临界值</th>
+                      <th rowspan="2"class="text-center">大小比较</th>
+                      <th rowspan="2"class="text-center">开始时间</th>
+                      <th rowspan="2" class="text-center">结束时间</th>
+                      <th rowspan="2" class="text-center">启用状态</th>
+                  </tr>
+                  <tr></tr>
+                  </thead >
+                  <tbody >
+                  <tr  ng-repeat="item in vm.items"   ng-click="vm.getSensorInfo(item)" >
+                      <td  class="text-center">
+                          <label class="i-checks i-checks-sm " >
+                              <input  type="checkbox"  ng-model="item.$checked" />
+                              <i></i>
+                          </label>
+                      </td>
+                      <td class="text-center">{{item.propertyValue}}</td>
+                      <td class="text-center">{{item.operate ==1 ? '大于' : '小于'}}</td>
+                      <td class="text-center">{{item.beginTime}}</td>
+                      <td class="text-center">{{item.endTime}}</td>
+                      <td class="text-center">{{item.isEnabled==1 ? '启用' : '禁用'}}</td>
+                  </tr>
+                  </tbody>
+              </table>
+         </div>
+        </div>
+        <div class="col-lg-6">
+         <div class="common-sensor-set-mid-right">
+            <div class="col-lg-12">
+                <div class="panel-body">
+                    <form  id="sensor-form-horizontal" class="form-horizontal " name="userform" role="form" novalidate="" method="post">
+                        <div class="form-group set-sensor-from"  style="margin-bottom: 0px">
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >临界值</p>
+                            <div class="col-sm-4 col-xs-4 i-set-sensor-padding">
+                                <input type="number" ng-model="sensor.propertyValue" min="{{minRange}}" max="{{maxRange}}" style="cursor: default" required=""  ng-disabled="cutValueDis" class="form-control">
+                                <span class="help-block m-b-none" style="width: 200px" >范围：{{minRange}}{{unit}}~{{maxRange}}{{unit}}</span>
+                            </div>
+                            <span class=" col-sm-2 control-label" style="text-align: left" >{{unit}}</span>
+                        </div>
+                        <div class="form-group set-sensor-from">
+                            <p class="col-sm-2 control-label  "  style="text-align: left">大小比较</p>
+                            <div class="radio  ">
+                                <label class="i-checks i-checks-sm  "  >
+                                    <input type="radio" name="operate" ng-disabled="disFlag" value = "1" ng-model="sensor.operate " >
+                                    <i></i>
+                                    大于
+                                </label>
+                                <label class="i-checks i-checks-sm ">
+                                    <input type="radio" name="operate" ng-disabled="disFlag" value = "0" ng-model="sensor.operate">
+                                    <i></i>
+                                    小于
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group  set-sensor-from"  >
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >时段</p>
+                            <div class="col-sm-4  col-xs-4 i-set-sensor-padding">
+                                <input   id="datetimepicker" type="text" ng-model="sensor.beginTime" required="" ng-disabled="startTimeDis"  ng-readonly="true" class="form-control"   style="cursor:default;">
+                            </div>
+                            <span  class="control-label" style="float: left;margin-left: 5px;margin-right: 5px" >至</span>
+                            <div class="col-sm-4 col-xs-4 i-set-sensor-padding" >
+                                <input id="datetimepicker1"  type="text" ng-readonly="true" ng-disabled="endTimeDis"  required="true"   ng-model="sensor.endTime"  class="form-control" style="cursor: default">
+                            </div>
+                        </div>
+                        <div class="form-group set-sensor-from" >
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >启用状态</p>
+                            <div class="radio" >
+                                <label class="i-checks i-checks-sm i-set-sensor">
+                                    <input type="radio" name="isEnabled" ng-disabled="disFlag" value = "1" ng-model="sensor.isEnabled">
+                                    <i></i>
+                                    启用
+                                </label>
+                                <label class="i-checks i-checks-sm" >
+                                    <input type="radio" name="isEnabled" ng-disabled="disFlag" value = "0" ng-model="sensor.isEnabled">
+                                    <i></i>
+                                    禁用
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group set-sensor-from"   >
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >告警推送</p>
+                            <div class="radio" >
+                                <label class="i-checks i-checks-sm i-set-sensor">
+                                    <input type="radio" name="isPush" ng-disabled="disFlag" value = "1" ng-model="sensor.isPush" ng-click="iPush(1)">
+                                    <i></i>
+                                    启用
+                                </label>
+                                <label class="i-checks i-checks-sm "  >
+                                    <input type="radio" name="isPush" ng-disabled="disFlag" value = "0" ng-model="sensor.isPush" ng-click="iPush(0)">
+                                    <i></i>
+                                    禁用
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group set-sensor-from " ng-show="pushFlagShow">
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >接收人</p>
+                            <div class="col-sm-9 col-xs-5 i-set-sensor-padding">
+                                <div class="input-group">
+                                    <input type="text" ng-model="sensor.toUserNames" ng-disabled="disFlag"  ng-readonly="true" required="true"   class="form-control" style="cursor: default">
+                                 <span class="input-group-btn">  <button class="btn btn-default " type="button" ng-disabled="disFlag" style="cursor: default" ng-click="addUsers()">  <i class="icon-plus "></i></button>
+                              </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group set-sensor-from " ng-show="pushFlagShow">
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >推送方式</p>
+                           <div class="row">
+                               <div class="col-sm-10 i-set-sensor-padding-z"  >
+                                   <div class="checkbox-inline" ng-repeat="z in pushTypes" >
+                                       <label class="i-checks" >
+                                           <input type="checkbox"   ng-disabled="disFlag"  style="cursor: default" ng-click="sensorClick($index)"  ng-model="x[$index]"><i></i>{{z}}
+                                       </label>
+                                   </div>
+                               </div>
+                           </div>
+                        </div>
+                        <div class="form-group set-sensor-from "  ng-show="pushPhoneFlagShow" >
+                            <p class="col-sm-2 control-label  i-form-label" style="text-align: left" >手机推时段</p>
+                            <div class="col-sm-4 col-xs-4  i-set-sensor-padding">
+                                <input   id="datetimepicker3" type="text" ng-model="sensor.smspushstarttime" required="" ng-disabled="startTimeDis"  ng-readonly="true" class="form-control"   style="cursor:default;">
+                            </div>
+                            <span  class="control-label" style="float: left;margin-left: 5px;margin-right: 5px" >至</span>
+                            <div class="col-sm-4 col-xs-4 i-set-sensor-padding" >
+                                <input id="datetimepicker4"  type="text" ng-readonly="true" ng-disabled="endTimeDis"  required="true"   ng-model="sensor.smspushendtime"  class="form-control" style="cursor: default">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-success set-sensor-bg " ng-show="sensor_ok"ng-disabled="sensorDis" ng-click="sensorSave()">保存</button>
+                            <button class="btn fa fa-close" ng-show="sensor_cancel" ng-click="sensorCancel()">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         </div>
+         </div>
+       </div>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker1').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker3').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+        $('#datetimepicker4').datetimepicker({
+            format: 'hh:ii',
+            language:  'zh-CN',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 1,
+            minuteStep: 1,
+            minView: 0,
+            maxView: 1,
+            forceParse: 0
+        });
+    });
+</script>
+
+
+
+
+

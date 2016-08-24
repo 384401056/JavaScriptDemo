@@ -1,0 +1,38 @@
+<style>
+	div.modal-content {
+		margin-top:250px;
+		/*height: 100px;*/
+		width: 500px;
+		left: 125px;
+	}
+	div.dialog-content {
+		/*height: 150px;*/
+	}
+	div.dialog-panel {
+		height: 250px;
+	}
+	table {
+		width: 100%;
+	}
+</style>
+<div class="dialog-panel" >
+  <div class="dialog-top-bar">
+    <div class="dialog-close-btn" ng-click="cancel();"></div>
+      <div class="dailog-title">
+        <span class="split">&gt;</span>
+        <span class="title">分组详情</span>
+      </div>
+    </div>
+  <div class="dialog-content">
+  	<table>
+  		<tr class="tr-even">
+  			<th style="width: 50%;">名称</th>
+  			<th>状态</th>
+  		</tr>
+  		<tr class="{{item.rowClass}}" ng-repeat="item in list" ng-model="list">
+  			<td>{{ item.deviceName }}</td>
+  			<td>{{ item.s }}</td>
+  		</tr> 	
+  	</table>
+  </div>
+</div>

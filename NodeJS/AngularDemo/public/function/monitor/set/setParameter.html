@@ -1,0 +1,362 @@
+
+<!--球机参数设置-->
+<toaster-container toaster-options="{'position-class':'toast-bottom-right','time-out': 1500,'limit':1, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+<div class="common-parameter-set"  ng-controller="CommonSetParameterController"  >
+    <div class=" common-parameter-set-title  ">
+        <span style="float: left;"><div style="margin-top:5px;margin-left: 10px;margin-right: 10px;color: #FFFFFF ">{{parameter_device_name}}设置</div></span>
+    </div>
+    <user-permission code="20">
+     <div class="common-parameter-set-edit" ng-click="edit()">
+            <div style="margin-top: 5px;margin-left: 27px"  >
+                <img src="function/monitor/set/image/icon_edit.png">
+                <span  style="float: right;margin-right: 27px"  ><div style="color: #FFFFFF " >编辑</div></span>
+            </div>
+      </div>
+    </user-permission>
+    <div class="common-parameter-set-page">
+        <div class="common-parameter-set-mid" >
+            <div class="col-sm-11">
+                <div class="panel-body">
+                        <form  id="parameter-form-horizontal" class="form-horizontal  " name="userform" role="form" novalidate="" method="post">
+                        <div class="form-group" >
+                            <div class="radio">
+                               <div class="text-left"style="float: left">
+                                   <p>配置类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                               </div>
+                                <label class="i-checks i-checks-sm " >
+                                    <input type="radio" name="type"  value = "0" ng-disabled="timeDisableFlag" ng-model="parameter.type" ng-click="conditionFlag(0)">
+                                    <i></i>
+                                    报警设置
+                                </label>
+                                <label class="i-checks i-checks-sm" style="margin-left: 5px">
+                                    <input type="radio" name="type" value = "1" ng-disabled="timeDisableFlag" ng-model="parameter.type"  ng-click="conditionFlag(1)">
+                                    <i></i>
+                                    界面设置
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group p-text-set-width" ng-show="bSetShowFlag" >
+                            <label  class="text-left" style="float: left ;">报警方式处理</label>
+                            <div class="col-sm-11" style="display:inline-block;float:left; ">
+                                <label class="checkbox-inline i-checks" style="float: left" >
+                                    <input type="checkbox" ng-model="parameter.ALMVedioFlag"  ng-disabled="timeDisableFlag" ><i></i> 电视角上报警
+                                </label>
+                                <label class="checkbox-inline i-checks" style="float: left">
+                                    <input type="checkbox" ng-model="parameter.ALMVoiceFlag"  ng-disabled="timeDisableFlag" ><i></i>声音报警
+                                </label>
+                                <label class="checkbox-inline i-checks" style="float: left">
+                                    <input type="checkbox" ng-model="parameter.ALMUpLoadFlag"  ng-disabled="timeDisableFlag"><i></i>上传中心
+                                </label>
+                                <div style="float: left;margin-left: 10px">
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="checkbox"  ng-model="parameter.ALMSensitivityFlag" ng-disabled="timeDisableFlag"><i></i> 启动移动侦测灵敏度：
+                                    </label>
+                                </div>
+                                <div class="col-sm-2" style="float: left;margin-left: 0px"  >
+                                    <select  ng-model="parameter.ALMSensitivity" class="form-control m-b" ng-disabled="timeDisableFlag" style="cursor: default">
+                                        <option value="-1">关闭</option>
+                                        <option value="0">0最低</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5最高</option>
+                                    </select>
+                                </div>
+                                <div style="float: left">
+                                    <label class="checkbox-inline i-checks">
+                                        <input type="checkbox"  ng-model="parameter.ALMMoveBrightFlag" ng-disabled="timeDisableFlag"><i></i>启动移动侦测亮度显示
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group p-text-set-width"  ng-show="bSetShowFlag" >
+                            <div class="col-sm-7 p-text-set">
+                                <div style="float: left">
+                                    <label style="margin-top: 6px">
+                                        布防时间
+                                    </label>
+                                </div>
+                                <div  style="float: left; margin-left: 11px;margin-top: 6px" > <p>周{{weekDay}}</p></div>
+                                <div class="col-sm-2" style="float: left;margin-left: 4px " >
+                                    <select  ng-model="parameter.ArmTimeWeek"  class="form-control m-b" ng-disabled="timeDisableFlag" ng-click="changeWeek()" style="cursor: default">
+                                        <option  value="1">周一</option>
+                                        <option  value="2">周二</option>
+                                        <option  value="3">周三</option>
+                                        <option  value="4">周四</option>
+                                        <option  value="5">周五</option>
+                                        <option  value="6">周六</option>
+                                        <option  value="7">周日</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-text-set p-text-set-width" ng-repeat=" x in parameter.times"  ng-show="bSetShowFlag" >
+                        <div class="form-group"  >
+                            <label class="col-sm-1  ">时间段{{$index+1}}</label>
+                            <div class="col-sm-8">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <input type="number"  required=""  ng-model="x.h1" class="form-control" min="0" max="24" ng-disabled="timeDisableFlag" ng-blur="hour($index,x.h1)" style="cursor: default">
+                                    </div>
+                                    <div class="parameter-time control-label p-set-Lable" >
+                                        <span>时</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" required=""   ng-model="x.m1" class="form-control" min="0" max="59" ng-disabled="timeDisableFlag"ng-blur="minute($index,x.m1)"  style="cursor: default">
+                                    </div>
+                                    <div class="parameter-time  control-label p-set-Lable" >
+                                        <span>分  --</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" required=""  ng-model="x.h2" class="form-control" min="0" max="24" ng-disabled="timeDisableFlag" ng-blur="hour2($index,x.h2)" style="cursor: default">
+                                    </div>
+                                    <div class="parameter-time control-label p-set-Lable " >
+                                        <span>时</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" required=""  ng-model="x.m2" class="form-control" min="0" max="59" ng-disabled="timeDisableFlag" ng-blur="minute2($index,x.m2)" style="cursor: default">
+                                    </div>
+                                    <div class="parameter-time control-label p-set-Lable"  >
+                                        <span>分</span>
+                                    </div>
+                                    <div class="parameter-time control-label p-set-Lable"  >
+                                        <span style="margin-left: 5px ;color: red">{{timeInfo[$index]}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-group p-text-set-width " ng-show="bSetShowFlag"  >
+                            <div class="p-text-set">
+                                <label class="col-sm-1 " style="margin-top: 6px">复制至</label>
+                                <div class="col-sm-7">
+                                    <div class="row">
+                                        <div class="col-sm-2" style="float: left" >
+                                            <select ng-model="parameter.copyWeek" class="form-control m-b" ng-disabled="timeDisableFlag"  ng-click="copyTime()" style="cursor: default">
+                                                <option value="0">请选择</option>
+                                                <option value="-1">全部</option>
+                                                <option value="1">周一</option>
+                                                <option value="2">周二</option>
+                                                <option value="3">周三</option>
+                                                <option value="4">周四</option>
+                                                <option value="5">周五</option>
+                                                <option value="6">周六</option>
+                                                <option value="7">周日</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group"   ng-show="pageSetShowFlag">
+                            <div class="text-left"style="float: left;">
+                                <p>图像参数&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                            </div>
+                            <div id="parameter-page-tunnel-name" class="col-sm-10 p-text-set-width ">
+                                <div class="row p-text-padding">
+                                    <label class="checkbox-inline i-checks" style="float: left" >
+                                        <input type="checkbox" ng-model="pageSet.imageTunnelNameFlag"  ng-disabled="timeDisableFlag" style="cursor: default"><i></i> 是否显示通道名称
+                                    </label>
+                                    <div class="parameter-time"style="margin-left: 5px;margin-top: 7px" >
+                                        <span>通道名称:</span>
+                                    </div>
+                                    <div class="col-md-3 ">
+                                        <input type="text" class="form-control"ng-model="pageSet.imageTunnelName" readonly  ng-disabled="timeDisableFlag" style="cursor: default">
+                                    </div>
+                                    <div id="" class="parameter-time"style="margin-top: 7px" >
+                                        <span>X坐标:</span>
+                                    </div>
+                                    <div  id="parameter-page-tunnel-name-x"  class="col-md-2 ">
+                                        <input type="number" class="form-control"  required=""  min="0" ng-model="pageSet.imageTunnelX" ng-disabled="timeDisableFlag" style="cursor: default">
+                                    </div>
+                                    <div class="parameter-time"style="margin-top: 7px" >
+                                        <span>Y坐标:</span>
+                                    </div>
+                                    <div  id="parameter-page-tunnel-name-y"  class="col-md-2 ">
+                                        <input type="number" class="form-control"  required=""  min="0" ng-model="pageSet.imageTunnelY" ng-disabled="timeDisableFlag" style="cursor: default">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-text-set p-text-padding">
+                            <div class="form-group"   ng-show="pageSetShowFlag">
+                                <div class="col-sm-7"  style="display:inline-block;float:left;">
+                                    <div class="row">
+                                        <label class="checkbox-inline i-checks"  >
+                                            <input type="checkbox" ng-model="pageSet.imageShowOSDFlag"   ng-disabled="timeDisableFlag"><i></i> 是否显示时间OSD
+                                        </label>
+                                        <label class="checkbox-inline i-checks">
+                                            <input type="checkbox" ng-model="pageSet.imageShowWeekFlag"   ng-disabled="timeDisableFlag"><i></i>是否显示星期
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group p-text-set-width p-text-padding"   ng-show="pageSetShowFlag" >
+                            <div class="col-sm-10  p-text-set"  style="display:inline-block;float:left;">
+                                <div class="row">
+                                    <div class="parameter-time "style="margin-top: 7px" >
+                                        <span>时间格式:</span>
+                                    </div>
+                                    <div class="col-sm-2" style="float: left">
+                                        <select ng-model="pageSet.imageTimeFormat"  class="form-control m-b" ng-disabled="timeDisableFlag" style="cursor: default">
+                                            <option value="0">0-24小时制</option>
+                                            <option value="1">1-12小时制</option>
+                                        </select>
+                                    </div>
+                                    <div class="parameter-time"style="margin-top: 7px" >
+                                        <span>日期格式:</span>
+                                    </div>
+                                    <div class="col-sm-2" style="float: left">
+                                        <select  ng-model="pageSet.imageDateFormat" class="form-control m-b" ng-disabled="timeDisableFlag" style="cursor: default">
+                                            <option value="0">0-xxxx-xx-xx年月日</option>
+                                            <option value="1">1-xx-xx-xxxx月日年</option>
+                                            <option value="2">2-xxxx年xx月xx日</option>
+                                            <option value="3">3-xx月xx日xxxx年</option>
+                                            <option value="4">4-xx-xx-xxxx日月年</option>
+                                            <option value="5">5-xx日xx月xxxx年</option>
+                                            <option value="6">6-xx/xx/xxxx月/日/年</option>
+                                            <option value="7">7-xxxx/xx/xx/年/月/日</option>
+                                            <option value="8">8-xx/xx/xxxx日/月/年</option>
+                                        </select>
+                                    </div>
+                                    <div class="parameter-time"style="margin-top: 7px"  ng-show="false">
+                                        <span>字体大小:</span>
+                                    </div>
+                                    <div class="col-sm-2" style="float: left"  ng-show="false">
+                                        <select  class="form-control m-b" ng-disabled="timeDisableFlag" style="cursor: default">
+                                            <option value="0">0-16*16(中)/8*16(英) </option>
+                                            <option value="1">1-32*32(中)/16*32(英) </option>
+                                            <option value="2">2-64*64(中)/32*64(英) </option>
+                                            <option value="3">3-48*48(中)/24*48(英) </option>
+                                            <option value="4">0xff-自适应(adaptive) </option>
+                                        </select>
+                                    </div>
+                                  </div>
+                            </div>
+                        </div>
+                        <div class="form-group p-text-set-width p-text-padding"   ng-show="pageSetShowFlag">
+                            <div class="col-sm-9 p-text-set"  style="display:inline-block;float:left;">
+                                <div class="row">
+                                    <div class="parameter-time"style="margin-top: 7px" >
+                                        <span>显示属性:</span>
+                                    </div>
+                                    <div class="col-sm-3" style="float: left">
+                                        <select  ng-model="pageSet.imageAttribute" class="form-control m-b" ng-disabled="timeDisableFlag" style="cursor: default">
+                                            <option value="0">3-闪烁,不透明</option>
+                                            <option value="1">4-不透明,不闪烁</option>
+                                        </select>
+                                    </div>
+                                    <div class="parameter-time"style="margin-top: 7px" >
+                                        <span>X坐标:</span>
+                                    </div>
+                                    <div class="col-md-2" >
+                                        <input type="number" class="form-control" required="" min="0" ng-model="pageSet.imageAttributeX" ng-disabled="timeDisableFlag" style="cursor: default">
+                                    </div>
+                                    <div class="parameter-time"style="margin-top: 7px" >
+                                        <span>Y坐标:</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="number" class="form-control" required="" min="0" ng-model="pageSet.imageAttributeY" ng-disabled="timeDisableFlag" style="cursor: default">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-text-set p-text-set-width p-text-padding">
+                            <div class="form-group"   ng-show="pageSetShowFlag">
+                                <div class="col-sm-11 "  style="display:inline-block;float:left;">
+                                    <div class="row">
+                                        <label class="checkbox-inline i-checks" style="float: left" >
+                                            <input type="checkbox" value="option20" ng-model="pageSet.imageAddStringFlag0" ng-disabled="timeDisableFlag"><i></i> 1 &nbsp;&nbsp;叠加字符串:&nbsp;
+                                        </label>
+                                        <div class="col-md-2" >
+                                            <input type="text" class="form-control" required="" ng-model="pageSet.imageAddString0" ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                        <div class="parameter-time"style="margin-top: 7px" ng-show="false">
+                                            <span>X坐标:</span>
+                                        </div>
+                                        <div class="col-md-2" ng-show="false">
+                                            <input type="number" class="form-control" min="0"  ng-model="pageSet.imageAddStringX0" ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                        <div class="parameter-time"style="margin-top: 7px" ng-show="false" >
+                                            <span>Y坐标:</span>
+                                        </div>
+                                        <div class="col-md-2" ng-show="false">
+                                            <input type="number" class="form-control" min="0" ng-model="pageSet.imageAddStringY0" ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-text-set p-text-set-width p-text-padding" >
+                            <div class="form-group"   ng-show="pageSetShowFlag">
+                                <div class="col-sm-11 "  style="display:inline-block;float:left;">
+                                    <div class="row">
+                                        <label class="checkbox-inline i-checks" style="float: left" >
+                                            <input type="checkbox" value="option20"  ng-model="pageSet.imageAddStringFlag1"  ng-disabled="timeDisableFlag"><i></i> 2 &nbsp;&nbsp;叠加字符串:&nbsp;
+                                        </label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control"  required="" ng-model="pageSet.imageAddString1"  ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                        <div class="parameter-time"style="margin-top: 7px" ng-show="false">
+                                            <span>X坐标:</span>
+                                        </div>
+                                        <div class="col-md-2" ng-show="false">
+                                            <input type="number" class="form-control" min="0" ng-model="pageSet.imageAddStringX1" ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                        <div class="parameter-time"style="margin-top: 7px" ng-show="false">
+                                            <span>Y坐标:</span>
+                                        </div>
+                                        <div class="col-md-2" ng-show="false">
+                                            <input type="number" class="form-control" min="0" ng-model="pageSet.imageAddStringY1"  ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-text-set p-text-set-width p-text-padding" >
+                            <div class="form-group"   ng-show="pageSetShowFlag">
+                                <div class="col-sm-11 "  style="display:inline-block;float:left;">
+                                    <div class="row">
+                                        <label class="checkbox-inline i-checks" style="float: left" >
+                                            <input type="checkbox" value="option20"  ng-model="pageSet.imageAddStringFlag2" ng-disabled="timeDisableFlag"><i></i> 3 &nbsp;&nbsp;叠加字符串:&nbsp;
+                                        </label>
+                                        <div class="col-md-2">
+                                            <input type="text" class="form-control" required="" ng-model="pageSet.imageAddString2"  ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                        <div class="parameter-time"style="margin-top: 7px"  ng-show="false">
+                                            <span>X坐标:</span>
+                                        </div>
+                                        <div class="col-md-2" ng-show="false">
+                                            <input type="number" class="form-control" min="0" ng-model="pageSet.imageAddStringX2"  ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                        <div class="parameter-time"style="margin-top: 7px" ng-show="false" >
+                                            <span>Y坐标:</span>
+                                        </div>
+                                        <div class="col-md-2" ng-show="false">
+                                            <input type="number" class="form-control" min="0" ng-model="pageSet.imageAddStringY2"  ng-disabled="timeDisableFlag" style="cursor: default">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group  text-center" ng-show="saveInfoFlag" >
+                            <span  class="col-lg-offset-1 col-lg-5  " style="color: red">{{saveInfo}}</span>
+                        </div>
+                        <div class="form-group " >
+                            <div class="col-lg-offset-2 col-lg-2 ">
+                                <button class="btn btn-success " ng-show="parameter_show_ok" ng-disabled="parameterDis" ng-click="parameterSave()">保存</button>
+                                <button class="btn fa fa-close"  ng-show="parameter_show_cancel"  ng-click="cancel()">取消</button>
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

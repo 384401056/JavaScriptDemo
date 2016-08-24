@@ -1,0 +1,5 @@
+<div class="acp-report-page" ng-controller="reportPageController">
+	<chart-report ng-if="pageLoadType === '0'" chart-report-data-load="chartReportDataLoad(param, callback);" chart-exp-excel="chartExpExcel(param);"></chart-report>
+	<img-report ng-if="pageLoadType === '1'" img-report-data-load="imgReportDataLoad(param, callback);"></img-report>
+	<grid-report ng-if="pageLoadType === '2'" grid-report-data-load="gridReportDataLoad(param, callback)"></grid-report>
+</div>
