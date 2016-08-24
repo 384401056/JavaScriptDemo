@@ -2,8 +2,7 @@
  * Created by Administrator on 2016/5/2.
  */
 var express = require("express");
-var bodyParser = require("body-parser")
-
+var bodyParser = require("body-parser");
 var app = express();
 
 //app.use拦截所有请求。
