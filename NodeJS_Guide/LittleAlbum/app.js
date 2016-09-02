@@ -11,6 +11,7 @@ app.use(express.static(__dirname+"/public"));
 app.get("/",router.showIndex);
 app.get("/getFile",router.getAllFiles);
 app.get("/getFileParams",router.showAlbum);
+
 app.use(function(req,res){
     res.sendFile(__dirname+"/public/err.html");
 });
