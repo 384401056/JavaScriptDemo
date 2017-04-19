@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+    <title>Your Shopping Cart</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body >
+
+<div ng-controller="FirstController">
+<h1>{{ name }}</h1>
+<h2>{{ age }}</h2>
+</div>
+<hr>
+<div ng-controller="secondController">
+    <p>价格:<input type="number" ng-model="phone.money"></p>
+    <p>数量:<input type="number" ng-model="phone.num"></p>
+    <p>费用:<span>{{ sum() | currency:'$'}}</span><span style="margin-left: 30px;background-color: #61bfff">当费用当达100时，减免运费.</span></p>
+    <p>运费:<span>{{ phone.fre | currency:'$'}}</span></p>
+    <p>总额:<span>{{ sum()+phone.fre | currency:'$'}}</span></p>
+</div>
+
+</body>
+</html>
