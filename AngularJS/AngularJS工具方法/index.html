@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+    <title>Your Shopping Cart</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</head>
+<body >
+<h1>angular.copy()方法</h1>
+<hr>
+<div ng-controller="copyController">
+    <form novalidate class="simple-form">
+        <label>姓名: <input type="text" ng-model="user.name" /></label><br />
+        <label>年龄:  <input type="number" ng-model="user.age" /></label><br />
+        性别: <label><input type="radio" ng-model="user.gender" value="male" />male</label>
+        <label><input type="radio" ng-model="user.gender" value="female" />female</label><br />
+        <button ng-click="reset()">复制自master</button>
+        <button ng-click="update(user)">保存到master</button>
+    </form>
+    <pre>form = {{user | json}}</pre>
+    <pre>master = {{master | json}}</pre>
+</div>
+<hr>
+
+
+<h1>angular.forEach()方法</h1>
+<hr>
+<div ng-controller="forEachController">
+    <pre>{{ persons | json }}</pre>
+    <pre>{{ outObject }}</pre>
+    <pre>{{ outKeyValue }}</pre>
+
+</div>
+<hr>
+
+</body>
+</html>
