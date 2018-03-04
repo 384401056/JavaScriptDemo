@@ -55,11 +55,11 @@ app.get("/user/:userId",function(req,res){
 
 
 var afterListener = function(){
-    console.log("Express running on http://localhost:18000");
+    console.log("Express running on http://localhost:8000");
 }
 
 //开启服务。
-app.listen(18000,afterListener());
+app.listen(8000,afterListener());
 
 
 
