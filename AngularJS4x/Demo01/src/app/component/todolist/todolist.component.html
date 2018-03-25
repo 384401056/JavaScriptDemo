@@ -1,0 +1,30 @@
+<h3>三、实例 ToDoList</h3>
+<div>
+  <div>
+    <input type="text" [(ngModel)] = "inputValue" (keyup)="addData($event)">
+  </div>
+  <div>
+    <h4>等办事项</h4>
+    <ul>
+      <!--[hidden] 当条件为真时隐藏, 不能用*ngIf一个标签不能绑定两个模板-->
+      <li *ngFor="let item of todoList; let i = index" [hidden] = "item.status==0">
+        <div>
+          {{item.title}}
+          <button (click)="complete(i)">完成</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <h4>完成事项</h4>
+    <ul>
+      <!--[hidden] 当条件为真时隐藏-->
+      <li *ngFor="let item of todoList; let i = index" [hidden] = "item.status==1">
+        <div>
+          {{item.title}}
+          <button (click)="reset(i)">重置</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

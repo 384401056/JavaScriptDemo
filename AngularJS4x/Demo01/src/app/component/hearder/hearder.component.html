@@ -1,0 +1,42 @@
+<h3>一、数据绑定</h3>
+
+<ol>
+  <li>
+    <h4>单个数据绑定</h4>
+    <p>
+      数据绑定：{{title}}
+    </p>
+    <p>
+        属性绑定方式1：
+        <span id="{{id}}">查看我的id </span>
+    </p>
+    <p>
+        属性绑定方式2：
+        <span [title]="tip">鼠标提示的属性绑定 </span>
+    </p>
+    <p>
+        HTML属性绑定：
+        <span [innerHTML]="h"></span>
+    </p>
+  </li>
+  <li>
+    <h4>数据循环绑定,并取得索引</h4>
+    <ul>
+      <li *ngFor="let item of list1; let i = index">
+        {{i}} >> {{item.name}}--{{item.age}}
+      </li>
+    </ul>
+
+    <h4>数据循环绑定,二级循环</h4>
+    <ul>
+      <li *ngFor = "let item of list2; let i = index">
+        {{i}} - {{item.carname}}
+        <ol>
+          <li *ngFor="let item of item.list">
+            {{item.title}}
+          </li>
+        </ol>
+      </li>
+    </ul>
+  </li>
+</ol>

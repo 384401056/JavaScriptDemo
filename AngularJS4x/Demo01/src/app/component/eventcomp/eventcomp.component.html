@@ -1,0 +1,35 @@
+<h3>二、事件绑定</h3>
+<ul>
+  <li>
+    <div>
+        <h4>按钮事件绑定</h4>
+        <span>{{msg}}......</span>
+        <br>
+        <button (click)="getData()">获取数据</button>
+    </div>
+  </li>
+  <li>
+    <div>
+        <h4>条件判断 ngIf 的使用</h4>
+        <div id="rect" *ngIf="isShow"></div>
+        <br>
+        <button (click)="showRect()">显示/隐藏</button>
+    </div>
+  </li>
+  <li>
+    <div>
+        <h4>键盘事件绑定</h4>
+        <input type="text" (keyup)="keyupFn($event)">
+        <p>{{input_str}}</p>
+    </div>
+  </li>
+  <li>
+    <div>
+        <h4>双向绑定 ngModel <span style="color:deeppink"> (记得要import FormsModule 模块) </span></h4>
+        <span>{{inputValue}}</span>
+        <p>
+            <input type="text" [(ngModel)]="inputValue">
+        </p>
+    </div>
+  </li>
+</ul>
