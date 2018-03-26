@@ -1,0 +1,14 @@
+<h3>四、HTTP请求</h3>
+<div>
+<input type="text" [(ngModel)] = "inputValue">
+<button (click)="getHttpRequest()">发送Http请求</button>
+</div>
+<div>
+  <ol>
+    <li *ngFor="let item of newsList; let i = index">
+      <div>
+        {{item.title}}
+      </div>
+    </li>
+  </ol>
+</div>

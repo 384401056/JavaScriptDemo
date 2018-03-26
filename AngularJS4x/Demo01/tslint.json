@@ -6,8 +6,8 @@
     "arrow-return-shorthand": true,
     "callable-types": true,
     "class-name": true,
-    "comment-format": [
-      true,
+    "comment-format": [ //注释行中的空格
+      false,
       "check-space"
     ],
     "curly": true,
@@ -70,20 +70,20 @@
     "no-string-literal": false,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
-    "no-trailing-whitespace": true,
+    "no-trailing-whitespace": false, //尾部空格检测
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-use-before-declare": true,
-    "no-var-keyword": true,
+    "no-var-keyword": false,//不能在程序段中使用var来生成变量。
     "object-literal-sort-keys": false,
     "one-line": [
-      true,
+      false, //行内检测
       "check-open-brace",
       "check-catch",
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
+    "prefer-const": false, //const偏好
     "quotemark": [
       true,
       "single"
