@@ -1,14 +1,43 @@
 <h3>四、HTTP请求</h3>
-<div>
-<input type="text" [(ngModel)] = "inputValue">
-<button (click)="getHttpRequest()">发送Http请求</button>
-</div>
-<div>
-  <ol>
-    <li *ngFor="let item of newsList; let i = index">
+<ul>
+  <li>
+    <div>
       <div>
-        {{item.title}}
+        <input type="text" [(ngModel)] = "url1">
+        <button (click)="getHttpRequest()">发送Http请求</button>
+        </div>
+        <div>
+          <ol>
+            <li *ngFor="let item of newsList1; let i = index">
+              <div>
+                {{item.title}}
+              </div>
+            </li>
+          </ol>
+        </div>
+        
+    </div>
+  </li>
+  <li>
+    <div>
+      <input type="text" [(ngModel)] = "url2">
+      <button (click)="getJsonpRequest()">发送Http请求</button>
       </div>
-    </li>
-  </ol>
-</div>
+      <div>
+        <ol>
+          <li *ngFor="let item of newsList2; let i = index">
+            <div>
+              {{item.title}}
+            </div>
+          </li>
+        </ol>
+      </div>
+  </li>
+  <li>
+    <div>
+      username:<input type="text" [(ngModel)]="username"><br>
+      age:<input type="text" [(ngModel)]="age"><br>
+      <button (click)="postRequest(username, age)">发送Post请求</button>
+    </div>
+  </li>
+</ul>
