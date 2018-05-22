@@ -1,3 +1,13 @@
-<p>
-  product works!
-</p>
+<div *ngFor="let product of products" class="col-md-4 col-sm-4 col-lg-4">
+  <div class="thumbnail">
+    <img [src]="imgURL">
+    <div class="caption">
+      <h4 class="pull-right">{{product.price}}</h4>
+      <h4><a [routerLink]="['/detail',product.title]">{{product.title}}</a></h4>
+      <p style="font-size: 10ps">{{product.desc}}</p>
+    </div>
+    <div>
+      <app-star [rating]="product.rating"></app-star>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.info{
+    background-color: coral;
+    width: 70%;
+    height: 300px;
+    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+}
