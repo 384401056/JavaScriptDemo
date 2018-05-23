@@ -1,0 +1,129 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="body">
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>事件绑定</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <button (click)="btn_click($event)" type="button" class="btn btn-warning">按钮</button>
+        </div>
+        <div class="panel-body">
+          <input (input)="inp_input($event)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>DOM属性绑定</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>使用属性绑定：</h4>
+          <img [src]="imgUrl">
+        </div>
+        <div class="panel-body">
+          <h4>使用差值绑定：</h4>
+          <img src="{{imgUrl}}">
+        </div>
+        <div class="panel-body">
+          <h4>DOM属性和HTML的区别：</h4>
+          <input (input)="inp_input($event)" value="Tom" />
+          <h4>HTML属性不会随输入改变。</h4>
+        </div>
+        <div class="panel-body">
+          <h4>Button的
+            <span class="label label-warning">disabled</span> 属性(HTML属性)：</h4>
+          <button disabled type="button" class="btn btn-danger">点我吧</button>
+          <h4>添加按钮的disabled属性就能禁用按钮，不论值是ture或者false</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>HTML绑定</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>通过 [attr.colspan] ="size"，对HTML属性进行了绑定：</h4>
+          <table class="table">
+            <tr>
+              <td [attr.colspan]="size"> HTML属性的绑定</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4>CSS类绑定</h4>
+  </div>
+  <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>通过 [class] ="xxx yyy zzz"，对CSS属性进行绑定：</h4>
+        <button type="button" [class]="myclass" [class.btn-success]="isOn">（默认样式）Default</button>
+        <h4>三秒后，改变button的样式。再三秒又加了一种样式</h4>
+      </div>
+
+      <div class="panel-body">
+        <h4>通过 [ngClass] ="myclass"，对CSS属性进行绑定：</h4>
+        <button type="button" [ngClass]="myNgClass">（默认样式）Default</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4>内联样式绑定</h4>
+  </div>
+  <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>通过 [style.font-size.em] ="myclass"，对CSS属性进行绑定：</h4>
+        <span [style.font-size.em]="isDev?3:1">内联样式绑定</span>
+      </div>
+
+      <div class="panel-body">
+        <h4>通过 [ngStyle] ="myNgStyle"，对CSS属性进行绑定：</h4>
+        <span [ngStyle]="myNgStyle">内联样式绑定</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h4>内联样式绑定</h4>
+  </div>
+  <div class="panel-body">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4>通过属性绑定和事件绑定，来实现数据双向绑定</h4>
+        <input [value]="name" (input)="onInput($event)"> {{name}}
+      </div>
+
+      <div class="panel-body">
+        <h4>通过ngModel，来实现数据双向绑定.使用ngModel要引入FormsModule模块</h4>
+        <input [(ngModel)]="ngName"> {{ngName}}
+      </div>
+
+    </div>
+  </div>
+</div>
