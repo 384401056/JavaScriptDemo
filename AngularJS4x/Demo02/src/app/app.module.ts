@@ -6,19 +6,31 @@ import { HerosComponent } from './components/heros/heros.component';
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
 import { HeroService } from './services/hero.service';
 import { MessagesComponent } from './components/messages/messages.component';
+import { MessageService } from './services/message.service';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component'; // 路由模块.
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroDetailComponent,
     MessagesComponent,
+    DashboardComponent,
     HerosComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    AppRoutingModule,
+    FormsModule,
+    InMemoryDataService,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule
   ],
-  providers: [HeroService],
+  providers: [HeroService, MessageService, InMemoryDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
