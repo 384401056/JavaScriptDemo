@@ -1,0 +1,11 @@
+
+<a [routerLink] = "['/home']" style="margin-right: 10px">主页</a>
+<!--路由传递参数-->
+<a [routerLink] = "['/product']" [queryParams]="{id:100,name:'Jims'}" style="margin-right: 10px">商品页面</a>
+<a [routerLink] = "['/productInfo',1,'Luce',20]" style="margin-right: 10px">商品详情</a>
+<button type="button"  (click)="toProduct()">按钮跳转商品页面</button>
+<a [routerLink] = "[{outlets:{aux:'chat'}}]" style="margin-right: 10px; margin-left: 20px">开始聊天</a>
+<a [routerLink] = "[{outlets:{aux:null}}]" style="margin-right: 10px">结束聊天</a>
+<router-outlet></router-outlet>
+<router-outlet name="aux"></router-outlet>
+

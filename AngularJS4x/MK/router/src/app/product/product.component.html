@@ -1,0 +1,17 @@
+<div class="product">
+  <p>
+    product works!
+  </p>
+  <p>
+    {{productId}}
+  </p>
+  <p>
+    {{productName}}
+  </p>
+  <p>
+    {{productAge}}
+  </p>
+  <a [routerLink] = "['./']" style="margin-right: 20px">商品描述</a>
+  <a [routerLink] = "['./seller', 1001]">销售人员</a>
+  <router-outlet></router-outlet>
+</div>

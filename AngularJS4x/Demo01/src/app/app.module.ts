@@ -1,13 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'; /*BrowserModule，浏览器解析的模块*/
+import { NgModule } from '@angular/core'; /*angualrjs核心模块*/
+import { FormsModule} from '@angular/forms'; /*表单数据绑定 表单验证需要的模块*/
+import { HttpModule, JsonpModule } from '@angular/http'; /*数据请求模块*/
 import { AppComponent } from './app.component';
 import { HearderComponent } from './component/hearder/hearder.component';
 import { EventcompComponent } from './component/eventcomp/eventcomp.component';
-import { FormsModule } from '@angular/forms';
 import { TodolistComponent } from './component/todolist/todolist.component';
 import { StorageService} from './services/storage.service';
 import { GethttpComponent } from './component/gethttp/gethttp.component';
-import { HttpModule, JsonpModule } from '@angular/http';
+
 
 @NgModule({
   declarations: [ /**当前项目运行的组件，自定义组件也要在这里引入 */

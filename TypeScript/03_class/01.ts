@@ -1,21 +1,17 @@
 
 //ts的类
-class Student{
-    private fullName: string;
-    
+class Student {
+    public fullName: string;
+
     //构造方法
-    constructor(public firstName, public middleName, public lastName){
-        this.fullName = firstName + '=='+middleName+'=='+lastName;
+    constructor(firstName: string, middleName: string, lastName: string) {
+        this.fullName = firstName + '=' + middleName + '=' + lastName;
     }
 }
 
-function greeter(stu){
-    return stu.fullName;
-}
-
-let stu = new Student('Gao','Yan', 'Bin');
-
-document.body.innerHTML = greeter(stu);
+let stu = new Student('Gao', 'Yan', 'Bin');
+console.log(stu.fullName)
+// document.body.innerHTML = stu.fullName;
 
 /** geter seter */
 
@@ -46,7 +42,6 @@ class Person {
     }
 }
 
-let p1: Person = new Person("gaoyanbin", 200);
-
+let p1 = new Person("gaoyanbin", 200);
 console.log(p1.name)
 console.log(p1.age)
