@@ -1,5 +1,5 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="body">
+<div class="body container">
 
   <div class="panel panel-primary">
     <div class="panel-heading">
@@ -65,65 +65,69 @@
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h4>CSS类绑定</h4>
-  </div>
-  <div class="panel-body">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>通过 [class] ="xxx yyy zzz"，对CSS属性进行绑定：</h4>
-        <button type="button" [class]="myclass" [class.btn-success]="isOn">（默认样式）Default</button>
-        <h4>三秒后，改变button的样式。再三秒又加了一种样式</h4>
-      </div>
 
-      <div class="panel-body">
-        <h4>通过 [ngClass] ="myclass"，对CSS属性进行绑定：</h4>
-        <button type="button" [ngClass]="myNgClass">（默认样式）Default</button>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>CSS类绑定</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>通过 [class] ="xxx yyy zzz"，对CSS属性进行绑定：</h4>
+          <button type="button" [class]="myclass" [class.btn-success]="isOn">（默认样式）Default</button>
+          <h4>三秒后，改变button的样式。再三秒又加了一种样式</h4>
+        </div>
+
+        <div class="panel-body">
+          <h4>通过 [ngClass] ="myclass"，对CSS属性进行绑定：</h4>
+          <button type="button" [ngClass]="myNgClass">（默认样式）Default</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h4>内联样式绑定</h4>
-  </div>
-  <div class="panel-body">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>通过 [style.font-size.em] ="myclass"，对CSS属性进行绑定：</h4>
-        <span [style.font-size.em]="isDev?3:1">内联样式绑定</span>
-      </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>内联样式绑定</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>通过 [style.font-size.em] ="myclass"，对CSS属性进行绑定：</h4>
+          <span [style.font-size.em]="isDev?3:1">内联样式绑定</span>
+        </div>
 
-      <div class="panel-body">
-        <h4>通过 [ngStyle] ="myNgStyle"，对CSS属性进行绑定：</h4>
-        <span [ngStyle]="myNgStyle">内联样式绑定</span>
+        <div class="panel-body">
+          <h4>通过 [ngStyle] ="myNgStyle"，对CSS属性进行绑定：</h4>
+          <span [ngStyle]="myNgStyle">内联样式绑定</span>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    <h4>内联样式绑定</h4>
-  </div>
-  <div class="panel-body">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h4>通过属性绑定和事件绑定，来实现数据双向绑定</h4>
-        <input [value]="name" (input)="onInput($event)"> {{name}}
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>双向数据绑定</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>通过属性绑定和事件绑定，来实现数据双向绑定</h4>
+          <input [value]="name" (input)="onInput($event)"> {{name}}
+        </div>
+
+        <div class="panel-body">
+          <h4>通过ngModel，来实现数据双向绑定.使用ngModel要引入FormsModule模块</h4>
+          <input [(ngModel)]="ngName"> {{ngName}}
+        </div>
       </div>
-
-      <div class="panel-body">
-        <h4>通过ngModel，来实现数据双向绑定.使用ngModel要引入FormsModule模块</h4>
-        <input [(ngModel)]="ngName"> {{ngName}}
-      </div>
-
     </div>
   </div>
+
+
+  <app-bind></app-bind>
+
 </div>

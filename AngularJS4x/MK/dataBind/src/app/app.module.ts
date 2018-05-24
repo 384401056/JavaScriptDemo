@@ -1,16 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { BindComponent } from './components/bind/bind.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BindComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule //响应式编程的模块
   ],
   providers: [],
   bootstrap: [AppComponent]
