@@ -16,6 +16,11 @@ export class AppComponent {
   private name = "China"
   private ngName = "China"
 
+  private birth:Date = new Date();
+  private pi:number = 3.1415926;
+  // private pi:number = 3;
+  private num:number = 250;
+
   constructor() {
     setTimeout(() => {
       this.myclass = "btn";

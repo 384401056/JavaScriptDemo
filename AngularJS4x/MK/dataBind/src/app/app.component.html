@@ -130,4 +130,28 @@
 
   <app-bind></app-bind>
 
+
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h4>管道的使用</h4>
+    </div>
+    <div class="panel-body">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>日期格式化：</h4>
+          <span>{{birth | date}}</span>
+        </div>
+        <div class="panel-body">
+          <h4>数字格式化：保留2位整数，最少2位小数最多2位小数</h4>
+          <span>{{pi | number:"2.2-2"}}</span>
+        </div>
+        <div class="panel-body">
+          <h4>自定义管道：ng g pipe pipe/MultiplePipe</h4>
+          <h4>对差值表达式中的数，乘以一个系数.</h4>
+          <span>{{num | multiple:"10"}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

@@ -10,6 +10,8 @@ import { ProductComponent } from './product/product.component';
 import { StarComponent } from './star/star.component';
 import { HomeComponent } from './home/home.component';
 import { ProductdetailComponent } from './productdetail/productdetail.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FilterPipe } from './pipe/filter.pipe'
 
 //在创建项目时，没有使唤用 --routing。所以这里要手动生成路由配置，并且记得在下面的imports中注册配置。
 const routeConfig: Routes = [
@@ -26,14 +28,17 @@ const routeConfig: Routes = [
     FooterComponent,
     SearchComponent,
     CarouselComponent,
-    ProductComponent,
     StarComponent,
     HomeComponent,
-    ProductdetailComponent
+    ProductComponent,
+    ProductdetailComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routeConfig)
+    RouterModule.forRoot(routeConfig),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
