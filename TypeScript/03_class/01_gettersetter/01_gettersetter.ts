@@ -16,7 +16,6 @@ console.log(stu.fullName)
 /** geter seter */
 
 class Person {
-
     private _name: string;
     private _age: number;
 
