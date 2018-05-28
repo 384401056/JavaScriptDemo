@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">
+      父组件向子组件中传值：
+    </div>
+    <div class="panel-body">
+        <button (click)="sendValue($event)" type="button" class="btn btn-primary">传值</button>
+    </div>
+    <div class="panel-body">
+      <app-order [stockCode]="stockCode" [amount]="amount"></app-order>
+    </div>
+  </div>
+  
+  <div class="panel panel-primary">
+    <div class="panel panel-heading">
+      子组件向父组件传值：
+    </div>
+    <div class="panel-body">
+        <p>从子组件来的数据</p>
+        <p>{{priceQ.stockCode}}</p>
+        <p>{{priceQ.lastPrice | number:'.2-2'}}</p>
+    </div>
+    <div class="panel-body">
+        <p>这是子组件的内容：</p>
+        <!--在父组件中，捕获子组件发射的事件-->
+        <app-pricequote (priceChange)="getChangePrice($event)"></app-pricequote>
+    </div>
+  </div>
+
+
+</div>

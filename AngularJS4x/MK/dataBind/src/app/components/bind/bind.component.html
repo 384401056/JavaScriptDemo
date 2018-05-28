@@ -1,0 +1,16 @@
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h4>响应式编程</h4>
+  </div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <label for="info">用响应式流来处理Input中的事件</label>
+        <!--通过Angular提供的一个指令,当-->
+        <input [formControl]="searchInput" type="text" class="form-control" id="info" placeholder="">
+        <label for="info">在input组件中，通过Angular提供的一个指令formControl来绑定一个后台的FormControl对象,
+          当input组件发生变化时，事件就可以让观察者订阅</label>
+      </div>
+    </form>
+  </div>
+</div>

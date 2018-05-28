@@ -1,0 +1,5 @@
+<div class="container">
+    <p>股票代码：{{priceQ.stockCode}}</p>
+    <p>股票价格: {{priceQ.lastPrice | number:".2-2" }}</p>
+    <button (click)="sendValue($event)" type="button" class="btn btn-success">发射事件</button>
+</div>
