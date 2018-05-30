@@ -1,0 +1,68 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h4>带校验的Angular模板表单</h4>
+  </div>
+  <div class="panel-body">
+    <!--指定引用变量为myForm,让其等于ngForm表单, 将添加“提交”事件处理函数,传入表单的值。novalidate：关闭浏览器的表单校验。-->
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)" novalidate>
+      <!--使用ngModelGroup指命，可以将一部分ngModel归为一组。每组相关于ngForm数据中的一个对象。对象名为ngModelGroup赋值时的字符串-->
+      <div class="form-group">
+        <h4>用户名</h4>
+        <!--在ngForm中使用ngModel时，不需要用[],但是需要为每一个model添加name属性. required:是angular的指令，也是必填校验的作用-->
+        <input type="text" ngModel name="userName" class="form-control" placeholder="用户名" required minlength="6" (input)="onNameInput(myForm)">
+
+        <!--
+          用处理响应式单的方式来处理模拟表单的valid和untouched状态判断时，会报错。
+          因为模板表单的值和状态变化是异步的。所以要用其它方式来代替get('')的方式。
+          如：在input组件中，加入(input)事件的处理方式，传入form。在处理方法中先判断from是否存在，
+          存在则取 valid和untouched状态并赋值给变量，再在[hidden]的判断中绑定变量值，来处理。
+        -->
+        <!-- <div [hidden]="myForm.form.get('userName').valid || myForm.form.get('userName').untouched"> -->
+        <div [hidden]="userNameValid || userNameUntouched">
+          <!--当表单验证返回的error中有"required",就显示提示信息-->
+          <h5 [hidden]="!myForm.form.hasError('required','userName')" style="color: palevioletred">用户是必填项</h5>
+          <h5 [hidden]="!myForm.form.hasError('minlength','userName')" style="color: palevioletred">用户名必须大于6位字符</h5>
+        </div>
+      </div>
+      <div class="form-group">
+        <h4>手机号</h4>
+        <!--指定引用变量为phone,可以使用phone.value在html模板上来显示其值。appMobile:用自定义指令加校验。-->
+        <input type="text" ngModel name="phoneNumber" class="form-control" placeholder="手机号" appMobile>
+
+        <div>
+          <h5 [hidden]="!myForm.form.hasError('mobile','phoneNumber')" style="color: palevioletred">
+            <!--通过差值表达式，获取检查中返回的错误信息。-->
+            {{myForm.form.getError('mobile','phoneNumber')?.desc}}
+          </h5>
+        </div>
+      </div>
+      <!--appEqual:用自定义指令加校验-->
+      <div ngModelGroup="pwd" appEqual>
+        <div class="form-group">
+          <h4>密码</h4>
+          <input type="password" ngModel name="password" class="form-control" placeholder="密码" required minlength="6">
+
+          <div>
+            <h5 [hidden]="!myForm.form.hasError('required',['pwd','password'])" style="color: palevioletred">密码不能为空</h5>
+          </div>
+        </div>
+        <div class="form-group">
+          <h4>确认密码</h4>
+          <input type="password" ngModel name="pwdconfirm" class="form-control" placeholder="确认密码">
+
+          <div>
+            <h5 [hidden]="!myForm.form.hasError('notsame','pwd')" style="color: palevioletred">
+              <!--通过差值表达式，获取检查中返回的错误信息。-->
+              {{myForm.form.getError('notsame','pwd')?.desc}}
+            </h5>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <!--通过json管道输出ngForm的内容-->
+    <!-- <span>{{myForm.value | json}}</span> -->
+  </div>
+</div>

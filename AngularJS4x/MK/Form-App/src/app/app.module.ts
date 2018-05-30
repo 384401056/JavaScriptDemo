@@ -6,6 +6,9 @@ import { TemplateFormComponent } from './components/template-form/template-form.
 import { ReactivFormComponent } from './components/reactiv-form/reactiv-form.component';
 import { RegistFormComponent } from './components/regist-form/regist-form.component';
 import { ValidatorsFormComponent } from './components/validators-form/validators-form.component';
+import { MobileValidatorDirective } from './directives/mobile-validator.directive';
+import { TemplateValidatorFormComponent } from './components/template-validator-form/template-validator-form.component';
+import { EqualValidatorDirective } from './directives/equal-validator.directive';
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import { ValidatorsFormComponent } from './components/validators-form/validators
     TemplateFormComponent,
     ReactivFormComponent,
     RegistFormComponent,
-    ValidatorsFormComponent
+    ValidatorsFormComponent,
+    MobileValidatorDirective,
+    TemplateValidatorFormComponent,
+    EqualValidatorDirective
   ],
   imports: [
     BrowserModule,
