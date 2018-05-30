@@ -1,0 +1,111 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h4>带校验的表单</h4>
+  </div>
+  <div class="panel-body">
+
+    <form [formGroup]="formModel" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <h4>用户名</h4>
+        <input type="text" name="nameinput" formControlName="username" class="form-control" placeholder="用户名">
+        <!--只有在输入不合法或者输入框失去焦点的情况下才显示错误提示-->
+        <div [hidden]="formModel.get('username').valid || formModel.get('username').untouched">
+          <!--当表单验证返回的error中有"required",就显示提示信息-->
+          <h5 [hidden]="!formModel.hasError('required','username')" style="color: palevioletred">用户是必填项</h5>
+          <h5 [hidden]="!formModel.hasError('minlength','username')" style="color: palevioletred">用户名必须大于6位字符</h5>
+        </div>
+      </div>
+      <div class="form-group">
+        <h4>手机</h4>
+        <input type="text" formControlName="phone" class="form-control" placeholder="手机号">
+        <!--只有在输入不合法或者输入框失去焦点的情况下才显示错误提示-->
+        <div [hidden]="formModel.get('phone').valid || formModel.get('phone').untouched">
+          <h5 [hidden]="!formModel.hasError('mobile','phone')" style="color: palevioletred">
+            <!--通过差值表达式，获取检查中返回的错误信息。-->
+            {{formModel.getError('mobile','phone')?.desc}}
+          </h5>
+        </div>
+      </div>
+      <div class="form-group" formGroupName="dateRange">
+        <h4>起始日期：</h4>
+        <input type="date" name="startTime" class="form-control" formControlName="from">
+        <h4>截止日期：</h4>
+        <input type="date" name="endTime" class="form-control" formControlName="to">
+      </div>
+      <div class="form-group" formGroupName="pwd">
+        <div class="form-group">
+          <h4>密码</h4>
+          <input type="password" formControlName="password" class="form-control" placeholder="密码">
+          <!--
+            这里比较特殊,在formGroupName中的formControl，hasError的第二个参数要传一个数组，
+            第一个元素是formGroup,第二个元素是formControl.
+          -->
+          <!--只有在输入不合法或者输入框失去焦点的情况下才显示错误提示-->
+          <div [hidden]="formModel.get('pwd').get('password').valid || formModel.get('pwd').get('password').untouched">
+            <h5 [hidden]="!formModel.hasError('required',['pwd','password'])" style="color: palevioletred">密码不能为空</h5>
+          </div>
+        </div>
+        <div class="form-group">
+          <h4>确认密码</h4>
+          <input type="password" formControlName="pwdconfirm" class="form-control" placeholder="确认密码">
+
+          <!--只有在输入不合法或者输入框失去焦点的情况下才显示错误提示-->
+          <div [hidden]="formModel.get('pwd').valid || formModel.get('pwd').untouched">
+            <h5 [hidden]="!formModel.hasError('notsame','pwd')" style="color: palevioletred">
+              <!--通过差值表达式，获取检查中返回的错误信息。-->
+              {{formModel.getError('notsame','pwd')?.desc}}
+            </h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <h4>身份证信息(异步校验，输入七个7)</h4>
+        <input type="text" formControlName="identity" class="form-control" placeholder="身份证信息">
+
+        <!--只有在输入不合法或者输入框失去焦点的情况下才显示错误提示-->
+        <div [hidden]="formModel.get('identity').valid || formModel.get('identity').untouched">
+          <h5 [hidden]="!formModel.hasError('required','identity')" style="color: palevioletred">
+            身份证信息不能为空
+          </h5>
+        </div>
+
+        <!--如果 formModel.get('identity').pending 为true 则说明identity正在异步调用中，这里就展示一个文字说明-->
+        <div>
+            <span [hidden]="!formModel.get('identity').pending" style="color: springgreen; font-size: 6sp">正在异步校验中.....</span>
+            <h5 [hidden]="!formModel.hasError('identity','identity')" style="color: palevioletred">
+              {{formModel.getError('identity','identity')?.desc}}
+            </h5>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <ul class="list-group" formArrayName="emails">
+          <h4>邮件地址：</h4>
+          <li class="list-group-item" *ngFor="let item of this.formModel.get('emails').controls; let i=index;">
+            <input type="email" [formControlName]="i" class="form-control" placeholder="输入邮件地址">
+          </li>
+        </ul>
+
+        <!--只有在输入不合法或者输入框失去焦点的情况下才显示错误提示-->
+        <div [hidden]="formModel.get('emails').valid || formModel.get('emails').untouched">
+          <h5 [hidden]="!formModel.hasError('email','emails')" style="color: palevioletred">
+            <!--通过差值表达式，获取检查中返回的错误信息。-->
+            {{formModel.getError('email','emails')?.desc}}
+          </h5>
+        </div>
+        <button type="button" (click)="addEmail($event)" class="btn btn-primary">添加邮件地址(最多3个)</button>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+  </div>
+  <div class="panel-footer">
+    <!--
+      如果 formModel.status=='PENDING' 则说明表单某个字段正在异步检验调用中
+      所有字段为一种状态时，表单的status才会是对应的状态，只要有一个的状态与其它不一至，则表单的状态就是那个不一至的状态。
+    -->
+    <span>{{formModel.status}}</span>
+  </div>
+</div>

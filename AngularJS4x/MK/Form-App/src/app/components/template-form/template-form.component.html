@@ -1,0 +1,43 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h4>Angular模板表单</h4>
+  </div>
+  <div class="panel-body">
+    <!--指定引用变量为myForm,让其等于ngForm表单, 将添加“提交”事件处理函数,传入表单的值。-->
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+      <!--使用ngModelGroup指命，可以将一部分ngModel归为一组。每组相关于ngForm数据中的一个对象。对象名为ngModelGroup赋值时的字符串-->
+      <div ngModelGroup="userInfo">
+        <div class="form-group">
+          <h4>用户名</h4>
+          <!--在ngForm中使用ngModel时，不需要用[],但是需要为每一个model添加name属性-->
+          <input type="text" ngModel name="userName" class="form-control" placeholder="用户名">
+        </div>
+        <div class="form-group">
+          <h4>手机号</h4>
+          <!--指定引用变量为phone,可以使用phone.value在html模板上来显示其值。-->
+          <input type="text" #phone="ngModel" ngModel name="phoneNumber" class="form-control" placeholder="手机号">
+          <span style="color: orangered">{{phone.value}}</span>
+        </div>
+        <div class="form-group">
+          <h4>邮政编码</h4>
+          <input type="number" ngModel name="postNumber" class="form-control" placeholder="邮政编码">
+        </div>
+      </div>
+      <div ngModelGroup="pwd">
+        <div class="form-group">
+          <h4>密码</h4>
+          <input type="password" ngModel name="password" class="form-control" placeholder="密码">
+        </div>
+        <div class="form-group">
+          <h4>确认密码</h4>
+          <input type="password" ngModel name="passowrdConfirm" class="form-control" placeholder="确认密码">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+  <div class="panel-footer">
+    <!--通过json管道输出ngForm的内容-->
+    <span>{{myForm.value | json}}</span>
+  </div>
+</div>

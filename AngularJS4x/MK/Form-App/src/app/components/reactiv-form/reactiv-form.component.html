@@ -1,0 +1,42 @@
+<div class="panel panel-success">
+  <div class="panel-heading">
+    <h4>Angular响应式表单</h4>
+  </div>
+  <div class="panel-body">
+
+    <!--定义响应式表单， formGroup定义表单要用[],指定的名字要与ts文件中的数据模型相对应 -->
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+      <!--定义一个formContrl组,用formGroupName进行指定,组名要与ts中的数据模型相对应-->
+      <div class="form-group" formGroupName="dateRange">
+        <h4>起始日期：</h4>
+        <!--定义一个formContrl, 用formcontrolName进行指定名称,要与ts中的数据模型相对应-->
+        <input type="date" name="startTime" class="form-control" formControlName="from">
+        <h4>截止日期：</h4>
+        <input type="date" name="endTime" class="form-control" formControlName="to">
+      </div>
+      <div class="form-group">
+        <!--定义fromArrayName-->
+        <ul class="list-group" formArrayName="emails">
+          <!--
+            遍历fromArray来生成formcontrol, 
+            this.formGroup.get('emails').controls就是ts中定义的emails中的formcontrol集合。
+            let i=index 获取下标
+          -->
+          <h4>邮件地址：</h4>
+          <li class="list-group-item" *ngFor="let item of this.formGroup.get('emails').controls; let i=index;">
+            <!--绑定fromContrl,这里是绑定，所以要用[]比较特殊,名称就是下标index-->
+            <input type="email" [formControlName]="i" class="form-control" placeholder="输入邮件地址">
+          </li>
+        </ul>
+      </div>
+      <div class="form-group">
+        <button type="button" (click)="addEmail($event)" class="btn btn-primary">添加邮件地址(最多3个)</button>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+  </div>
+  <div class="panel-footer">
+    <span></span>
+  </div>
+</div>
