@@ -11,7 +11,7 @@ export function validator_positivnumber(control: FormControl):any{
         return null;
     }
     isValid = (parseInt(control.value)>0);
-    return isValid ? null : { number: { desc: "数字不能为负." } };
+    return isValid ? null : { psitivNumber: { desc: "数字不能为负." } };
 }
 
 

@@ -1,7 +1,29 @@
 <div>
   <img [src]="imgURL">
-    <div class="caption">
-      <h4>{{productTitle}}</h4>
+  <div class="caption">
+    <h4 class="pull-right">{{product.price | number:'.1-2'}}元</h4>
+    <h4>{{product.title}}</h4>
+    <p>{{product.desc}}</p>
+  </div>
+  <div>
+    <p class="pull-right">评论数：{{comments.length}}条</p>
+    <p>
+      <app-star [rating]="product.rating"></app-star>
+    </p>
+  </div>
+</div>
+
+<div class="well" [hidden]="!comments.length>0">
+  <div class="row" *ngFor="let comment of comments; let i index">
+    <hr>
+    <div class="col-md-12">
+      <app-star [rating]="comment.rating"></app-star>
+      <span>{{comment.user}}</span>
+      <span class="pull-right">{{comment.timestamp}}</span>
+      <p></p>
+      <p>{{comment.content}}</p>
     </div>
-  <a class="button" style="margin-top: 20px" [routerLink]="['/']">返回</a>
+    <hr>
+  </div>
+
 </div>

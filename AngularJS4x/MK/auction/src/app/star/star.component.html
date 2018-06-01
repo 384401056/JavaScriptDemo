@@ -1,6 +1,5 @@
 <p>
-  <span *ngFor="let star of stars" style="color: orange"
-  class="glyphicon glyphicon-star star-sapn" [class.glyphicon-star-empty]="star" ></span>
-
+  <span *ngFor="let star of stars; let i=index" style="color: orange"
+  class="glyphicon glyphicon-star star-sapn" [class.glyphicon-star-empty]="star" (click)="clickStar($event, i)" ></span>
   <span style="margin-left: 4px">{{rating}}</span>
 </p>

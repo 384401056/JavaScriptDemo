@@ -9,8 +9,8 @@
   <div class="thumbnail">
     <img [src]="imgURL">
     <div class="caption">
-      <h4 class="pull-right">{{product.price}}</h4>
-      <h4><a [routerLink]="['/detail',product.title]">{{product.title}}</a></h4>
+      <h4 class="pull-right">{{product.price | number:'.1-2'}}元</h4>
+      <h4><a [routerLink]="['/detail',product.id]">{{product.title}}</a></h4>
       <p style="font-size: 10ps">{{product.desc}}</p>
     </div>
     <div>
