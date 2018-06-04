@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -13,6 +13,7 @@ import { ProductdetailComponent } from './productdetail/productdetail.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FilterPipe } from './pipe/filter.pipe';
 import { ProductService } from './services/product.service';
+import { HttpModule } from '@angular/http';
 
 //在创建项目时，没有使唤用 --routing。所以这里要手动生成路由配置，并且记得在下面的imports中注册配置。
 const routeConfig: Routes = [
@@ -39,6 +40,7 @@ const routeConfig: Routes = [
     BrowserModule,
     RouterModule.forRoot(routeConfig),
     FormsModule,
+    HttpModule,
     ReactiveFormsModule,
   ],
   providers: [ProductService],

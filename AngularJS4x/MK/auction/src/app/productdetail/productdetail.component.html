@@ -5,15 +5,33 @@
     <h4>{{product.title}}</h4>
     <p>{{product.desc}}</p>
   </div>
+  <p class="pull-right">评论数：{{comments.length}}条</p>
   <div>
-    <p class="pull-right">评论数：{{comments.length}}条</p>
-    <p>
-      <app-star [rating]="product.rating"></app-star>
-    </p>
+    <p class="pull-left" style="color: dimgrey;margin-right: 5px">商品平均星级: </p>
+    <app-star [rating]="product.rating"></app-star>
   </div>
 </div>
 
 <div class="well" [hidden]="!comments.length>0">
+  <div [hidden]="!isCommentHidden">
+    <button type="button" class="btn btn-warning"  (click)="isCommentHidden = !isCommentHidden">发表评论</button>
+  </div>
+  <div [hidden]="isCommentHidden">
+    <div>
+      <p class="pull-left" style="color: dimgrey;margin-right: 5px">选择评级：</p>
+      <!--(ratingChange)是接收星级组件发射的自定义事件-->
+      <app-star (ratingChange)="ratingChange($event)" [rating]="newRating" [readonly]="false"></app-star>
+      <!-- <app-star [(rating)]="newRating" [readonly]="false"></app-star> -->
+    </div>
+    <div>
+      <p class="pull-left" style="color: dimgrey;margin-right: 5px">输入评论：</p>
+      <textarea style="resize:none" class="form-control" rows="5" [(ngModel)]="newComment"></textarea>
+    </div>
+    <div class="pull-right" style="margin-top: 5px">
+      <button type="button" class="btn btn-success" (click)="addComment($event)">提交评论</button>
+    </div>
+  </div>
+  <hr>
   <div class="row" *ngFor="let comment of comments; let i index">
     <hr>
     <div class="col-md-12">

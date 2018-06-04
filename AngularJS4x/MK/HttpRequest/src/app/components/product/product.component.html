@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h4>Http请求json数据</h4>
+    </div>
+    <div class="panel-body">
+      <ul class="list-group">
+        <li *ngFor="let product of products" class="list-group-item">
+          <div class="row">
+            <div class="col-md-3">{{product.id}}</div>
+            <div class="col-md-3">{{product.title}}</div>
+            <div class="col-md-3">{{product.price}}</div>
+            <div class="col-md-3"><span class="badge">{{product.rating}}</span></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="panel-footer">
+      <span></span>
+    </div>
+  </div>
+</div>
