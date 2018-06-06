@@ -19,7 +19,9 @@ export class ProductComponent implements OnInit {
   constructor(private providerService:ProductService) { }
 
   ngOnInit() {
-    this.products = this.providerService.getProducts();
+    this.providerService.getProducts().subscribe(
+      (data)=>this.products = data
+    );
 
     //订单input的valueChanges事件. 使用 debounceTime(500)要进行 import "rxjs/Rx"
     this.myFormControl.valueChanges.debounceTime(500).subscribe(

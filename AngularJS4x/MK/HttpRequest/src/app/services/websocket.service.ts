@@ -27,7 +27,7 @@ export class WebsocketService {
        * 3. 什么时候发出流结束的信号。
        */
       observer => {
-        //当ws接收到信息时，发射下一个元素。
+        //当ws接收到信息时，发射数据。
         this.ws.onmessage = (event) =>{
           observer.next(event.data);
         };

@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
 import { WebsocketComponent } from './components/websocket/websocket.component';
 import { WebsocketService } from './services/websocket.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,9 @@ import { WebsocketService } from './services/websocket.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [WebsocketService],
   bootstrap: [AppComponent]

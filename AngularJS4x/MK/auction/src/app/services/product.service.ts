@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
 
 @Injectable({
   providedIn: 'root'
@@ -26,46 +29,33 @@ export class ProductService {
     new Comment(5, 3, "2018-12-12 12:20:40", "陈七", 5, "商品不错，下次还会光顾的."),
   ];
 
-  constructor() { }
+  constructor(private http:Http) { }
 
   /**
    * 返回Product数组。
    */
-  getProducts(): Product[] {
-    return this.products;
+  getProducts(): Observable<Product[]> {
+    return this.http.get('/api/products').map(res=>res.json());//返回流
   }
 
   /**
    * 根据id返回单个Product对象。
    * @param id 
    */
-  getProductById(id: number): Product {
-    console.log("getProductById: id="+id);
-    //find() 方法返回通过测试（函数内判断）的数组的第一个元素的值。
-    return this.products.find(pro => pro.id == id);
-    //以上写法可写为：
-    // return this.products.find((pro:Product):boolean=>{
-    //   console.log(pro.id);
-    //   console.log(pro.id == id);
-    //   return (pro.id == id);
-    // });
+  getProductById(id: number): Observable<Product> {
+    return this.http.get('/api/products/'+id).map(res=>res.json());
   }
 
   /**
    * 根据商品ID返回评论信息数组。
    * @param proId 
    */
-  getCommentsByProId(proId:number): Comment[] {
-    //filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
-    return this.comments.filter((commont:Comment)=>commont.productId == proId);
-    //以上写法可写为：
-    // return this.comments.filter((commont:Comment):boolean=>{
-    //   return (commont.productId == proId);
-    // });
+  getCommentsByProId(proId:number): Observable<Comment[]> {
+    return this.http.get('/api/comments/'+proId).map(res=>res.json());
   }
 
-  getCategories():string[]{
-    return ["电子商品", "儿童食品","日用百货"];
+  getCategories():Observable<string[]>{
+    return this.http.get('/api/categories').map(res=>res.json());
   }
 
 }

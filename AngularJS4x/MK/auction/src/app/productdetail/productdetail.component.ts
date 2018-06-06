@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService, Product, Comment } from '../services/product.service';
 import { getFormatDate } from '../utils/dateformat';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-productdetail',
@@ -24,10 +27,14 @@ export class ProductdetailComponent implements OnInit {
   ngOnInit() {
     this.productId = this.routerInfo.snapshot.params["productId"];
     console.log(this.productId);
-    this.product = this.providerService.getProductById(this.productId);
-    this.comments = this.providerService.getCommentsByProId(this.productId);
-    console.log(this.product);
-    console.log(this.comments.length);
+
+    this.providerService.getProductById(this.productId).subscribe(
+      (data)=>this.product = data
+    );
+    
+    this.providerService.getCommentsByProId(this.productId).subscribe(
+      (data)=>this.comments = data
+    );
   }
 
   /**

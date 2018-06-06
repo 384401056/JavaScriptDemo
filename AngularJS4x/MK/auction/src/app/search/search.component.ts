@@ -24,7 +24,9 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.categories = this.productService.getCategories();
+    this.productService.getCategories().subscribe(
+      (data)=>this.categories=data
+    );
   }
 
   onSubmit(){

@@ -82,8 +82,14 @@ def getCommentsByProdId(id):
             results.append(item)
     return json.dumps(results, default=lambda obj: obj.__dict__, sort_keys=True, indent=4)
 
+@app.route('/api/categories')
+def getCategories():
+    results = ["电子商品", "儿童食品","日用百货"]
+    return json.dumps(results)
+
+
 def main():
-    app.run(host="127.0.0.1", port=8000, debug=True)
+    app.run(host="0.0.0.0", port=8000, debug=True)
 
 
 if __name__ == '__main__':
