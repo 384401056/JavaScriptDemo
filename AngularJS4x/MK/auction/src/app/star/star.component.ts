@@ -33,7 +33,7 @@ export class StarComponent implements OnInit,OnChanges {
    * @param changes
    */
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);//changes中记录着，哪些值改变了。
+    // console.log(changes);//changes中记录着，哪些值改变了。
     this.stars = [];
     for (let i = 1; i <= 5; i++) {
       this.stars.push(this.rating < i);

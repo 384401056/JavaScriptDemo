@@ -17,7 +17,9 @@ export class SearchComponent implements OnInit {
   constructor(private productService:ProductService){
     let fb = new FormBuilder();
     this.formModel = fb.group({
-      title:['',[Validators.required,Validators.minLength(3)]],
+      // title:['',[Validators.required,Validators.minLength(3)]],
+      //title可以为空。
+      title:['',],
       price:[null,validator_positivnumber],
       category:['-1']
     });
@@ -30,10 +32,13 @@ export class SearchComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log("title的错误信息是："+ JSON.stringify(this.formModel.get("title").errors));
-    console.log("price的错误信息是："+ JSON.stringify(this.formModel.get("price").errors));
+    // console.log("title的错误信息是："+ JSON.stringify(this.formModel.get("title").errors));
+    // console.log("price的错误信息是："+ JSON.stringify(this.formModel.get("price").errors));
+    // console.log(this.formModel.valid);
     console.log(this.formModel.valid);
-    console.log(this.formModel.value);
+    if (this.formModel.valid){
+      this.productService.searchEvent.emit(this.formModel.value); //发射事件.
+    }
   }
 
 }

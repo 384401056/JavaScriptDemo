@@ -1,33 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from flask import Flask
-from Model import Product, Comment
+from flask import Flask,request
 from flask_cors import CORS
 import json
-
-products = [
-    Product(1, "第一个商品", 20.3, 4.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "儿童食品"]),
-    Product(2, "第二个商品", 30.64, 2.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["儿童食品", "日用百货"]),
-    Product(3, "第三个商品", 40.4, 1.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "日用百货"]),
-    Product(4, "第四个商品", 50.47, 3.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "日用百货"]),
-    Product(5, "第四个商品", 60.34, 4.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "儿童食品"]),
-    Product(6, "第五个商品", 70.34, 2.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "日用百货"]),
-    Product(7, "第五个商品", 80.4, 3.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["儿童食品", "日用百货"]),
-    Product(8, "第六个商品", 90.34, 4.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "儿童食品"]),
-    Product(9, "第一个商品", 120.4, 1.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["电子商品", "日用百货"]),
-    Product(10, "第一个商品", 420.34, 3.5, "这是一个商品，就是一个商品，为什么是一个商品？我不知道。", ["儿童食品", "日用百货"]),
-]
-
-comments = [
-    Comment(1, 1, "2018-12-12 12:20:40", "张三", 1, "商品不错，下次还会光顾的."),
-    Comment(2, 1, "2018-12-12 12:20:40", "张三", 2, "商品不错，下次还会光顾的."),
-    Comment(3, 2, "2018-12-12 12:20:40", "张三", 3, "商品不错，下次还会光顾的."),
-    Comment(4, 2, "2018-12-12 12:20:40", "张三", 4, "商品不错，下次还会光顾的."),
-    Comment(5, 3, "2018-12-12 12:20:40", "张三", 5, "商品不错，下次还会光顾的."),
-    Comment(6, 3, "2018-12-12 12:20:40", "张三", 1, "商品不错，下次还会光顾的."),
-    Comment(7, 4, "2018-12-12 12:20:40", "张三", 2, "商品不错，下次还会光顾的."),
-]
-
+import urllib
+from Model import products, comments,Product, Comment
 
 app = Flask(__name__)
 CORS(app, supports_credentials=True) # 解决跨域
@@ -36,21 +13,38 @@ CORS(app, supports_credentials=True) # 解决跨域
 def hello_world():
     return ''
 
-
 @app.route('/api/products')
 def getProducts():
     '''
     返回商品列表
     :return:
     '''
-    # 序列表python对象。
-    return json.dumps(products, default=lambda obj: obj.__dict__, sort_keys=True, indent=4)
+    # print(request.args) # 获取url上传递过来的参数。
+    # print(request.form['title']) # 获取form表单提交的参数。
+
+    result = products
+
+    if request.args.get('title'):
+        # urllib.parse.unquote 将url中的中文参数转为中文
+        title =urllib.parse.unquote(request.args.get('title'))
+        result = [pro for pro in result if pro.title == title] # 匹配出title
+
+
+    if request.args.get('price') and request.args.get('price') != '0' and len(result)>0:
+        price = request.args.get('price')
+        result = [pro for pro in result if int(pro.price) <= int(price)] # 匹配出price(小于等于)
+
+
+    if request.args.get('category') and request.args.get('category') != '-1' and len(result)  > 0:
+        category = urllib.parse.unquote(request.args.get('category'))
+        result = [pro for pro in result if category in pro.categories] # 匹配出 category
+
+    return json.dumps(result,default=lambda obj: obj.__dict__, sort_keys=True, indent=4)
 
 
 @app.route('/api/products/<int:id>')
 def getProductById(id):
     '''
-    根据id返回商品信息
     :param id: 商品id
     :return:
     '''
@@ -69,6 +63,12 @@ def getComments():
     '''
     return json.dumps(comments, default=lambda obj: obj.__dict__, sort_keys=True, indent=4)
 
+# @app.route('/api/addComment')
+# def addComment():
+#     request.form['username']
+#     comments.append()
+
+
 @app.route('/api/comments/<int:id>')
 def getCommentsByProdId(id):
     '''
@@ -82,15 +82,18 @@ def getCommentsByProdId(id):
             results.append(item)
     return json.dumps(results, default=lambda obj: obj.__dict__, sort_keys=True, indent=4)
 
+
 @app.route('/api/categories')
 def getCategories():
     results = ["电子商品", "儿童食品","日用百货"]
     return json.dumps(results)
 
 
-def main():
-    app.run(host="0.0.0.0", port=8000, debug=True)
+def otj(obj):
+    return dict((name, getattr(obj, name)) for name in dir(obj) if not name.startswith('__'))
 
+def main():
+    app.run(host="127.0.0.1", port=8000, debug=True)
 
 if __name__ == '__main__':
     main()

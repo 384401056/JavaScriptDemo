@@ -4,6 +4,7 @@ import { ProductService, Product, Comment } from '../services/product.service';
 import { getFormatDate } from '../utils/dateformat';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/Rx';
+import { WebSocketService } from '../services/web-socket.service';
 
 
 @Component({
@@ -22,19 +23,39 @@ export class ProductdetailComponent implements OnInit {
   private newRating: number = 5;//默认的评价数
   private newComment: string = '';//默认的评论内容
 
-  constructor(private routerInfo: ActivatedRoute, private providerService: ProductService) { }
+  private isWatched:boolean = false;
+  private currentBid:number;
+
+  constructor(
+    private routerInfo: ActivatedRoute, 
+    private providerService: ProductService,
+    private webSocket:WebSocketService,
+  ) { }
 
   ngOnInit() {
+    //路由传递过来的值
     this.productId = this.routerInfo.snapshot.params["productId"];
-    console.log(this.productId);
+    // console.log(this.productId);
 
     this.providerService.getProductById(this.productId).subscribe(
-      (data)=>this.product = data
+      (data)=>{
+        this.product = data;
+        this.currentBid = this.product.price; //获取当前价格的值
+      }
     );
     
     this.providerService.getCommentsByProId(this.productId).subscribe(
       (data)=>this.comments = data
     );
+  }
+
+  watchProduct(){
+    this.isWatched = !this.isWatched;
+    //创建websokcet连接。这在传入 user 数据 nick 进行websocket连接的区别
+    this.webSocket.createObservableSocket("ws://127.0.0.1:5555/attentionPrice/", this.product.id, 'nick').subscribe(
+      (data)=>console.log(data)
+    );
+
   }
 
   /**

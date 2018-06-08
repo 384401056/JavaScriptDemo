@@ -30,6 +30,15 @@ export class ProductComponent implements OnInit {
         console.log(this.keyword);
       }
     );
+
+    /**
+     * 当订阅到searchEvent事件时，调用searchProduct方法。
+     */
+    this.providerService.searchEvent.subscribe(
+      params=>this.providerService.searchProduct(params).subscribe(
+        (data)=>this.products = data
+      )
+    );
   }
 
 }

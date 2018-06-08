@@ -1,20 +1,26 @@
 <div>
   <img [src]="imgURL">
   <div class="caption">
-    <h4 class="pull-right">{{product.price | number:'.1-2'}}元</h4>
-    <h4>{{product.title}}</h4>
-    <p>{{product.desc}}</p>
+    <h4 class="pull-right">{{product?.price | number:'.1-2'}}元</h4>
+    <h4>{{product?.title}}</h4>
+    <p>{{product?.desc}}</p>
   </div>
-  <p class="pull-right">评论数：{{comments.length}}条</p>
+  <p class="pull-right">评论数：{{comments?.length}}条</p>
   <div>
     <p class="pull-left" style="color: dimgrey;margin-right: 5px">商品平均星级: </p>
-    <app-star [rating]="product.rating"></app-star>
+    <app-star [rating]="product?.rating"></app-star>
   </div>
 </div>
 
-<div class="well" [hidden]="!comments.length>0">
+<div class="well">
+    <button type="button" class="btn btn-success" [class.btn-danger]="isWatched" (click)="watchProduct()">{{isWatched?"取消关注":"关注"}}</button>
+    <label style="margin-left: 20px">最新出价:<span style="font-size: 20px; color: crimson; margin-left: 10px">{{currentBid}}</span></label>
+</div>
+
+<!-- <div class="well" [hidden]="!comments?.length>0"> -->
+<div class="well">
   <div [hidden]="!isCommentHidden">
-    <button type="button" class="btn btn-warning"  (click)="isCommentHidden = !isCommentHidden">发表评论</button>
+    <button type="button" class="btn btn-warning" (click)="isCommentHidden = !isCommentHidden">发表评论</button>
   </div>
   <div [hidden]="isCommentHidden">
     <div>
@@ -32,6 +38,7 @@
     </div>
   </div>
   <hr>
+  <!--ngFor 中的comments不用加?,因为ngFor会判断。-->
   <div class="row" *ngFor="let comment of comments; let i index">
     <hr>
     <div class="col-md-12">

@@ -3,10 +3,10 @@
   <div class="form-group">
     <label for="productName">商品名称</label>
     <input formControlName="title" type="text" class="form-control" id="productName" placeholder="商品名称">
-    <div [hidden]="formModel.get('title').valid || formModel.get('title').untouched">
+    <!-- <div [hidden]="formModel.get('title').valid || formModel.get('title').untouched">
       <h5 [hidden]="!formModel.hasError('required','title')" style="color: palevioletred">商品名不能为空</h5>
       <h5 [hidden]="!formModel.hasError('minlength','title')" style="color: palevioletred">长度必须大于3个字符</h5>
-    </div>
+    </div> -->
   </div>
   <div class="form-group">
     <label for="productPrice">商品价格</label>
