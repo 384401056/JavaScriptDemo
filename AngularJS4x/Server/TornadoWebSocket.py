@@ -121,6 +121,6 @@ if __name__ == '__main__':
         # debug=True
     )
     http_server = tornado.httpserver.HTTPServer(app)
-    http_server.listen(port=5555, address="127.0.0.1")
+    http_server.listen(port=5555, address="0.0.0.0")
     print("Tornado websocket start..")
     tornado.ioloop.IOLoop.current().start()
